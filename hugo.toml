@@ -1,4 +1,4 @@
-baseURL = "https://AH-DevWorks.github.io/AH-DevWorks.github.io/"
+baseURL = "https://ah-devworks.github.io/"
 DefaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 languageCode = "en-us"
