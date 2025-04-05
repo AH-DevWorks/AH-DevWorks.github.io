@@ -330,6 +330,114 @@
     </div>
 </div>
     
+    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
+    
+        <div class="card border mb-3 "> 
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <h3 class="fw-medium post-title">自架網站筆記：使用Github &#43; Hugo（上）</h3>
+                </div>
+                <div class="col-md-2 d-flex justify-content-end">
+                    <a href="https://AH-DevWorks.github.io/notes/website/create_static_web_1/">
+                        <button type="button" class="btn btn-outline-dark">
+                            Link
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            
+
+            <p class="post-meta">
+                <span class="post-meta text-muted">
+  
+  
+
+  05 April 2025
+
+  
+
+  
+
+  
+
+  
+</span>
+
+            </p>
+            
+            <div class="post-entry">
+
+                
+                <ul>
+<li>第一篇文章，總之先簡單記錄這個靜態網站怎麼做的，不然大概隔幾天又忘光光。</li>
+<li>寫給自己看的，有些我已經懂的部份（像是Git）寫比較簡單。如果你是無意看到這篇，想看懂但看不懂，可以私信我。</li>
+</ul>
+<h3 id="part-0--這個網站的目標">PART 0 : 這個網站的目標</h3>
+<p>由兩大部份構成：</p>
+<ol>
+<li>Website-Repo：負責靜態網站呈現（用 Hugo build 出來的 HTML/CSS/JS）。</li>
+<li>Contents-Repo：放原始內容（markdown，如 content/notes、content/diary）。</li>
+</ol>
+<ul>
+<li>未來更新內容主要會在 Contents-Repo，然後將生成的網站部署到 Website-Repo。</li>
+<li>也會將其他專案 repo（像 side projects）整合進這個 Hugo 網站。</li>
+</ul>
+<h3 id="part-i--基礎設定">PART I : 基礎設定</h3>
+<ol>
+<li>已經有github帳號</li>
+<li>Windows <code>winget install Hugo.Hugo.Extended</code> 安裝Hugo</li>
+<li>github新建兩個repo：一個放內容（Contents-Repo），一個負責網站本身(Website-Repo. &ndash; ex.AH-DevWorks.github.io)</li>
+<li>初始化git分支</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch README.md
+</span></span><span style="display:flex;"><span><span style="color:#999">echo</span> <span style="color:#b84">&#34;# [Website-Repo]&#34;</span> &gt; README.md
+</span></span><span style="display:flex;"><span>git add README.md
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Initial commit&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><ol start="5">
+<li>本地clone放網站內容的repo，<code>hugo new site .</code>
+<ul>
+<li>設在母資料夾較佳，建議別再額外新增如 <code>hugo new site [MySite etc.]</code>，否則後續要每次都手動挪動/public或額外設定自動腳本，會很麻煩。</li>
+<li>若母資料夾已有內容（如README.md），則用 <code>hugo new site . --force</code></li>
+</ul>
+</li>
+<li>等Hugo自動建立好內容後，cd到themes資料夾；挑個Hugo的theme，照著說明來裝（例如clone 到 themes資料夾，或用Git submodules處理）</li>
+<li>把這個theme設成預設：
+<ul>
+<li>回到步驟5建立好的母資料夾，<code>vi hugo.toml</code></li>
+<li>編輯toml內容： A. [baseURL]改成步驟3負責網站本身的repo網址(通常是https://[user_name].github.io/)；B. [title]改隨意（會顯示往站上）；C. [theme]改成前幾步驟挑選的</li>
+</ul>
+</li>
+<li>初步測試：<code>hugo server</code>，應該會有空白模板或theme預設範本網頁
+<ul>
+<li>有些theme偏舊，這步會出現問題，直接換一個theme比較省事</li>
+<li>正確的話bash或cmd會顯示網站生成的頁數、靜態檔案數量等資訊</li>
+<li>找到其中Web Server is available at <code>http://localhost:1313/...</code>這行，貼到瀏覽器，有出現看起來像網頁的樣子就對</li>
+</ul>
+</li>
+<li>確認ok後要再提交一次更改到github</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Set up website with theme&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><hr>
+<p>【待續】</p>
+
+                
+            </div>
+        </div>
+        
+        
+        
+
+
+
+
+    </div>
+</div>
+    
 
   </div>
 </div>

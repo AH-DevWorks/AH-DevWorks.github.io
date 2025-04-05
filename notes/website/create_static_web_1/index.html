@@ -7,12 +7,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>First Note - Scripted Journeys</title>
-<meta name="description" content="This is my first note.
-a = 1
-b = 2
-print(f&#34;a&#43;b={a&#43;b}&#34;)
-">
+<title>自架網站筆記：使用Github &#43; Hugo（上） - Scripted Journeys</title>
+<meta name="description" content="
+第一篇文章，總之先簡單記錄這個靜態網站怎麼做的，不然大概隔幾天又忘光光。
+寫給自己看的，有些我已經懂的部份（像是Git）寫比較簡單。如果你是無意看到這篇，想看懂但看不懂，可以私信我。
+
+PART 0 : 這個網站的目標
+由兩大部份構成：
+
+Website-Repo：負責靜態網站呈現（用 Hugo build 出來的 HTML/CSS/JS）。
+Contents-Repo：放原始內容（markdown，如 content/notes、content/diary）。
+
+
+未來更新內容主要會在 Contents-Repo，然後將生成的網站部署到 Website-Repo。
+也會將其他專案 repo（像 side projects）整合進這個 Hugo 網站。
+
+PART I : 基礎設定
+
+已經有github帳號
+Windows winget install Hugo.Hugo.Extended 安裝Hugo
+github新建兩個repo：一個放內容（Contents-Repo），一個負責網站本身(Website-Repo. &ndash; ex.AH-DevWorks.github.io)
+初始化git分支
+
+touch README.md
+echo &#34;# [Website-Repo]&#34; &gt; README.md
+git add README.md
+git commit -m &#34;Initial commit&#34;
+git push origin main
+
+本地clone放網站內容的repo，hugo new site .
+
+設在母資料夾較佳，建議別再額外新增如 hugo new site [MySite etc.]，否則後續要每次都手動挪動/public或額外設定自動腳本，會很麻煩。
+若母資料夾已有內容（如README.md），則用 hugo new site . --force
+
+
+等Hugo自動建立好內容後，cd到themes資料夾；挑個Hugo的theme，照著說明來裝（例如clone 到 themes資料夾，或用Git submodules處理）
+把這個theme設成預設：
+
+回到步驟5建立好的母資料夾，vi hugo.toml
+編輯toml內容： A. [baseURL]改成步驟3負責網站本身的repo網址(通常是https://[user_name].github.io/)；B. [title]改隨意（會顯示往站上）；C. [theme]改成前幾步驟挑選的
+
+
+初步測試：hugo server，應該會有空白模板或theme預設範本網頁
+
+有些theme偏舊，這步會出現問題，直接換一個theme比較省事
+正確的話bash或cmd會顯示網站生成的頁數、靜態檔案數量等資訊
+找到其中Web Server is available at http://localhost:1313/...這行，貼到瀏覽器，有出現看起來像網頁的樣子就對
+
+
+確認ok後要再提交一次更改到github
+
+git add .
+git commit -m &#34;Set up website with theme&#34;
+git push origin main
+
+【待續】">
 
 <meta name="author" content="Bino Kochumol Varghese"><script type="application/ld+json">
 {
@@ -49,8 +98,8 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/AH-DevWorks.github.io\/notes\/website\/first-note\/",
-          "name": "First note"
+          "@id": "https:\/\/AH-DevWorks.github.io\/notes\/website\/create_static_web_1\/",
+          "name": "自架網站筆記：使用 github hugo（上）"
         }
     }]
 }
@@ -61,15 +110,15 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
   "author": {
     "name" : "map[authorinfo:Live your life as though every moment matters, because in the end, it\u0027s not the years in your life, but the life in your years that counts. authorpostimage:\/img\/author-post-img.jpg email:sample@gmail.com facebook:username github:username gitlab:username instagram:username linkedin:username mastodon:url name:Bino Kochumol Varghese paypal:username reddit:username slack:username snapchat:username spotify:username stackoverflow:users\/XXXXXXX\/username telegram:username threads:username twitter:username website:https:\/\/www.binovarghese.com\/ youtube:user\/username]"
   },
-  "headline": "First Note",
-  "description" : "This is my first note.\na = 1 b = 2 print(f\u0026#34;a\u002bb={a\u002bb}\u0026#34;) ",
+  "headline": "自架網站筆記：使用Github \u002b Hugo（上）",
+  "description" : " 第一篇文章，總之先簡單記錄這個靜態網站怎麼做的，不然大概隔幾天又忘光光。 寫給自己看的，有些我已經懂的部份（像是Git）寫比較簡單。如果你是無意看到這篇，想看懂但看不懂，可以私信我。 PART 0 : 這個網站的目標 由兩大部份構成：\nWebsite-Repo：負責靜態網站呈現（用 Hugo build 出來的 HTML\/CSS\/JS）。 Contents-Repo：放原始內容（markdown，如 content\/notes、content\/diary）。 未來更新內容主要會在 Contents-Repo，然後將生成的網站部署到 Website-Repo。 也會將其他專案 repo（像 side projects）整合進這個 Hugo 網站。 PART I : 基礎設定 已經有github帳號 Windows winget install Hugo.Hugo.Extended 安裝Hugo github新建兩個repo：一個放內容（Contents-Repo），一個負責網站本身(Website-Repo. \u0026ndash; ex.AH-DevWorks.github.io) 初始化git分支 touch README.md echo \u0026#34;# [Website-Repo]\u0026#34; \u0026gt; README.md git add README.md git commit -m \u0026#34;Initial commit\u0026#34; git push origin main 本地clone放網站內容的repo，hugo new site . 設在母資料夾較佳，建議別再額外新增如 hugo new site [MySite etc.]，否則後續要每次都手動挪動\/public或額外設定自動腳本，會很麻煩。 若母資料夾已有內容（如README.md），則用 hugo new site . --force 等Hugo自動建立好內容後，cd到themes資料夾；挑個Hugo的theme，照著說明來裝（例如clone 到 themes資料夾，或用Git submodules處理） 把這個theme設成預設： 回到步驟5建立好的母資料夾，vi hugo.toml 編輯toml內容： A. [baseURL]改成步驟3負責網站本身的repo網址(通常是https:\/\/[user_name].github.io\/)；B. [title]改隨意（會顯示往站上）；C. [theme]改成前幾步驟挑選的 初步測試：hugo server，應該會有空白模板或theme預設範本網頁 有些theme偏舊，這步會出現問題，直接換一個theme比較省事 正確的話bash或cmd會顯示網站生成的頁數、靜態檔案數量等資訊 找到其中Web Server is available at http:\/\/localhost:1313\/...這行，貼到瀏覽器，有出現看起來像網頁的樣子就對 確認ok後要再提交一次更改到github git add . git commit -m \u0026#34;Set up website with theme\u0026#34; git push origin main 【待續】\n",
   "inLanguage" : "en",
-  "wordCount":  12 ,
+  "wordCount":  111 ,
   "datePublished" : "2025-04-05T00:00:00",
   "dateModified" : "2025-04-05T00:00:00",
   "image" : "https:\/\/AH-DevWorks.github.io\/",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/notes\/website\/first-note\/",
+  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/notes\/website\/create_static_web_1\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/AH-DevWorks.github.io\/",
@@ -83,13 +132,62 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
 }
 </script>
 
-<meta property="og:title" content="First Note" />
-<meta property="og:description" content="This is my first note.
-a = 1
-b = 2
-print(f&#34;a&#43;b={a&#43;b}&#34;)
-">
-<meta property="og:url" content="https://AH-DevWorks.github.io/notes/website/first-note/" />
+<meta property="og:title" content="自架網站筆記：使用Github &#43; Hugo（上）" />
+<meta property="og:description" content="
+第一篇文章，總之先簡單記錄這個靜態網站怎麼做的，不然大概隔幾天又忘光光。
+寫給自己看的，有些我已經懂的部份（像是Git）寫比較簡單。如果你是無意看到這篇，想看懂但看不懂，可以私信我。
+
+PART 0 : 這個網站的目標
+由兩大部份構成：
+
+Website-Repo：負責靜態網站呈現（用 Hugo build 出來的 HTML/CSS/JS）。
+Contents-Repo：放原始內容（markdown，如 content/notes、content/diary）。
+
+
+未來更新內容主要會在 Contents-Repo，然後將生成的網站部署到 Website-Repo。
+也會將其他專案 repo（像 side projects）整合進這個 Hugo 網站。
+
+PART I : 基礎設定
+
+已經有github帳號
+Windows winget install Hugo.Hugo.Extended 安裝Hugo
+github新建兩個repo：一個放內容（Contents-Repo），一個負責網站本身(Website-Repo. &ndash; ex.AH-DevWorks.github.io)
+初始化git分支
+
+touch README.md
+echo &#34;# [Website-Repo]&#34; &gt; README.md
+git add README.md
+git commit -m &#34;Initial commit&#34;
+git push origin main
+
+本地clone放網站內容的repo，hugo new site .
+
+設在母資料夾較佳，建議別再額外新增如 hugo new site [MySite etc.]，否則後續要每次都手動挪動/public或額外設定自動腳本，會很麻煩。
+若母資料夾已有內容（如README.md），則用 hugo new site . --force
+
+
+等Hugo自動建立好內容後，cd到themes資料夾；挑個Hugo的theme，照著說明來裝（例如clone 到 themes資料夾，或用Git submodules處理）
+把這個theme設成預設：
+
+回到步驟5建立好的母資料夾，vi hugo.toml
+編輯toml內容： A. [baseURL]改成步驟3負責網站本身的repo網址(通常是https://[user_name].github.io/)；B. [title]改隨意（會顯示往站上）；C. [theme]改成前幾步驟挑選的
+
+
+初步測試：hugo server，應該會有空白模板或theme預設範本網頁
+
+有些theme偏舊，這步會出現問題，直接換一個theme比較省事
+正確的話bash或cmd會顯示網站生成的頁數、靜態檔案數量等資訊
+找到其中Web Server is available at http://localhost:1313/...這行，貼到瀏覽器，有出現看起來像網頁的樣子就對
+
+
+確認ok後要再提交一次更改到github
+
+git add .
+git commit -m &#34;Set up website with theme&#34;
+git push origin main
+
+【待續】">
+<meta property="og:url" content="https://AH-DevWorks.github.io/notes/website/create_static_web_1/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Scripted Journeys" />
 <link rel="apple-touch-icon" sizes="180x180" href=" https://AH-DevWorks.github.io/favicon/apple-touch-icon.png">
@@ -296,7 +394,7 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
 
               
               <h1 class="fw-semibold display-5 lh-1 mb-3"> 
-                First Note
+                自架網站筆記：使用Github &#43; Hugo（上）
                 
               </h1>
               
@@ -329,11 +427,61 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <p>This is my first note.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>a <span style="font-weight:bold">=</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>b <span style="font-weight:bold">=</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span><span style="color:#999">print</span>(<span style="color:#b84">f</span><span style="color:#b84">&#34;a+b=</span><span style="color:#b84">{</span>a<span style="font-weight:bold">+</span>b<span style="color:#b84">}</span><span style="color:#b84">&#34;</span>)
-</span></span></code></pre></div>
+        <ul>
+<li>第一篇文章，總之先簡單記錄這個靜態網站怎麼做的，不然大概隔幾天又忘光光。</li>
+<li>寫給自己看的，有些我已經懂的部份（像是Git）寫比較簡單。如果你是無意看到這篇，想看懂但看不懂，可以私信我。</li>
+</ul>
+<h3 id="part-0--這個網站的目標">PART 0 : 這個網站的目標</h3>
+<p>由兩大部份構成：</p>
+<ol>
+<li>Website-Repo：負責靜態網站呈現（用 Hugo build 出來的 HTML/CSS/JS）。</li>
+<li>Contents-Repo：放原始內容（markdown，如 content/notes、content/diary）。</li>
+</ol>
+<ul>
+<li>未來更新內容主要會在 Contents-Repo，然後將生成的網站部署到 Website-Repo。</li>
+<li>也會將其他專案 repo（像 side projects）整合進這個 Hugo 網站。</li>
+</ul>
+<h3 id="part-i--基礎設定">PART I : 基礎設定</h3>
+<ol>
+<li>已經有github帳號</li>
+<li>Windows <code>winget install Hugo.Hugo.Extended</code> 安裝Hugo</li>
+<li>github新建兩個repo：一個放內容（Contents-Repo），一個負責網站本身(Website-Repo. &ndash; ex.AH-DevWorks.github.io)</li>
+<li>初始化git分支</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch README.md
+</span></span><span style="display:flex;"><span><span style="color:#999">echo</span> <span style="color:#b84">&#34;# [Website-Repo]&#34;</span> &gt; README.md
+</span></span><span style="display:flex;"><span>git add README.md
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Initial commit&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><ol start="5">
+<li>本地clone放網站內容的repo，<code>hugo new site .</code>
+<ul>
+<li>設在母資料夾較佳，建議別再額外新增如 <code>hugo new site [MySite etc.]</code>，否則後續要每次都手動挪動/public或額外設定自動腳本，會很麻煩。</li>
+<li>若母資料夾已有內容（如README.md），則用 <code>hugo new site . --force</code></li>
+</ul>
+</li>
+<li>等Hugo自動建立好內容後，cd到themes資料夾；挑個Hugo的theme，照著說明來裝（例如clone 到 themes資料夾，或用Git submodules處理）</li>
+<li>把這個theme設成預設：
+<ul>
+<li>回到步驟5建立好的母資料夾，<code>vi hugo.toml</code></li>
+<li>編輯toml內容： A. [baseURL]改成步驟3負責網站本身的repo網址(通常是https://[user_name].github.io/)；B. [title]改隨意（會顯示往站上）；C. [theme]改成前幾步驟挑選的</li>
+</ul>
+</li>
+<li>初步測試：<code>hugo server</code>，應該會有空白模板或theme預設範本網頁
+<ul>
+<li>有些theme偏舊，這步會出現問題，直接換一個theme比較省事</li>
+<li>正確的話bash或cmd會顯示網站生成的頁數、靜態檔案數量等資訊</li>
+<li>找到其中Web Server is available at <code>http://localhost:1313/...</code>這行，貼到瀏覽器，有出現看起來像網頁的樣子就對</li>
+</ul>
+</li>
+<li>確認ok後要再提交一次更改到github</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Set up website with theme&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><hr>
+<p>【待續】</p>
+
       </article>
     </div>
   </div>
@@ -360,7 +508,7 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
   <ul class="share">
     
     <li>
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2ffirst-note%2f" target="_blank" title="Share on Facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2fcreate_static_web_1%2f" target="_blank" title="Share on Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
           <path
             d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
@@ -369,7 +517,7 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
     </li>
     
     <li>
-      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2ffirst-note%2f&amp;text=First%20Note&amp;via=map%5bauthorinfo%3aLive%20your%20life%20as%20though%20every%20moment%20matters%2c%20because%20in%20the%20end%2c%20it%27s%20not%20the%20years%20in%20your%20life%2c%20but%20the%20life%20in%20your%20years%20that%20counts.%20authorpostimage%3a%2fimg%2fauthor-post-img.jpg%20email%3asample%40gmail.com%20facebook%3ausername%20github%3ausername%20gitlab%3ausername%20instagram%3ausername%20linkedin%3ausername%20mastodon%3aurl%20name%3aBino%20Kochumol%20Varghese%20paypal%3ausername%20reddit%3ausername%20slack%3ausername%20snapchat%3ausername%20spotify%3ausername%20stackoverflow%3ausers%2fXXXXXXX%2fusername%20telegram%3ausername%20threads%3ausername%20twitter%3ausername%20website%3ahttps%3a%2f%2fwww.binovarghese.com%2f%20youtube%3auser%2fusername%5d"
+      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2fcreate_static_web_1%2f&amp;text=%e8%87%aa%e6%9e%b6%e7%b6%b2%e7%ab%99%e7%ad%86%e8%a8%98%ef%bc%9a%e4%bd%bf%e7%94%a8Github%20%2b%20Hugo%ef%bc%88%e4%b8%8a%ef%bc%89&amp;via=map%5bauthorinfo%3aLive%20your%20life%20as%20though%20every%20moment%20matters%2c%20because%20in%20the%20end%2c%20it%27s%20not%20the%20years%20in%20your%20life%2c%20but%20the%20life%20in%20your%20years%20that%20counts.%20authorpostimage%3a%2fimg%2fauthor-post-img.jpg%20email%3asample%40gmail.com%20facebook%3ausername%20github%3ausername%20gitlab%3ausername%20instagram%3ausername%20linkedin%3ausername%20mastodon%3aurl%20name%3aBino%20Kochumol%20Varghese%20paypal%3ausername%20reddit%3ausername%20slack%3ausername%20snapchat%3ausername%20spotify%3ausername%20stackoverflow%3ausers%2fXXXXXXX%2fusername%20telegram%3ausername%20threads%3ausername%20twitter%3ausername%20website%3ahttps%3a%2f%2fwww.binovarghese.com%2f%20youtube%3auser%2fusername%5d"
         target="_blank" title="Share on Twitter">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
           <path
@@ -381,7 +529,7 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
 
     
     <li>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2ffirst-note%2f&amp;title=First%20Note"
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2fcreate_static_web_1%2f&amp;title=%e8%87%aa%e6%9e%b6%e7%b6%b2%e7%ab%99%e7%ad%86%e8%a8%98%ef%bc%9a%e4%bd%bf%e7%94%a8Github%20%2b%20Hugo%ef%bc%88%e4%b8%8a%ef%bc%89"
         target="_blank" title="Share on LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
           <path
@@ -391,8 +539,8 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
     </li>
 
     <li>
-      <a target="_blank" rel="noopener noreferrer" aria-label="share First Note on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2ffirst-note%2f&title=First%20Note">
+      <a target="_blank" rel="noopener noreferrer" aria-label="share 自架網站筆記：使用Github &#43; Hugo（上） on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2fcreate_static_web_1%2f&title=%e8%87%aa%e6%9e%b6%e7%b6%b2%e7%ab%99%e7%ad%86%e8%a8%98%ef%bc%9a%e4%bd%bf%e7%94%a8Github%20%2b%20Hugo%ef%bc%88%e4%b8%8a%ef%bc%89">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
           viewBox="0 0 16 16">
           <path
@@ -409,7 +557,7 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
 
     
     <li>
-      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2ffirst-note%2f&amp;description=First%20Note" target="_blank" rel="noopener"
+      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2fcreate_static_web_1%2f&amp;description=%e8%87%aa%e6%9e%b6%e7%b6%b2%e7%ab%99%e7%ad%86%e8%a8%98%ef%bc%9a%e4%bd%bf%e7%94%a8Github%20%2b%20Hugo%ef%bc%88%e4%b8%8a%ef%bc%89" target="_blank" rel="noopener"
         title="Share on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
           <path
@@ -435,15 +583,14 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
       
       <ul class="list-group list-group-horizontal" style="flex-direction: row">
         
-        <li class="list-group-item b-0 p-0">
 
-          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/notes/website/create_static_web_1/"
-            data-toggle="tooltip" data-placement="top" title="自架網站筆記：使用Github &#43; Hugo（上）">&larr;
-            Previous Post</a>
-        </li>
+
         
-
-
+        <li class="list-group-item ms-auto b-0 p-0">
+          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/notes/website/first-note/"
+            data-toggle="tooltip" data-placement="top" title="First Note">Next Post
+            &rarr;</a>
+        </li>
         
       </ul>
       
