@@ -1,3 +1,7 @@
 [submodule "themes/themes/lightbi-hugo"]
 	path = themes/themes/lightbi-hugo
 	url = https://github.com/binokochumolvarghese/lightbi-hugo
+[submodule "content"]
+	path = content
+	url = https://github.com/AH-DevWorks/scripted-journeys.git
+	branch = main
