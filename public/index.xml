@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Scripted Journeys</title>
-    <link>http://localhost:1313/AH-DevWorks/AH-DevWorks.github.io/</link>
+    <link>https://github.com/AH-DevWorks/AH-DevWorks.github.io/</link>
     <description>Recent content on Scripted Journeys</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>sample@gmail.com (Bino Kochumol Varghese)</managingEditor>
     <webMaster>sample@gmail.com (Bino Kochumol Varghese)</webMaster>
     <lastBuildDate>Sat, 05 Apr 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/AH-DevWorks/AH-DevWorks.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/AH-DevWorks/AH-DevWorks.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First Note</title>
-      <link>http://localhost:1313/AH-DevWorks/AH-DevWorks.github.io/notes/website/first-note/</link>
+      <link>https://github.com/AH-DevWorks/AH-DevWorks.github.io/notes/website/first-note/</link>
       <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate><author>sample@gmail.com (Bino Kochumol Varghese)</author>
-      <guid>http://localhost:1313/AH-DevWorks/AH-DevWorks.github.io/notes/website/first-note/</guid>
+      <guid>https://github.com/AH-DevWorks/AH-DevWorks.github.io/notes/website/first-note/</guid>
       <description>&lt;p&gt;This is my first note.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;a &lt;span style=&#34;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;1&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;b &lt;span style=&#34;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;2&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#b84&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#b84&#34;&gt;&amp;#34;a+b=&lt;/span&gt;&lt;span style=&#34;color:#b84&#34;&gt;{&lt;/span&gt;a&lt;span style=&#34;font-weight:bold&#34;&gt;+&lt;/span&gt;b&lt;span style=&#34;color:#b84&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#b84&#34;&gt;&amp;#34;&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/AH-DevWorks/AH-DevWorks.github.io/readme/</link>
+      <link>https://github.com/AH-DevWorks/AH-DevWorks.github.io/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>sample@gmail.com (Bino Kochumol Varghese)</author>
-      <guid>http://localhost:1313/AH-DevWorks/AH-DevWorks.github.io/readme/</guid>
+      <guid>https://github.com/AH-DevWorks/AH-DevWorks.github.io/readme/</guid>
       <description>&lt;h1 id=&#34;contents&#34;&gt;[Contents]&lt;/h1&gt;</description>
     </item>
   </channel>
