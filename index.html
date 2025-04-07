@@ -234,6 +234,589 @@
 
     
     
+    
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://AH-DevWorks.github.io/post/2025/website/create_static_web_2/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-medium post-title">自架網站筆記：使用Github &#43; Hugo（中）</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  07 April 2025
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    <h4 id="前一回自架網站筆記使用github--hugo上"><a href="https://ah-devworks.github.io/notes/website/create_static_web_1/">【前一回】自架網站筆記：使用Github + Hugo（上）</a></h4>
+<hr>
+<h3 id="part-ii--設定內容倉庫contents-repo">PART II : 設定內容倉庫（Contents-Repo）</h3>
+<ol>
+<li>本地另一個資料夾clone「放網站內容的repo（PART I步驟3建立的Contents-Repo）」</li>
+<li>同樣初始化</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch README.md
+</span></span><span style="display:flex;"><span><span style="color:#999">echo</span> <span style="color:#b84">&#34;# [Contents-Repo]&#34;</span> &gt; README.md
+</span></span><span style="display:flex;"><span>git add README.md
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Initial commit&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><ol start="3">
+<li>建立內容結構/資料夾
+<ul>
+<li>這裡可按照自己需要的層級或theme建議的層級來做</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir content
+</span></span><span style="display:flex;"><span><span style="color:#999">cd</span> content
+</span></span><span style="display:flex;"><span>mkdir notes diary
+</span></span></code></pre></div><ol start="4">
+<li>建立一篇測試文章，如 <code>echo -e &quot;+++\ntitle = \&quot;First Note\&quot;\ndate = 2025-04-05\n+++\n\nThis is my first note.&quot; &gt; content/notes/first-note.md</code> 或自己寫一個.md檔</li>
+<li>push上去</li>
+</ol>
+<ul>
+<li>注意這裡<!-- raw HTML omitted --><!-- raw HTML omitted -->不要<!-- raw HTML omitted --><!-- raw HTML omitted -->執行 <code>hugo new site</code>，Contents-Repo只負責網站上的內容檔案</li>
+</ul>
+<ol start="6">
+<li><!-- raw HTML omitted -->將 Contents-Repo 引入到 Website-Repo<!-- raw HTML omitted -->
+<ul>
+<li>cd回到 PART I 建立好的 Website-Repo 資料夾</li>
+</ul>
+</li>
+<li><strong>加入 Contents-Repo 作為子模組，將 Contents-Repo 的內容直接映射到 content/ 資料夾</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add -b main https://github.com/<span style="font-weight:bold">[</span>user_name<span style="font-weight:bold">]</span>/<span style="font-weight:bold">[</span>Contents-Repo<span style="font-weight:bold">]</span>.git content
+</span></span></code></pre></div><ul>
+<li>注意：這裡可能會出現像 <code>fatal: 'content' already exists and is not a valid git repo</code> 等錯誤&ndash;&gt;直接把原本資料夾裡有的「content」砍掉（或是裡面資料先備份到其他地方、之後再放回去）</li>
+</ul>
+<ol start="8">
+<li>抓取submodule內容</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule update --init --recursive
+</span></span></code></pre></div><ol start="9">
+<li>再次 <code>hugo server</code> 測試，正確的話原本在Contents-Repo裡面的文章（步驟4做的）應該會顯示在網站theme對應的地方（如網站 [Notes] 標籤底下）</li>
+<li>沒問題的話記得push提交更改</li>
+</ol>
+<hr>
+<hr>
+<h3 id="part-iii--部署網站到-github-pages">PART III : 部署網站到 GitHub Pages</h3>
+<ol>
+<li>生成靜態檔案：在Website-Repo用 <code>hugo</code>指令，在其下的 public/ 資料夾生成靜態網站檔案</li>
+<li>把public/資料夾裡已生成的靜態網站全部檔案挪到前一層（手動把檔案複製貼上也可以）</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp -r public/* .
+</span></span></code></pre></div><ol start="3">
+<li>提交</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Generate static site&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><ol start="4">
+<li>檢查網站是否正常顯示（github倉庫-Settings-Pages會顯示「Your site live at <code>https://...</code>」）</li>
+</ol>
+<hr>
+<ul>
+<li>做到這，網站其實就算是架好了，其他細節跟QA放在下篇。</li>
+<li>【待續】</li>
+</ul>
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+    
+    
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://AH-DevWorks.github.io/post/2025/website/create_static_web_1/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-medium post-title">自架網站筆記：使用Github &#43; Hugo（上）</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  05 April 2025
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    <ul>
+<li>第一篇文章，總之先簡單記錄這個靜態網站怎麼做的，不然大概隔幾天又忘光光。</li>
+<li>寫給自己看的，有些我已經懂的部份（像是Git）寫比較簡單。如果你是無意看到這篇，想看懂但看不懂，可以私信我。</li>
+</ul>
+<h3 id="part-0--這個網站的目標">PART 0 : 這個網站的目標</h3>
+<p>由兩大部份構成：</p>
+<ol>
+<li>Website-Repo：負責靜態網站呈現（用 Hugo build 出來的 HTML/CSS/JS）。</li>
+<li>Contents-Repo：放原始內容（markdown，如 content/notes、content/diary）。</li>
+</ol>
+<ul>
+<li>未來更新內容主要會在 Contents-Repo，然後將生成的網站部署到 Website-Repo。</li>
+<li>也會將其他專案 repo（像 side projects）整合進這個 Hugo 網站。</li>
+</ul>
+<h3 id="part-i--基礎設定">PART I : 基礎設定</h3>
+<ol>
+<li>已經有github帳號</li>
+<li>Windows <code>winget install Hugo.Hugo.Extended</code> 安裝Hugo（建議安裝 <code>Hugo Extended</code>版本，方便後續自訂模板樣式）</li>
+<li>github新建兩個repo：一個放內容（Contents-Repo），一個負責網站本身(Website-Repo. &ndash; ex.AH-DevWorks.github.io)</li>
+<li>初始化git分支</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch README.md
+</span></span><span style="display:flex;"><span><span style="color:#999">echo</span> <span style="color:#b84">&#34;# [Website-Repo]&#34;</span> &gt; README.md
+</span></span><span style="display:flex;"><span>git add README.md
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Initial commit&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><ol start="5">
+<li>本地clone放網站內容的repo，<code>hugo new site .</code>
+<ul>
+<li>設在母資料夾較佳，建議別再額外新增如 <code>hugo new site [MySite etc.]</code>，否則後續要每次都手動挪動/public或額外設定自動腳本，會很麻煩。</li>
+<li>若母資料夾已有內容（如README.md），則用 <code>hugo new site . --force</code></li>
+</ul>
+</li>
+<li>等Hugo自動建立好內容後，cd到themes資料夾；挑個Hugo的theme，照著說明來裝（例如clone 到 themes資料夾，或用Git submodules處理）</li>
+<li>把這個theme設成預設：
+<ul>
+<li>回到步驟5建立好的母資料夾，<code>vi hugo.toml</code></li>
+<li>編輯toml內容： A. [baseURL]改成步驟3負責網站本身的repo網址(通常是https://[user_name].github.io/)；B. [title]改隨意（會顯示往站上）；C. [theme]改成前幾步驟挑選的</li>
+</ul>
+</li>
+<li>初步測試：<code>hugo server</code>，應該會有空白模板或theme預設範本網頁
+<ul>
+<li>有些theme偏舊，這步會出現問題，直接換一個theme比較省事</li>
+<li>正確的話bash或cmd會顯示網站生成的頁數、靜態檔案數量等資訊</li>
+<li>找到其中Web Server is available at <code>http://localhost:1313/...</code>這行，貼到瀏覽器，有出現看起來像網頁的樣子就對</li>
+</ul>
+</li>
+<li>確認ok後要再提交一次更改到github</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Set up website with theme&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><hr>
+<h4 id="下一回自架網站筆記使用github--hugo中"><a href="https://ah-devworks.github.io/notes/website/create_static_web_2/">【下一回】自架網站筆記：使用Github + Hugo（中）</a></h4>
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+    
+    
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://AH-DevWorks.github.io/post/2025/install-hugo/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-medium post-title">Install Hugo in Windows</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  31 December 2023
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    In this guide, we&#39;ll walk through installing Hugo, a popular static site generator. Whether you’re new to static site development or transitioning from another tool, we’ll cover the essential steps to get Hugo up and running.
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/img/posts/img-1_hu_b28432d34915b581.jpg" alt="/img/posts/img-1.jpg"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+    
+    
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://AH-DevWorks.github.io/post/2025/use-this-theme/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-medium post-title">How to use Lightbi theme ?</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  26 December 2023
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    In this post, we&#39;ll cover how to install Hugo and set up your first website with the Lightbi theme...
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/img/posts/img-3_hu_22e2f15b62cfd8c3.jpg" alt="/img/posts/img-3.jpg"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+    
+    
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://AH-DevWorks.github.io/post/2025/features-of-lightbi/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-medium post-title">Features of Lightbi</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  20 December 2023
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    In this blog post, I’ll walk through the key features of the Lightbi theme and how to make the most of them for a visually appealing, user-friendly website.
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/img/posts/img-2_hu_d9e27f96bac48032.jpg" alt="/img/posts/img-2.jpg"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+    
+    
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://AH-DevWorks.github.io/post/2025/more-about-lightbi/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-medium post-title">More about Lightbi</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  15 December 2023
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    In this post, I’ll outline about the theme, along with ways to support and contribute to the this theme...
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/img/posts/img-4_hu_cd71503feed88a09.jpg" alt="/img/posts/img-4.jpg"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+    
+    
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://AH-DevWorks.github.io/post/2025/understanding-hugo-shortcodes/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-medium post-title">Understanding Hugo Shortcodes</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  30 November 2023
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    Hugo shortcodes are powerful tools for adding custom HTML or other special content within Markdown files without complex code...
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/img/posts/img-8_hu_33c7537b578a327a.jpg" alt="/img/posts/img-8.jpg"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+    
+    
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://AH-DevWorks.github.io/post/2025/custom-shortcodes/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-medium post-title">Lightbi Custom Shortcodes</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  24 November 2023
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    You can create your own shortcodes for unique needs by adding an HTML file to the `layouts/shortcodes/` directory. Below are the custom shortcodes availble in this theme...
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/img/posts/img-6_hu_a52b8e2f2c958107.jpg" alt="/img/posts/img-6.jpg"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+    
+    
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6  mb-4">
+    <a href="https://AH-DevWorks.github.io/post/2025/image-gallery/">
+        <div class="card h-100 single-post-card shadow-effect bg-faded-light border">
+            <div class="card-body">
+                <h3 class="fw-medium post-title">Image Gallery Shortcode</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  20 November 2023
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+
+                <div class="post-entry">
+                    
+                    In this post, we&#39;ll cover how to install Hugo and set up your first website with the Lightbi theme...
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+
+            
+            <img src="/img/posts/img-0_hu_3aca22d4b0d3759c.jpg" alt="/img/posts/img-0.jpg"
+                class="card-img-bottom img-fluid lazyload">
+            
+
+            
+        </div>
+    </a>
+</div>
+
+
+    
 
 
   </div>
@@ -243,6 +826,26 @@
       <nav aria-label="Page navigation">
         <div class="pagination justify-content-end">
           
+    <ul class="pagination pagination-default">
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/page/2/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
         </div>
       </nav>
     </div>

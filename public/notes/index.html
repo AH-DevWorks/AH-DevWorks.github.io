@@ -270,10 +270,10 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-10">
-                    <h3 class="fw-medium post-title">自架網站筆記：使用Github &#43; Hugo（中）</h3>
+                    <h3 class="fw-medium post-title">轉職路：AI養成班 Day 1.</h3>
                 </div>
                 <div class="col-md-2 d-flex justify-content-end">
-                    <a href="https://AH-DevWorks.github.io/notes/website/create_static_web_2/">
+                    <a href="https://AH-DevWorks.github.io/notes/2025/diary_2025_04_07/">
                         <button type="button" class="btn btn-outline-dark">
                             Link
                         </button>
@@ -304,242 +304,17 @@
             <div class="post-entry">
 
                 
-                <p><a href="https://ah-devworks.github.io/notes/website/create_static_web_1/">【前一回】自架網站筆記：使用Github + Hugo（中）</a></p>
-<h3 id="part-ii--設定內容倉庫contents-repo">PART II : 設定內容倉庫（Contents-Repo）</h3>
-<ol>
-<li>本地另一個資料夾clone「放網站內容的repo（PART I步驟3建立的Contents-Repo）」</li>
-<li>同樣初始化</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch README.md
-</span></span><span style="display:flex;"><span><span style="color:#999">echo</span> <span style="color:#b84">&#34;# [Contents-Repo]&#34;</span> &gt; README.md
-</span></span><span style="display:flex;"><span>git add README.md
-</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Initial commit&#34;</span>
-</span></span><span style="display:flex;"><span>git push origin main
-</span></span></code></pre></div><ol start="3">
-<li>建立內容結構/資料夾
+                <h4 id="養成班第一天">養成班第一天</h4>
+<p><!-- raw HTML omitted --></p>
 <ul>
-<li>這裡可按照自己需要的層級或theme建議的層級來做</li>
+<li>今天只是發筆電、填表單、教務事項通知，明天才開始正式課程。但畢竟是課程第一天，還是留一篇簡短日記，當作歷程紀錄。</li>
+<li>下午自我介紹環節，有不少資訊本科系，或甚至是人還在科技業上班，自費來上課的同學，真心佩服。</li>
+<li>簡單翻了一下歷屆學長姐成果，從電腦視覺到混合應用的都有。該來想想專題該做什麼了（小組專題＆個人的Side Project）。希望結訓後履歷至少能塞滿一整頁。</li>
+<li>下課後自己摸了幾個小時，終於弄懂怎麼改前幾天架好的靜態網站字型樣式。字型是換好了，但html和css自覺沒有很懂，UI也想再改改，能力待加強。</li>
+<li>看了一下課表，後天沒課，到時再來簡單紀錄從去年8月開始到現在的程式歷程。</li>
+<li>越來越覺得時間不夠用。前幾周時間都花在天天台北—中壢來回找房子，Udemy進度也嚴重落後。</li>
+<li>改天再補一篇前幾周的一波三折找房記。</li>
 </ul>
-</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir content
-</span></span><span style="display:flex;"><span><span style="color:#999">cd</span> content
-</span></span><span style="display:flex;"><span>mkdir notes diary
-</span></span></code></pre></div><ol start="4">
-<li>建立一篇測試文章，如 <code>echo -e &quot;+++\ntitle = \&quot;First Note\&quot;\ndate = 2025-04-05\n+++\n\nThis is my first note.&quot; &gt; content/notes/first-note.md</code> 或自己寫一個.md檔</li>
-<li>push上去</li>
-</ol>
-<ul>
-<li>注意這裡<!-- raw HTML omitted --><!-- raw HTML omitted -->不要<!-- raw HTML omitted --><!-- raw HTML omitted -->執行 <code>hugo new site</code>，Contents-Repo只負責網站上的內容檔案</li>
-</ul>
-<ol start="6">
-<li><!-- raw HTML omitted -->將 Contents-Repo 引入到 Website-Repo<!-- raw HTML omitted -->
-<ul>
-<li>cd回到 PART I 建立好的 Website-Repo 資料夾</li>
-</ul>
-</li>
-<li><strong>加入 Contents-Repo 作為子模組，將 Contents-Repo 的內容直接映射到 content/ 資料夾</strong></li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add -b main https://github.com/<span style="font-weight:bold">[</span>user_name<span style="font-weight:bold">]</span>/<span style="font-weight:bold">[</span>Contents-Repo<span style="font-weight:bold">]</span>.git content
-</span></span></code></pre></div><ul>
-<li>注意：這裡可能會出現像 <code>fatal: 'content' already exists and is not a valid git repo</code> 等錯誤&ndash;&gt;直接把原本資料夾裡有的「content」砍掉（或是裡面資料先備份到其他地方、之後再放回去）</li>
-</ul>
-<ol start="8">
-<li>抓取submodule內容</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule update --init --recursive
-</span></span></code></pre></div><ol start="9">
-<li>再次 <code>hugo server</code> 測試，正確的話原本在Contents-Repo裡面的文章（步驟4做的）應該會顯示在網站theme對應的地方（如網站 [Notes] 標籤底下）</li>
-<li>沒問題的話記得push提交更改</li>
-</ol>
-<hr>
-<hr>
-<h3 id="part-iii--部署網站到-github-pages">PART III : 部署網站到 GitHub Pages</h3>
-<ol>
-<li>生成靜態檔案：在Website-Repo用 <code>hugo</code>指令，在其下的 public/ 資料夾生成靜態網站檔案</li>
-<li>把public/資料夾裡已生成的靜態網站全部檔案挪到前一層（手動把檔案複製貼上也可以）</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp -r public/* .
-</span></span></code></pre></div><ol start="3">
-<li>提交</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
-</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Generate static site&#34;</span>
-</span></span><span style="display:flex;"><span>git push origin main
-</span></span></code></pre></div><ol start="4">
-<li>檢查網站是否正常顯示（github倉庫-Settings-Pages會顯示「Your site live at <code>https://...</code>」）</li>
-</ol>
-<hr>
-<ul>
-<li>做到這，網站其實就算是架好了，其他細節跟QA放在下篇。</li>
-<li>【待續】</li>
-</ul>
-
-                
-            </div>
-        </div>
-        
-        
-        
-
-
-
-
-    </div>
-</div>
-    
-    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
-    
-        <div class="card border mb-3 "> 
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-10">
-                    <h3 class="fw-medium post-title">First Note</h3>
-                </div>
-                <div class="col-md-2 d-flex justify-content-end">
-                    <a href="https://AH-DevWorks.github.io/notes/website/first-note/">
-                        <button type="button" class="btn btn-outline-dark">
-                            Link
-                        </button>
-                    </a>
-                </div>
-            </div>
-
-            
-
-            <p class="post-meta">
-                <span class="post-meta text-muted">
-  
-  
-
-  05 April 2025
-
-  
-
-  
-
-  
-
-  
-</span>
-
-            </p>
-            
-            <div class="post-entry">
-
-                
-                <p>This is my first note.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>a <span style="font-weight:bold">=</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>b <span style="font-weight:bold">=</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span><span style="color:#999">print</span>(<span style="color:#b84">f</span><span style="color:#b84">&#34;a+b=</span><span style="color:#b84">{</span>a<span style="font-weight:bold">+</span>b<span style="color:#b84">}</span><span style="color:#b84">&#34;</span>)
-</span></span></code></pre></div>
-                
-            </div>
-        </div>
-        
-        
-        
-
-
-
-
-    </div>
-</div>
-    
-    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
-    
-        <div class="card border mb-3 "> 
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-10">
-                    <h3 class="fw-medium post-title">自架網站筆記：使用Github &#43; Hugo（上）</h3>
-                </div>
-                <div class="col-md-2 d-flex justify-content-end">
-                    <a href="https://AH-DevWorks.github.io/notes/website/create_static_web_1/">
-                        <button type="button" class="btn btn-outline-dark">
-                            Link
-                        </button>
-                    </a>
-                </div>
-            </div>
-
-            
-
-            <p class="post-meta">
-                <span class="post-meta text-muted">
-  
-  
-
-  05 April 2025
-
-  
-
-  
-
-  
-
-  
-</span>
-
-            </p>
-            
-            <div class="post-entry">
-
-                
-                <ul>
-<li>第一篇文章，總之先簡單記錄這個靜態網站怎麼做的，不然大概隔幾天又忘光光。</li>
-<li>寫給自己看的，有些我已經懂的部份（像是Git）寫比較簡單。如果你是無意看到這篇，想看懂但看不懂，可以私信我。</li>
-</ul>
-<h3 id="part-0--這個網站的目標">PART 0 : 這個網站的目標</h3>
-<p>由兩大部份構成：</p>
-<ol>
-<li>Website-Repo：負責靜態網站呈現（用 Hugo build 出來的 HTML/CSS/JS）。</li>
-<li>Contents-Repo：放原始內容（markdown，如 content/notes、content/diary）。</li>
-</ol>
-<ul>
-<li>未來更新內容主要會在 Contents-Repo，然後將生成的網站部署到 Website-Repo。</li>
-<li>也會將其他專案 repo（像 side projects）整合進這個 Hugo 網站。</li>
-</ul>
-<h3 id="part-i--基礎設定">PART I : 基礎設定</h3>
-<ol>
-<li>已經有github帳號</li>
-<li>Windows <code>winget install Hugo.Hugo.Extended</code> 安裝Hugo</li>
-<li>github新建兩個repo：一個放內容（Contents-Repo），一個負責網站本身(Website-Repo. &ndash; ex.AH-DevWorks.github.io)</li>
-<li>初始化git分支</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch README.md
-</span></span><span style="display:flex;"><span><span style="color:#999">echo</span> <span style="color:#b84">&#34;# [Website-Repo]&#34;</span> &gt; README.md
-</span></span><span style="display:flex;"><span>git add README.md
-</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Initial commit&#34;</span>
-</span></span><span style="display:flex;"><span>git push origin main
-</span></span></code></pre></div><ol start="5">
-<li>本地clone放網站內容的repo，<code>hugo new site .</code>
-<ul>
-<li>設在母資料夾較佳，建議別再額外新增如 <code>hugo new site [MySite etc.]</code>，否則後續要每次都手動挪動/public或額外設定自動腳本，會很麻煩。</li>
-<li>若母資料夾已有內容（如README.md），則用 <code>hugo new site . --force</code></li>
-</ul>
-</li>
-<li>等Hugo自動建立好內容後，cd到themes資料夾；挑個Hugo的theme，照著說明來裝（例如clone 到 themes資料夾，或用Git submodules處理）</li>
-<li>把這個theme設成預設：
-<ul>
-<li>回到步驟5建立好的母資料夾，<code>vi hugo.toml</code></li>
-<li>編輯toml內容： A. [baseURL]改成步驟3負責網站本身的repo網址(通常是https://[user_name].github.io/)；B. [title]改隨意（會顯示往站上）；C. [theme]改成前幾步驟挑選的</li>
-</ul>
-</li>
-<li>初步測試：<code>hugo server</code>，應該會有空白模板或theme預設範本網頁
-<ul>
-<li>有些theme偏舊，這步會出現問題，直接換一個theme比較省事</li>
-<li>正確的話bash或cmd會顯示網站生成的頁數、靜態檔案數量等資訊</li>
-<li>找到其中Web Server is available at <code>http://localhost:1313/...</code>這行，貼到瀏覽器，有出現看起來像網頁的樣子就對</li>
-</ul>
-</li>
-<li>確認ok後要再提交一次更改到github</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
-</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Set up website with theme&#34;</span>
-</span></span><span style="display:flex;"><span>git push origin main
-</span></span></code></pre></div><hr>
-<p><a href="https://ah-devworks.github.io/notes/website/create_static_web_2/">【下一回】自架網站筆記：使用Github + Hugo（中）</a></p>
 
                 
             </div>

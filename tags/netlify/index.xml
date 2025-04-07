@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Netlify on Scripted Journeys</title>
+    <title>Netlify on Meditations in Code - A.H.</title>
     <link>https://AH-DevWorks.github.io/tags/netlify/</link>
-    <description>Recent content in Netlify on Scripted Journeys</description>
+    <description>Recent content in Netlify on Meditations in Code - A.H.</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <managingEditor>sample@gmail.com (Bino Kochumol Varghese)</managingEditor>
-    <webMaster>sample@gmail.com (Bino Kochumol Varghese)</webMaster>
+    <managingEditor>sample@gmail.com (AH-DevWorks)</managingEditor>
+    <webMaster>sample@gmail.com (AH-DevWorks)</webMaster>
     <lastBuildDate>Sat, 04 Nov 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://AH-DevWorks.github.io/tags/netlify/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hosting Your Hugo Site on Netlify</title>
-      <link>https://AH-DevWorks.github.io/post/2020/netlify-configuration/</link>
-      <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate><author>sample@gmail.com (Bino Kochumol Varghese)</author>
-      <guid>https://AH-DevWorks.github.io/post/2020/netlify-configuration/</guid>
+      <link>https://AH-DevWorks.github.io/post/2025/netlify-configuration/</link>
+      <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate><author>sample@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/post/2025/netlify-configuration/</guid>
       <description>&lt;p&gt;Hosting a Hugo site on Netlify is an effective solution for deploying static websites, combining Hugo’s speed with Netlify’s robust features like continuous deployment, a user-friendly dashboard, and advanced build settings.&lt;/p&gt;</description>
     </item>
   </channel>
