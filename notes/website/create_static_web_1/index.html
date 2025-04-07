@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>自架網站筆記：使用Github &#43; Hugo（上） - Scripted Journeys</title>
+<title>自架網站筆記：使用Github &#43; Hugo（上） - Meditations in Code - A.H.</title>
 <meta name="description" content="
 第一篇文章，總之先簡單記錄這個靜態網站怎麼做的，不然大概隔幾天又忘光光。
 寫給自己看的，有些我已經懂的部份（像是Git）寫比較簡單。如果你是無意看到這篇，想看懂但看不懂，可以私信我。
@@ -63,11 +63,11 @@ git push origin main
 
 【下一回】自架網站筆記：使用Github &#43; Hugo（中）">
 
-<meta name="author" content="Bino Kochumol Varghese"><script type="application/ld+json">
+<meta name="author" content="AH-DevWorks"><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
-    "name": "Scripted Journeys",
+    "name": "Meditations in Code - A.H.",
     
     "url": "https:\/\/AH-DevWorks.github.io\/"
 }
@@ -108,7 +108,7 @@ git push origin main
   "@context": "http://schema.org",
   "@type": "Article",
   "author": {
-    "name" : "map[authorinfo:Live your life as though every moment matters, because in the end, it\u0027s not the years in your life, but the life in your years that counts. authorpostimage:\/img\/author-post-img.jpg email:sample@gmail.com facebook:username github:username gitlab:username instagram:username linkedin:username mastodon:url name:Bino Kochumol Varghese paypal:username reddit:username slack:username snapchat:username spotify:username stackoverflow:users\/XXXXXXX\/username telegram:username threads:username twitter:username website:https:\/\/www.binovarghese.com\/ youtube:user\/username]"
+    "name" : "map[authorinfo:All the world’s a stage, and all the men and women merely players. They have their exits and their entrances, and one man in his time plays many parts. authorpostimage:\/img\/author-post-img.jpg email:sample@gmail.com facebook:username github:username gitlab:username instagram:username linkedin:username mastodon:url name:AH-DevWorks paypal:username reddit:username slack:username snapchat:username spotify:username stackoverflow:users\/XXXXXXX\/username telegram:username threads:username twitter:username website:https:\/\/ah-devworks.github.io\/ youtube:user\/username]"
   },
   "headline": "自架網站筆記：使用Github \u002b Hugo（上）",
   "description" : " 第一篇文章，總之先簡單記錄這個靜態網站怎麼做的，不然大概隔幾天又忘光光。 寫給自己看的，有些我已經懂的部份（像是Git）寫比較簡單。如果你是無意看到這篇，想看懂但看不懂，可以私信我。 PART 0 : 這個網站的目標 由兩大部份構成：\nWebsite-Repo：負責靜態網站呈現（用 Hugo build 出來的 HTML\/CSS\/JS）。 Contents-Repo：放原始內容（markdown，如 content\/notes、content\/diary）。 未來更新內容主要會在 Contents-Repo，然後將生成的網站部署到 Website-Repo。 也會將其他專案 repo（像 side projects）整合進這個 Hugo 網站。 PART I : 基礎設定 已經有github帳號 Windows winget install Hugo.Hugo.Extended 安裝Hugo github新建兩個repo：一個放內容（Contents-Repo），一個負責網站本身(Website-Repo. \u0026ndash; ex.AH-DevWorks.github.io) 初始化git分支 touch README.md echo \u0026#34;# [Website-Repo]\u0026#34; \u0026gt; README.md git add README.md git commit -m \u0026#34;Initial commit\u0026#34; git push origin main 本地clone放網站內容的repo，hugo new site . 設在母資料夾較佳，建議別再額外新增如 hugo new site [MySite etc.]，否則後續要每次都手動挪動\/public或額外設定自動腳本，會很麻煩。 若母資料夾已有內容（如README.md），則用 hugo new site . --force 等Hugo自動建立好內容後，cd到themes資料夾；挑個Hugo的theme，照著說明來裝（例如clone 到 themes資料夾，或用Git submodules處理） 把這個theme設成預設： 回到步驟5建立好的母資料夾，vi hugo.toml 編輯toml內容： A. [baseURL]改成步驟3負責網站本身的repo網址(通常是https:\/\/[user_name].github.io\/)；B. [title]改隨意（會顯示往站上）；C. [theme]改成前幾步驟挑選的 初步測試：hugo server，應該會有空白模板或theme預設範本網頁 有些theme偏舊，這步會出現問題，直接換一個theme比較省事 正確的話bash或cmd會顯示網站生成的頁數、靜態檔案數量等資訊 找到其中Web Server is available at http:\/\/localhost:1313\/...這行，貼到瀏覽器，有出現看起來像網頁的樣子就對 確認ok後要再提交一次更改到github git add . git commit -m \u0026#34;Set up website with theme\u0026#34; git push origin main 【下一回】自架網站筆記：使用Github \u002b Hugo（中）\n",
@@ -189,17 +189,16 @@ git push origin main
 【下一回】自架網站筆記：使用Github &#43; Hugo（中）">
 <meta property="og:url" content="https://AH-DevWorks.github.io/notes/website/create_static_web_1/" />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="Scripted Journeys" />
+<meta property="og:site_name" content="Meditations in Code - A.H." />
 <link rel="apple-touch-icon" sizes="180x180" href=" https://AH-DevWorks.github.io/favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://AH-DevWorks.github.io/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://AH-DevWorks.github.io/favicon/favicon-16x16.png">
 
 
 <meta name="generator" content="Hugo 0.145.0">
-<link rel="alternate" href="https://AH-DevWorks.github.io/index.xml" type="application/rss+xml" title="Scripted Journeys">
+<link rel="alternate" href="https://AH-DevWorks.github.io/index.xml" type="application/rss+xml" title="Meditations in Code - A.H.">
 <script src="https://AH-DevWorks.github.io/js/dark-mode.js"></script><script src="https://AH-DevWorks.github.io/vendor/lunr/lunr.min.js"></script><script src="https://AH-DevWorks.github.io/js/lunr-search.js" data-index="/search.json"></script><link rel="stylesheet" href="/style.min.css">
-
-
+<link rel="stylesheet" href="https://AH-DevWorks.github.io/css/custom.min.f8a07ac5009ace2462a7d4ac43d718cede520d105ce74d3fdf960843acaaaa7c.css">
 
 
 
@@ -222,7 +221,7 @@ git push origin main
       <nav class="navbar navbar-expand-lg navbar-light fixed-top p-0">
         <div class="container">
 
-          <a class="navbar-brand fw-bold" href="https://AH-DevWorks.github.io/">Scripted Journeys</a>
+          <a class="navbar-brand fw-bold" href="https://AH-DevWorks.github.io/">Meditations in Code - A.H.</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -517,7 +516,7 @@ git push origin main
     </li>
     
     <li>
-      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2fcreate_static_web_1%2f&amp;text=%e8%87%aa%e6%9e%b6%e7%b6%b2%e7%ab%99%e7%ad%86%e8%a8%98%ef%bc%9a%e4%bd%bf%e7%94%a8Github%20%2b%20Hugo%ef%bc%88%e4%b8%8a%ef%bc%89&amp;via=map%5bauthorinfo%3aLive%20your%20life%20as%20though%20every%20moment%20matters%2c%20because%20in%20the%20end%2c%20it%27s%20not%20the%20years%20in%20your%20life%2c%20but%20the%20life%20in%20your%20years%20that%20counts.%20authorpostimage%3a%2fimg%2fauthor-post-img.jpg%20email%3asample%40gmail.com%20facebook%3ausername%20github%3ausername%20gitlab%3ausername%20instagram%3ausername%20linkedin%3ausername%20mastodon%3aurl%20name%3aBino%20Kochumol%20Varghese%20paypal%3ausername%20reddit%3ausername%20slack%3ausername%20snapchat%3ausername%20spotify%3ausername%20stackoverflow%3ausers%2fXXXXXXX%2fusername%20telegram%3ausername%20threads%3ausername%20twitter%3ausername%20website%3ahttps%3a%2f%2fwww.binovarghese.com%2f%20youtube%3auser%2fusername%5d"
+      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2fcreate_static_web_1%2f&amp;text=%e8%87%aa%e6%9e%b6%e7%b6%b2%e7%ab%99%e7%ad%86%e8%a8%98%ef%bc%9a%e4%bd%bf%e7%94%a8Github%20%2b%20Hugo%ef%bc%88%e4%b8%8a%ef%bc%89&amp;via=map%5bauthorinfo%3aAll%20the%20world%e2%80%99s%20a%20stage%2c%20and%20all%20the%20men%20and%20women%20merely%20players.%20They%20have%20their%20exits%20and%20their%20entrances%2c%20and%20one%20man%20in%20his%20time%20plays%20many%20parts.%20authorpostimage%3a%2fimg%2fauthor-post-img.jpg%20email%3asample%40gmail.com%20facebook%3ausername%20github%3ausername%20gitlab%3ausername%20instagram%3ausername%20linkedin%3ausername%20mastodon%3aurl%20name%3aAH-DevWorks%20paypal%3ausername%20reddit%3ausername%20slack%3ausername%20snapchat%3ausername%20spotify%3ausername%20stackoverflow%3ausers%2fXXXXXXX%2fusername%20telegram%3ausername%20threads%3ausername%20twitter%3ausername%20website%3ahttps%3a%2f%2fah-devworks.github.io%2f%20youtube%3auser%2fusername%5d"
         target="_blank" title="Share on Twitter">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
           <path
@@ -748,7 +747,7 @@ git push origin main
         <p class="credits copyright text-muted">
           
           
-          <a href="https://www.binovarghese.com/">Bino Kochumol Varghese</a>
+          <a href="https://ah-devworks.github.io/">AH-DevWorks</a>
           
           
 
@@ -759,7 +758,7 @@ git push origin main
 
           
           &nbsp;&bull;&nbsp;
-          <a href="https://AH-DevWorks.github.io/">Scripted Journeys</a>
+          <a href="https://AH-DevWorks.github.io/">Meditations in Code - A.H.</a>
           
         </p>
         

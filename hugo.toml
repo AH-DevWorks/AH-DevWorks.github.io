@@ -2,7 +2,7 @@ baseURL = "https://AH-DevWorks.github.io"
 DefaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 languageCode = "en-us"
-title = "Scripted Journeys"
+title = "Meditations in Code - A.H."
 theme = "lightbi-hugo"
 metaDataFormat = "yaml"
 pygmentsStyle = "trac"
@@ -39,14 +39,14 @@ lastmod = false
 rss = false
 pagination = "10"
 hideAuthor = false
-description="Your can add your website description here."
+description="The unexamined life is unworthy of a human being."
 previewCardImagePlacement = "bottom"
 showPostImage = false
 
 [Params.Author]
-  name = "Bino Kochumol Varghese"
-  website = "https://www.binovarghese.com/"
-  authorInfo = "Live your life as though every moment matters, because in the end, it's not the years in your life, but the life in your years that counts."
+  name = "AH-DevWorks"
+  website = "https://ah-devworks.github.io/"
+  authorInfo = "All the world’s a stage, and all the men and women merely players. They have their exits and their entrances, and one man in his time plays many parts."
   authorPostImage = "/img/author-post-img.jpg"
   email = "sample@gmail.com"
   facebook = "username"
