@@ -7,11 +7,76 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>First Note - Scripted Journeys</title>
-<meta name="description" content="This is my first note.
-a = 1
-b = 2
-print(f&#34;a&#43;b={a&#43;b}&#34;)
+<title>自架網站筆記：使用Github &#43; Hugo（中） - Scripted Journeys</title>
+<meta name="description" content="【前一回】自架網站筆記：使用Github &#43; Hugo（中）
+PART II : 設定內容倉庫（Contents-Repo）
+
+本地另一個資料夾clone「放網站內容的repo（PART I步驟3建立的Contents-Repo）」
+同樣初始化
+
+touch README.md
+echo &#34;# [Contents-Repo]&#34; &gt; README.md
+git add README.md
+git commit -m &#34;Initial commit&#34;
+git push origin main
+
+建立內容結構/資料夾
+
+這裡可按照自己需要的層級或theme建議的層級來做
+
+
+
+mkdir content
+cd content
+mkdir notes diary
+
+建立一篇測試文章，如 echo -e &quot;&#43;&#43;&#43;\ntitle = \&quot;First Note\&quot;\ndate = 2025-04-05\n&#43;&#43;&#43;\n\nThis is my first note.&quot; &gt; content/notes/first-note.md 或自己寫一個.md檔
+push上去
+
+
+注意這裡不要執行 hugo new site，Contents-Repo只負責網站上的內容檔案
+
+
+將 Contents-Repo 引入到 Website-Repo
+
+cd回到 PART I 建立好的 Website-Repo 資料夾
+
+
+加入 Contents-Repo 作為子模組，將 Contents-Repo 的內容直接映射到 content/ 資料夾
+
+git submodule add -b main https://github.com/[user_name]/[Contents-Repo].git content
+
+注意：這裡可能會出現像 fatal: &#39;content&#39; already exists and is not a valid git repo 等錯誤&ndash;&gt;直接把原本資料夾裡有的「content」砍掉（或是裡面資料先備份到其他地方、之後再放回去）
+
+
+抓取submodule內容
+
+git submodule update --init --recursive
+
+再次 hugo server 測試，正確的話原本在Contents-Repo裡面的文章（步驟4做的）應該會顯示在網站theme對應的地方（如網站 [Notes] 標籤底下）
+沒問題的話記得push提交更改
+
+
+
+PART III : 部署網站到 GitHub Pages
+
+生成靜態檔案：在Website-Repo用 hugo指令，在其下的 public/ 資料夾生成靜態網站檔案
+把public/資料夾裡已生成的靜態網站全部檔案挪到前一層（手動把檔案複製貼上也可以）
+
+cp -r public/* .
+
+提交
+
+git add .
+git commit -m &#34;Generate static site&#34;
+git push origin main
+
+檢查網站是否正常顯示（github倉庫-Settings-Pages會顯示「Your site live at https://...」）
+
+
+
+做到這，網站其實就算是架好了，其他細節跟QA放在下篇。
+【待續】
 ">
 
 <meta name="author" content="Bino Kochumol Varghese"><script type="application/ld+json">
@@ -49,8 +114,8 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/AH-DevWorks.github.io\/notes\/website\/first-note\/",
-          "name": "First note"
+          "@id": "https:\/\/AH-DevWorks.github.io\/notes\/website\/create_static_web_2\/",
+          "name": "自架網站筆記：使用 github hugo（中）"
         }
     }]
 }
@@ -61,15 +126,15 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
   "author": {
     "name" : "map[authorinfo:Live your life as though every moment matters, because in the end, it\u0027s not the years in your life, but the life in your years that counts. authorpostimage:\/img\/author-post-img.jpg email:sample@gmail.com facebook:username github:username gitlab:username instagram:username linkedin:username mastodon:url name:Bino Kochumol Varghese paypal:username reddit:username slack:username snapchat:username spotify:username stackoverflow:users\/XXXXXXX\/username telegram:username threads:username twitter:username website:https:\/\/www.binovarghese.com\/ youtube:user\/username]"
   },
-  "headline": "First Note",
-  "description" : "This is my first note.\na = 1 b = 2 print(f\u0026#34;a\u002bb={a\u002bb}\u0026#34;) ",
+  "headline": "自架網站筆記：使用Github \u002b Hugo（中）",
+  "description" : "【前一回】自架網站筆記：使用Github \u002b Hugo（中）\nPART II : 設定內容倉庫（Contents-Repo） 本地另一個資料夾clone「放網站內容的repo（PART I步驟3建立的Contents-Repo）」 同樣初始化 touch README.md echo \u0026#34;# [Contents-Repo]\u0026#34; \u0026gt; README.md git add README.md git commit -m \u0026#34;Initial commit\u0026#34; git push origin main 建立內容結構\/資料夾 這裡可按照自己需要的層級或theme建議的層級來做 mkdir content cd content mkdir notes diary 建立一篇測試文章，如 echo -e \u0026quot;\u002b\u002b\u002b\\ntitle = \\\u0026quot;First Note\\\u0026quot;\\ndate = 2025-04-05\\n\u002b\u002b\u002b\\n\\nThis is my first note.\u0026quot; \u0026gt; content\/notes\/first-note.md 或自己寫一個.md檔 push上去 注意這裡不要執行 hugo new site，Contents-Repo只負責網站上的內容檔案 將 Contents-Repo 引入到 Website-Repo cd回到 PART I 建立好的 Website-Repo 資料夾 加入 Contents-Repo 作為子模組，將 Contents-Repo 的內容直接映射到 content\/ 資料夾 git submodule add -b main https:\/\/github.com\/[user_name]\/[Contents-Repo].git content 注意：這裡可能會出現像 fatal: \u0027content\u0027 already exists and is not a valid git repo 等錯誤\u0026ndash;\u0026gt;直接把原本資料夾裡有的「content」砍掉（或是裡面資料先備份到其他地方、之後再放回去） 抓取submodule內容 git submodule update --init --recursive 再次 hugo server 測試，正確的話原本在Contents-Repo裡面的文章（步驟4做的）應該會顯示在網站theme對應的地方（如網站 [Notes] 標籤底下） 沒問題的話記得push提交更改 PART III : 部署網站到 GitHub Pages 生成靜態檔案：在Website-Repo用 hugo指令，在其下的 public\/ 資料夾生成靜態網站檔案 把public\/資料夾裡已生成的靜態網站全部檔案挪到前一層（手動把檔案複製貼上也可以） cp -r public\/* . 提交 git add . git commit -m \u0026#34;Generate static site\u0026#34; git push origin main 檢查網站是否正常顯示（github倉庫-Settings-Pages會顯示「Your site live at https:\/\/...」） 做到這，網站其實就算是架好了，其他細節跟QA放在下篇。 【待續】 ",
   "inLanguage" : "en",
-  "wordCount":  12 ,
-  "datePublished" : "2025-04-05T00:00:00",
-  "dateModified" : "2025-04-05T00:00:00",
+  "wordCount":  145 ,
+  "datePublished" : "2025-04-07T00:00:00",
+  "dateModified" : "2025-04-07T00:00:00",
   "image" : "https:\/\/AH-DevWorks.github.io\/",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/notes\/website\/first-note\/",
+  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/notes\/website\/create_static_web_2\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/AH-DevWorks.github.io\/",
@@ -83,13 +148,78 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
 }
 </script>
 
-<meta property="og:title" content="First Note" />
-<meta property="og:description" content="This is my first note.
-a = 1
-b = 2
-print(f&#34;a&#43;b={a&#43;b}&#34;)
+<meta property="og:title" content="自架網站筆記：使用Github &#43; Hugo（中）" />
+<meta property="og:description" content="【前一回】自架網站筆記：使用Github &#43; Hugo（中）
+PART II : 設定內容倉庫（Contents-Repo）
+
+本地另一個資料夾clone「放網站內容的repo（PART I步驟3建立的Contents-Repo）」
+同樣初始化
+
+touch README.md
+echo &#34;# [Contents-Repo]&#34; &gt; README.md
+git add README.md
+git commit -m &#34;Initial commit&#34;
+git push origin main
+
+建立內容結構/資料夾
+
+這裡可按照自己需要的層級或theme建議的層級來做
+
+
+
+mkdir content
+cd content
+mkdir notes diary
+
+建立一篇測試文章，如 echo -e &quot;&#43;&#43;&#43;\ntitle = \&quot;First Note\&quot;\ndate = 2025-04-05\n&#43;&#43;&#43;\n\nThis is my first note.&quot; &gt; content/notes/first-note.md 或自己寫一個.md檔
+push上去
+
+
+注意這裡不要執行 hugo new site，Contents-Repo只負責網站上的內容檔案
+
+
+將 Contents-Repo 引入到 Website-Repo
+
+cd回到 PART I 建立好的 Website-Repo 資料夾
+
+
+加入 Contents-Repo 作為子模組，將 Contents-Repo 的內容直接映射到 content/ 資料夾
+
+git submodule add -b main https://github.com/[user_name]/[Contents-Repo].git content
+
+注意：這裡可能會出現像 fatal: &#39;content&#39; already exists and is not a valid git repo 等錯誤&ndash;&gt;直接把原本資料夾裡有的「content」砍掉（或是裡面資料先備份到其他地方、之後再放回去）
+
+
+抓取submodule內容
+
+git submodule update --init --recursive
+
+再次 hugo server 測試，正確的話原本在Contents-Repo裡面的文章（步驟4做的）應該會顯示在網站theme對應的地方（如網站 [Notes] 標籤底下）
+沒問題的話記得push提交更改
+
+
+
+PART III : 部署網站到 GitHub Pages
+
+生成靜態檔案：在Website-Repo用 hugo指令，在其下的 public/ 資料夾生成靜態網站檔案
+把public/資料夾裡已生成的靜態網站全部檔案挪到前一層（手動把檔案複製貼上也可以）
+
+cp -r public/* .
+
+提交
+
+git add .
+git commit -m &#34;Generate static site&#34;
+git push origin main
+
+檢查網站是否正常顯示（github倉庫-Settings-Pages會顯示「Your site live at https://...」）
+
+
+
+做到這，網站其實就算是架好了，其他細節跟QA放在下篇。
+【待續】
 ">
-<meta property="og:url" content="https://AH-DevWorks.github.io/notes/website/first-note/" />
+<meta property="og:url" content="https://AH-DevWorks.github.io/notes/website/create_static_web_2/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Scripted Journeys" />
 <link rel="apple-touch-icon" sizes="180x180" href=" https://AH-DevWorks.github.io/favicon/apple-touch-icon.png">
@@ -296,7 +426,7 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
 
               
               <h1 class="fw-semibold display-5 lh-1 mb-3"> 
-                First Note
+                自架網站筆記：使用Github &#43; Hugo（中）
                 
               </h1>
               
@@ -329,11 +459,77 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <p>This is my first note.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>a <span style="font-weight:bold">=</span> <span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>b <span style="font-weight:bold">=</span> <span style="color:#099">2</span>
-</span></span><span style="display:flex;"><span><span style="color:#999">print</span>(<span style="color:#b84">f</span><span style="color:#b84">&#34;a+b=</span><span style="color:#b84">{</span>a<span style="font-weight:bold">+</span>b<span style="color:#b84">}</span><span style="color:#b84">&#34;</span>)
-</span></span></code></pre></div>
+        <p><a href="https://ah-devworks.github.io/notes/website/create_static_web_1/">【前一回】自架網站筆記：使用Github + Hugo（中）</a></p>
+<h3 id="part-ii--設定內容倉庫contents-repo">PART II : 設定內容倉庫（Contents-Repo）</h3>
+<ol>
+<li>本地另一個資料夾clone「放網站內容的repo（PART I步驟3建立的Contents-Repo）」</li>
+<li>同樣初始化</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch README.md
+</span></span><span style="display:flex;"><span><span style="color:#999">echo</span> <span style="color:#b84">&#34;# [Contents-Repo]&#34;</span> &gt; README.md
+</span></span><span style="display:flex;"><span>git add README.md
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Initial commit&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><ol start="3">
+<li>建立內容結構/資料夾
+<ul>
+<li>這裡可按照自己需要的層級或theme建議的層級來做</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir content
+</span></span><span style="display:flex;"><span><span style="color:#999">cd</span> content
+</span></span><span style="display:flex;"><span>mkdir notes diary
+</span></span></code></pre></div><ol start="4">
+<li>建立一篇測試文章，如 <code>echo -e &quot;+++\ntitle = \&quot;First Note\&quot;\ndate = 2025-04-05\n+++\n\nThis is my first note.&quot; &gt; content/notes/first-note.md</code> 或自己寫一個.md檔</li>
+<li>push上去</li>
+</ol>
+<ul>
+<li>注意這裡<!-- raw HTML omitted --><!-- raw HTML omitted -->不要<!-- raw HTML omitted --><!-- raw HTML omitted -->執行 <code>hugo new site</code>，Contents-Repo只負責網站上的內容檔案</li>
+</ul>
+<ol start="6">
+<li><!-- raw HTML omitted -->將 Contents-Repo 引入到 Website-Repo<!-- raw HTML omitted -->
+<ul>
+<li>cd回到 PART I 建立好的 Website-Repo 資料夾</li>
+</ul>
+</li>
+<li><strong>加入 Contents-Repo 作為子模組，將 Contents-Repo 的內容直接映射到 content/ 資料夾</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add -b main https://github.com/<span style="font-weight:bold">[</span>user_name<span style="font-weight:bold">]</span>/<span style="font-weight:bold">[</span>Contents-Repo<span style="font-weight:bold">]</span>.git content
+</span></span></code></pre></div><ul>
+<li>注意：這裡可能會出現像 <code>fatal: 'content' already exists and is not a valid git repo</code> 等錯誤&ndash;&gt;直接把原本資料夾裡有的「content」砍掉（或是裡面資料先備份到其他地方、之後再放回去）</li>
+</ul>
+<ol start="8">
+<li>抓取submodule內容</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule update --init --recursive
+</span></span></code></pre></div><ol start="9">
+<li>再次 <code>hugo server</code> 測試，正確的話原本在Contents-Repo裡面的文章（步驟4做的）應該會顯示在網站theme對應的地方（如網站 [Notes] 標籤底下）</li>
+<li>沒問題的話記得push提交更改</li>
+</ol>
+<hr>
+<hr>
+<h3 id="part-iii--部署網站到-github-pages">PART III : 部署網站到 GitHub Pages</h3>
+<ol>
+<li>生成靜態檔案：在Website-Repo用 <code>hugo</code>指令，在其下的 public/ 資料夾生成靜態網站檔案</li>
+<li>把public/資料夾裡已生成的靜態網站全部檔案挪到前一層（手動把檔案複製貼上也可以）</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp -r public/* .
+</span></span></code></pre></div><ol start="3">
+<li>提交</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Generate static site&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><ol start="4">
+<li>檢查網站是否正常顯示（github倉庫-Settings-Pages會顯示「Your site live at <code>https://...</code>」）</li>
+</ol>
+<hr>
+<ul>
+<li>做到這，網站其實就算是架好了，其他細節跟QA放在下篇。</li>
+<li>【待續】</li>
+</ul>
+
       </article>
     </div>
   </div>
@@ -360,7 +556,7 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
   <ul class="share">
     
     <li>
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2ffirst-note%2f" target="_blank" title="Share on Facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2fcreate_static_web_2%2f" target="_blank" title="Share on Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
           <path
             d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
@@ -369,7 +565,7 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
     </li>
     
     <li>
-      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2ffirst-note%2f&amp;text=First%20Note&amp;via=map%5bauthorinfo%3aLive%20your%20life%20as%20though%20every%20moment%20matters%2c%20because%20in%20the%20end%2c%20it%27s%20not%20the%20years%20in%20your%20life%2c%20but%20the%20life%20in%20your%20years%20that%20counts.%20authorpostimage%3a%2fimg%2fauthor-post-img.jpg%20email%3asample%40gmail.com%20facebook%3ausername%20github%3ausername%20gitlab%3ausername%20instagram%3ausername%20linkedin%3ausername%20mastodon%3aurl%20name%3aBino%20Kochumol%20Varghese%20paypal%3ausername%20reddit%3ausername%20slack%3ausername%20snapchat%3ausername%20spotify%3ausername%20stackoverflow%3ausers%2fXXXXXXX%2fusername%20telegram%3ausername%20threads%3ausername%20twitter%3ausername%20website%3ahttps%3a%2f%2fwww.binovarghese.com%2f%20youtube%3auser%2fusername%5d"
+      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2fcreate_static_web_2%2f&amp;text=%e8%87%aa%e6%9e%b6%e7%b6%b2%e7%ab%99%e7%ad%86%e8%a8%98%ef%bc%9a%e4%bd%bf%e7%94%a8Github%20%2b%20Hugo%ef%bc%88%e4%b8%ad%ef%bc%89&amp;via=map%5bauthorinfo%3aLive%20your%20life%20as%20though%20every%20moment%20matters%2c%20because%20in%20the%20end%2c%20it%27s%20not%20the%20years%20in%20your%20life%2c%20but%20the%20life%20in%20your%20years%20that%20counts.%20authorpostimage%3a%2fimg%2fauthor-post-img.jpg%20email%3asample%40gmail.com%20facebook%3ausername%20github%3ausername%20gitlab%3ausername%20instagram%3ausername%20linkedin%3ausername%20mastodon%3aurl%20name%3aBino%20Kochumol%20Varghese%20paypal%3ausername%20reddit%3ausername%20slack%3ausername%20snapchat%3ausername%20spotify%3ausername%20stackoverflow%3ausers%2fXXXXXXX%2fusername%20telegram%3ausername%20threads%3ausername%20twitter%3ausername%20website%3ahttps%3a%2f%2fwww.binovarghese.com%2f%20youtube%3auser%2fusername%5d"
         target="_blank" title="Share on Twitter">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
           <path
@@ -381,7 +577,7 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
 
     
     <li>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2ffirst-note%2f&amp;title=First%20Note"
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2fcreate_static_web_2%2f&amp;title=%e8%87%aa%e6%9e%b6%e7%b6%b2%e7%ab%99%e7%ad%86%e8%a8%98%ef%bc%9a%e4%bd%bf%e7%94%a8Github%20%2b%20Hugo%ef%bc%88%e4%b8%ad%ef%bc%89"
         target="_blank" title="Share on LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
           <path
@@ -391,8 +587,8 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
     </li>
 
     <li>
-      <a target="_blank" rel="noopener noreferrer" aria-label="share First Note on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2ffirst-note%2f&title=First%20Note">
+      <a target="_blank" rel="noopener noreferrer" aria-label="share 自架網站筆記：使用Github &#43; Hugo（中） on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2fcreate_static_web_2%2f&title=%e8%87%aa%e6%9e%b6%e7%b6%b2%e7%ab%99%e7%ad%86%e8%a8%98%ef%bc%9a%e4%bd%bf%e7%94%a8Github%20%2b%20Hugo%ef%bc%88%e4%b8%ad%ef%bc%89">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
           viewBox="0 0 16 16">
           <path
@@ -409,7 +605,7 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
 
     
     <li>
-      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2ffirst-note%2f&amp;description=First%20Note" target="_blank" rel="noopener"
+      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2fwebsite%2fcreate_static_web_2%2f&amp;description=%e8%87%aa%e6%9e%b6%e7%b6%b2%e7%ab%99%e7%ad%86%e8%a8%98%ef%bc%9a%e4%bd%bf%e7%94%a8Github%20%2b%20Hugo%ef%bc%88%e4%b8%ad%ef%bc%89" target="_blank" rel="noopener"
         title="Share on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
           <path
@@ -437,19 +633,13 @@ print(f&#34;a&#43;b={a&#43;b}&#34;)
         
         <li class="list-group-item b-0 p-0">
 
-          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/notes/website/create_static_web_1/"
-            data-toggle="tooltip" data-placement="top" title="自架網站筆記：使用Github &#43; Hugo（上）">&larr;
+          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/notes/website/first-note/"
+            data-toggle="tooltip" data-placement="top" title="First Note">&larr;
             Previous Post</a>
         </li>
         
 
 
-        
-        <li class="list-group-item ms-auto b-0 p-0">
-          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/notes/website/create_static_web_2/"
-            data-toggle="tooltip" data-placement="top" title="自架網站筆記：使用Github &#43; Hugo（中）">Next Post
-            &rarr;</a>
-        </li>
         
       </ul>
       
