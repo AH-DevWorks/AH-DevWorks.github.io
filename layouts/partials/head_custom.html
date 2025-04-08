@@ -1,2 +1,37 @@
 {{ $style := resources.Get "css/custom.scss" | css.Sass | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
+
+
+
+<style>
+  body, p {
+    font-size: 1.2rem !important;
+  }
+  h1 { font-size: 42px !important; }
+  h2 { font-size: 36px !important; }
+  h3 { font-size: 28px !important; }
+  h4 { font-size: 22px !important; }
+  h5 { font-size: 18px !important; }
+  h6 { font-size: 15px !important; }
+
+  .blog-post p, 
+  .post-entry p,
+  article p,
+  .container[role=main] p {
+    font-size: 1rem !important; /* 调整为您想要的大小 */
+    line-height: 1.6 !important;
+  }
+
+  .blog-post li,
+  .post-entry li,
+  article li,
+  .container[role=main] li {
+    font-size: 1rem !important; /* 与段落保持一致 */
+    line-height: 1.6 !important;
+  }
+
+  .container[role=main] {
+  font-size: 1rem !important;
+  }
+ 
+</style>
