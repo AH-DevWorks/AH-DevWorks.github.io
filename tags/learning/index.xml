@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>隨筆 | Notes on Meditations in Code - A.H.</title>
-    <link>https://AH-DevWorks.github.io/notes/</link>
-    <description>Recent content in 隨筆 | Notes on Meditations in Code - A.H.</description>
+    <title>Learning on Meditations in Code - A.H.</title>
+    <link>https://AH-DevWorks.github.io/tags/learning/</link>
+    <description>Recent content in Learning on Meditations in Code - A.H.</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>a.h.devworks@gmail.com (AH-DevWorks)</managingEditor>
     <webMaster>a.h.devworks@gmail.com (AH-DevWorks)</webMaster>
     <lastBuildDate>Mon, 07 Apr 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://AH-DevWorks.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://AH-DevWorks.github.io/tags/learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>轉職路：AI養成班 Day 1.</title>
       <link>https://AH-DevWorks.github.io/notes/2025/diary_2025_04_07/</link>

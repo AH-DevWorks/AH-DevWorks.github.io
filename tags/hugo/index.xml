@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Meditations in Code - A.H.</title>
-    <link>https://AH-DevWorks.github.io/</link>
-    <description>Recent content on Meditations in Code - A.H.</description>
+    <title>Hugo on Meditations in Code - A.H.</title>
+    <link>https://AH-DevWorks.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on Meditations in Code - A.H.</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>a.h.devworks@gmail.com (AH-DevWorks)</managingEditor>
     <webMaster>a.h.devworks@gmail.com (AH-DevWorks)</webMaster>
     <lastBuildDate>Mon, 07 Apr 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://AH-DevWorks.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://AH-DevWorks.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>自架網站筆記：使用Github &#43; Hugo（中）</title>
       <link>https://AH-DevWorks.github.io/post/2025/website/create_static_web_2/</link>
       <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
       <guid>https://AH-DevWorks.github.io/post/2025/website/create_static_web_2/</guid>
       <description>&lt;h4 id=&#34;前一回自架網站筆記使用github--hugo上&#34;&gt;&lt;a href=&#34;https://ah-devworks.github.io/notes/website/create_static_web_1/&#34;&gt;【前一回】自架網站筆記：使用Github + Hugo（上）&lt;/a&gt;&lt;/h4&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;part-ii--設定內容倉庫contents-repo&#34;&gt;PART II : 設定內容倉庫（Contents-Repo）&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;本地另一個資料夾clone「放網站內容的repo（PART I步驟3建立的Contents-Repo）」&lt;/li&gt;&#xA;&lt;li&gt;同樣初始化&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;touch README.md&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#b84&#34;&gt;&amp;#34;# [Contents-Repo]&amp;#34;&lt;/span&gt; &amp;gt; README.md&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git add README.md&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git commit -m &lt;span style=&#34;color:#b84&#34;&gt;&amp;#34;Initial commit&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push origin main&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;建立內容結構/資料夾&#xA;&lt;ul&gt;&#xA;&lt;li&gt;這裡可按照自己需要的層級或theme建議的層級來做&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir content&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999&#34;&gt;cd&lt;/span&gt; content&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir notes post&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;{{/&lt;em&gt;&amp;lt; alert_box role=&amp;ldquo;danger&amp;rdquo; title=&amp;ldquo;注意&amp;rdquo; content=&amp;ldquo;結構資料夾要包含Hugo在building網站時需要的各子資料夾&amp;rdquo; &amp;gt;&lt;/em&gt;/}}&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>轉職路：AI養成班 Day 1.</title>
-      <link>https://AH-DevWorks.github.io/notes/2025/diary_2025_04_07/</link>
-      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
-      <guid>https://AH-DevWorks.github.io/notes/2025/diary_2025_04_07/</guid>
-      <description>&lt;h4 id=&#34;養成班第一天&#34;&gt;養成班第一天&lt;/h4&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;今天只是發筆電、填表單、教務事項通知，明天才開始正式課程。但畢竟是課程第一天，還是留一篇簡短日記，當作歷程紀錄。&lt;/li&gt;&#xA;&lt;li&gt;下午自我介紹環節，有不少資訊本科系或做過科技業，甚至還有自費生，真心佩服。&lt;/li&gt;&#xA;&lt;li&gt;簡單翻了一下歷屆學長姐成果，從電腦視覺到混合應用的都有。該來想想專題的主題了（小組專題＆個人的Side Project）。希望結訓後履歷至少能塞滿一整頁。&lt;/li&gt;&#xA;&lt;li&gt;下課後自己摸了幾個小時，終於弄懂怎麼改前幾天架好的靜態網站字型樣式。字型是換好了，但html和css自覺沒有很懂，UI也想再改改，能力待加強。&lt;/li&gt;&#xA;&lt;li&gt;看了一下課表，後天沒課，到時再來簡單紀錄從去年8月開始到現在的程式歷程。&lt;/li&gt;&#xA;&lt;li&gt;越來越覺得時間不夠用。前幾周時間都花在天天台北—中壢來回找房子，Udemy進度也嚴重落後。&lt;/li&gt;&#xA;&lt;li&gt;改天再補一篇前幾周的一波三折找房記。&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>自架網站筆記：使用Github &#43; Hugo（上）</title>

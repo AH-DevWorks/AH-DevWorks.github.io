@@ -6,8 +6,37 @@
     <description>Recent content in Tags on Meditations in Code - A.H.</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <managingEditor>sample@gmail.com (AH-DevWorks)</managingEditor>
-    <webMaster>sample@gmail.com (AH-DevWorks)</webMaster>
+    <managingEditor>a.h.devworks@gmail.com (AH-DevWorks)</managingEditor>
+    <webMaster>a.h.devworks@gmail.com (AH-DevWorks)</webMaster>
+    <lastBuildDate>Mon, 07 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://AH-DevWorks.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>https://AH-DevWorks.github.io/tags/blog/</link>
+      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hugo</title>
+      <link>https://AH-DevWorks.github.io/tags/hugo/</link>
+      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Learning</title>
+      <link>https://AH-DevWorks.github.io/tags/learning/</link>
+      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Website</title>
+      <link>https://AH-DevWorks.github.io/tags/website/</link>
+      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/website/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
