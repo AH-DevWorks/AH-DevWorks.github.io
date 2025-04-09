@@ -24,7 +24,7 @@ pagerSize = 6
 [Params]
 selfHosted = true
 mainSections = ["post","posts"]
-dateFormat = "05 April 2025"
+dateFormat = "2006年1月2日"
 comments = false
 readingTime = false
 wordCount = false

@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>轉職路：AI養成班 Day 1. - Meditations in Code - A.H.</title>
-<meta name="description" content="學生二周目">
+<title>自架網站筆記：使用Github &#43; Hugo（中） - Meditations in Code - A.H.</title>
+<meta name="description" content="——自架靜態網站的過程紀錄．中篇——">
 
 <meta name="author" content="AH-DevWorks"><script type="application/ld+json">
 {
@@ -45,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/AH-DevWorks.github.io\/notes\/2025\/diary_2025_04_07\/",
-          "name": "轉職路： ai養成班 day 1."
+          "@id": "https:\/\/AH-DevWorks.github.io\/post\/2025\/website\/create_static_web_2\/",
+          "name": "自架網站筆記：使用 github hugo（中）"
         }
     }]
 }
@@ -57,15 +57,15 @@
   "author": {
     "name" : "map[authorinfo:All the world’s a stage, and all the men and women merely players. They have their exits and their entrances, and one man in his time plays many parts. authorpostimage: email:a.h.devworks@gmail.com facebook:username github:https:\/\/github.com\/AH-DevWorks gitlab:username instagram:username linkedin:username mastodon:url name:AH-DevWorks reddit:username slack:username stackoverflow:users\/XXXXXXX\/username website:https:\/\/ah-devworks.github.io\/ youtube:user\/username]"
   },
-  "headline": "轉職路：AI養成班 Day 1.",
-  "description" : "學生二周目",
+  "headline": "自架網站筆記：使用Github \u002b Hugo（中）",
+  "description" : "——自架靜態網站的過程紀錄．中篇——",
   "inLanguage" : "en",
-  "wordCount":  9 ,
+  "wordCount":  163 ,
   "datePublished" : "2025-04-07T00:00:00",
   "dateModified" : "2025-04-07T00:00:00",
   "image" : "https:\/\/AH-DevWorks.github.io\/",
-  "keywords" : [ "learning" ],
-  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/notes\/2025\/diary_2025_04_07\/",
+  "keywords" : [ "hugo, blog, website" ],
+  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/post\/2025\/website\/create_static_web_2\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/AH-DevWorks.github.io\/",
@@ -79,9 +79,9 @@
 }
 </script>
 
-<meta property="og:title" content="轉職路：AI養成班 Day 1." />
-<meta property="og:description" content="學生二周目">
-<meta property="og:url" content="https://AH-DevWorks.github.io/notes/2025/diary_2025_04_07/" />
+<meta property="og:title" content="自架網站筆記：使用Github &#43; Hugo（中）" />
+<meta property="og:description" content="——自架靜態網站的過程紀錄．中篇——">
+<meta property="og:url" content="https://AH-DevWorks.github.io/post/2025/website/create_static_web_2/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Meditations in Code - A.H." />
 <link rel="apple-touch-icon" sizes="180x180" href=" https://AH-DevWorks.github.io/favicon/apple-touch-icon.png">
@@ -194,7 +194,7 @@
                 
                 
 
-                <a class="nav-link  active " title="Notes"
+                <a class="nav-link " title="Notes"
                   href="/notes/"> Notes</a>
               </li>
 
@@ -326,14 +326,14 @@
           <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
             
 
-            <div class="notes-heading">
+            <div class="post-heading">
               
 
               
 
               
               <h1 class="fw-semibold display-5 lh-1 mb-3"> 
-                轉職路：AI養成班 Day 1.
+                自架網站筆記：使用Github &#43; Hugo（中）
                 
               </h1>
               
@@ -342,6 +342,34 @@
               
 
               
+              
+              <span class="post-meta">
+  <div class="row post-meta text-muted">
+    <div class="col-sm-12 col-md-6 px-0">
+      
+      
+  
+      
+      
+      
+      AH-DevWorks |
+      
+      
+  
+      &nbsp; 2025年4月7日
+    </div>
+
+  <div class="col-sm-12 col-md-6 text-sm-start text-md-end px-0">
+  
+
+  
+</div>
+
+  
+</div>
+</span>
+
+
               
               
             </div>
@@ -366,17 +394,113 @@
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <h4 id="養成班第一天">養成班第一天</h4>
-<p><!-- raw HTML omitted --></p>
+        <h4 id="前一回自架網站筆記使用github--hugo上"><a href="https://ah-devworks.github.io/notes/website/create_static_web_1/">【前一回】自架網站筆記：使用Github + Hugo（上）</a></h4>
+<hr>
+<h3 id="part-ii--設定內容倉庫contents-repo">PART II : 設定內容倉庫（Contents-Repo）</h3>
+<ol>
+<li>本地另一個資料夾clone「放網站內容的repo（PART I步驟3建立的Contents-Repo）」</li>
+<li>同樣初始化</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch README.md
+</span></span><span style="display:flex;"><span><span style="color:#999">echo</span> <span style="color:#b84">&#34;# [Contents-Repo]&#34;</span> &gt; README.md
+</span></span><span style="display:flex;"><span>git add README.md
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Initial commit&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><ol start="3">
+<li>建立內容結構/資料夾
 <ul>
-<li>今天只是發筆電、填表單、教務事項通知，明天才開始正式課程。但畢竟是課程第一天，還是留一篇簡短日記，當作歷程紀錄。</li>
-<li>下午自我介紹環節，有不少資訊本科系或做過科技業，甚至還有自費生，真心佩服。</li>
-<li>簡單翻了一下歷屆學長姐成果，從電腦視覺到混合應用的都有。該來想想專題的主題了（小組專題＆個人的Side Project）。希望結訓後履歷至少能塞滿一整頁。</li>
-<li>下課後自己摸了幾個小時，終於弄懂怎麼改前幾天架好的靜態網站字型樣式。字型是換好了，但html和css自覺沒有很懂，UI也想再改改，能力待加強。</li>
-<li>看了一下課表，後天沒課，到時再來簡單紀錄從去年8月開始到現在的程式歷程。</li>
-<li>越來越覺得時間不夠用。前幾周時間都花在天天台北—中壢來回找房子，Udemy進度也嚴重落後。</li>
-<li>改天再補一篇前幾周的一波三折找房記。</li>
+<li>這裡可按照自己需要的層級或theme建議的層級來做</li>
 </ul>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir content
+</span></span><span style="display:flex;"><span><span style="color:#999">cd</span> content
+</span></span><span style="display:flex;"><span>mkdir notes post
+</span></span></code></pre></div><hr>
+
+
+
+
+
+
+    
+
+
+
+<div class="card mb-3 p-0 alert alert-danger ">
+    <div class="card-body">
+         
+        <h4 class="card-title">
+            注意
+        </h4>
+        
+
+        <p class="card-text text-muted fs-6">
+            
+                 
+                    結構資料夾要包含Hugo在building網站時需要的各子資料夾
+                
+            
+        </p>
+    </div>
+</div>
+
+<hr>
+<blockquote>
+<p>通常要有「contents」、「static」這兩個資料夾，但也不一定，像Lightbi就是「contents」、「assets」這兩個，「img」包含在assets/裡。建議翻查主題的Documents，有寫最好，沒寫的話就只能自己多hugo server測試幾次。</p></blockquote>
+<ol start="4">
+<li>建立一篇測試文章，如 <code>echo -e &quot;+++\ntitle = \&quot;First Note\&quot;\ndate = 2025-04-05\n+++\n\nThis is my first note.&quot; &gt; content/notes/first-note.md</code> 或自己寫一個.md檔</li>
+<li>push上去</li>
+</ol>
+<ul>
+<li>注意這裡<!-- raw HTML omitted --><!-- raw HTML omitted -->不要<!-- raw HTML omitted --><!-- raw HTML omitted -->執行 <code>hugo new site</code>，Contents-Repo只負責網站上的內容檔案</li>
+</ul>
+<ol start="6">
+<li><!-- raw HTML omitted -->將 Contents-Repo 引入到 Website-Repo<!-- raw HTML omitted -->
+<ul>
+<li>cd回到 PART I 建立好的 Website-Repo 資料夾</li>
+</ul>
+</li>
+<li><strong>加入 Contents-Repo 作為子模組，將 Contents-Repo 的內容直接映射到 content/ 跟 assets/ 資料夾</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add -b main https://github.com/<span style="font-weight:bold">[</span>user_name<span style="font-weight:bold">]</span>/<span style="font-weight:bold">[</span>Contents-Repo<span style="font-weight:bold">]</span>.git Contents-Repo
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 然後再分別把其下兩個資料夾連結到對應的「content/」「assets/」:</span>
+</span></span><span style="display:flex;"><span>ln -s Contents-Repo/content content
+</span></span><span style="display:flex;"><span>ln -s Contents-Repo/assets assets
+</span></span></code></pre></div><ul>
+<li>注意：這裡可能會出現像 <code>fatal: 'content' already exists and is not a valid git repo</code> 等錯誤&ndash;&gt;直接把原本資料夾裡有的「content」砍掉（或是裡面資料先備份到其他地方、之後再放回去）</li>
+</ul>
+<ol start="8">
+<li>抓取submodule內容</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule update --init --recursive
+</span></span></code></pre></div><ol start="9">
+<li>再次 <code>hugo server</code> 測試，正確的話原本在Contents-Repo裡面的文章（步驟4做的）應該會顯示在網站theme對應的地方（如網站 [Notes] 標籤底下）</li>
+<li>沒問題的話記得push提交更改</li>
+</ol>
+<hr>
+<hr>
+<h3 id="part-iii--部署網站到-github-pages">PART III : 部署網站到 GitHub Pages</h3>
+<ol>
+<li>生成靜態檔案：在Website-Repo用 <code>hugo</code>指令，在其下的 public/ 資料夾生成靜態網站檔案</li>
+<li>把public/資料夾裡已生成的靜態網站全部檔案挪到前一層（手動把檔案複製貼上也可以）</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp -r public/* .
+</span></span></code></pre></div><ol start="3">
+<li>提交</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#b84">&#34;Generate static site&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><ol start="4">
+<li>檢查網站是否正常顯示（github倉庫-Settings-Pages會顯示「Your site live at <code>https://...</code>」）</li>
+</ol>
+<hr>
+<ul>
+<li>做到這，網站其實就算是架好了，其他細節跟QA放在下篇。</li>
+</ul>
+<hr>
+<h4 id="自架網站筆記使用github--hugo下"><a href="https://ah-devworks.github.io/notes/website/create_static_web_3/">自架網站筆記：使用Github + Hugo（下）</a></h4>
 
       </article>
     </div>
@@ -391,7 +515,11 @@
       
       <div class="blog-tags">
         
-        <a href="https://AH-DevWorks.github.io/tags/learning/">learning</a>
+        <a href="https://AH-DevWorks.github.io/tags/hugo/">hugo</a>
+        
+        <a href="https://AH-DevWorks.github.io/tags/blog/">blog</a>
+        
+        <a href="https://AH-DevWorks.github.io/tags/website/">website</a>
         
       </div>
       
@@ -410,7 +538,7 @@
   <ul class="share">
     
     <li>
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fdiary_2025_04_07%2f" target="_blank" title="Share on Facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fwebsite%2fcreate_static_web_2%2f" target="_blank" title="Share on Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
           <path
             d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
@@ -419,7 +547,7 @@
     </li>
     
     <li>
-      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fdiary_2025_04_07%2f&amp;text=%e8%bd%89%e8%81%b7%e8%b7%af%ef%bc%9aAI%e9%a4%8a%e6%88%90%e7%8f%ad%20Day%201.&amp;via=map%5bauthorinfo%3aAll%20the%20world%e2%80%99s%20a%20stage%2c%20and%20all%20the%20men%20and%20women%20merely%20players.%20They%20have%20their%20exits%20and%20their%20entrances%2c%20and%20one%20man%20in%20his%20time%20plays%20many%20parts.%20authorpostimage%3a%20email%3aa.h.devworks%40gmail.com%20facebook%3ausername%20github%3ahttps%3a%2f%2fgithub.com%2fAH-DevWorks%20gitlab%3ausername%20instagram%3ausername%20linkedin%3ausername%20mastodon%3aurl%20name%3aAH-DevWorks%20reddit%3ausername%20slack%3ausername%20stackoverflow%3ausers%2fXXXXXXX%2fusername%20website%3ahttps%3a%2f%2fah-devworks.github.io%2f%20youtube%3auser%2fusername%5d"
+      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fwebsite%2fcreate_static_web_2%2f&amp;text=%e8%87%aa%e6%9e%b6%e7%b6%b2%e7%ab%99%e7%ad%86%e8%a8%98%ef%bc%9a%e4%bd%bf%e7%94%a8Github%20%2b%20Hugo%ef%bc%88%e4%b8%ad%ef%bc%89&amp;via=map%5bauthorinfo%3aAll%20the%20world%e2%80%99s%20a%20stage%2c%20and%20all%20the%20men%20and%20women%20merely%20players.%20They%20have%20their%20exits%20and%20their%20entrances%2c%20and%20one%20man%20in%20his%20time%20plays%20many%20parts.%20authorpostimage%3a%20email%3aa.h.devworks%40gmail.com%20facebook%3ausername%20github%3ahttps%3a%2f%2fgithub.com%2fAH-DevWorks%20gitlab%3ausername%20instagram%3ausername%20linkedin%3ausername%20mastodon%3aurl%20name%3aAH-DevWorks%20reddit%3ausername%20slack%3ausername%20stackoverflow%3ausers%2fXXXXXXX%2fusername%20website%3ahttps%3a%2f%2fah-devworks.github.io%2f%20youtube%3auser%2fusername%5d"
         target="_blank" title="Share on Twitter">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
           <path
@@ -431,7 +559,7 @@
 
     
     <li>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fdiary_2025_04_07%2f&amp;title=%e8%bd%89%e8%81%b7%e8%b7%af%ef%bc%9aAI%e9%a4%8a%e6%88%90%e7%8f%ad%20Day%201."
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fwebsite%2fcreate_static_web_2%2f&amp;title=%e8%87%aa%e6%9e%b6%e7%b6%b2%e7%ab%99%e7%ad%86%e8%a8%98%ef%bc%9a%e4%bd%bf%e7%94%a8Github%20%2b%20Hugo%ef%bc%88%e4%b8%ad%ef%bc%89"
         target="_blank" title="Share on LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
           <path
@@ -441,8 +569,8 @@
     </li>
 
     <li>
-      <a target="_blank" rel="noopener noreferrer" aria-label="share 轉職路：AI養成班 Day 1. on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fdiary_2025_04_07%2f&title=%e8%bd%89%e8%81%b7%e8%b7%af%ef%bc%9aAI%e9%a4%8a%e6%88%90%e7%8f%ad%20Day%201.">
+      <a target="_blank" rel="noopener noreferrer" aria-label="share 自架網站筆記：使用Github &#43; Hugo（中） on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fwebsite%2fcreate_static_web_2%2f&title=%e8%87%aa%e6%9e%b6%e7%b6%b2%e7%ab%99%e7%ad%86%e8%a8%98%ef%bc%9a%e4%bd%bf%e7%94%a8Github%20%2b%20Hugo%ef%bc%88%e4%b8%ad%ef%bc%89">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
           viewBox="0 0 16 16">
           <path
@@ -459,7 +587,7 @@
 
     
     <li>
-      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fdiary_2025_04_07%2f&amp;description=%e8%bd%89%e8%81%b7%e8%b7%af%ef%bc%9aAI%e9%a4%8a%e6%88%90%e7%8f%ad%20Day%201." target="_blank" rel="noopener"
+      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fwebsite%2fcreate_static_web_2%2f&amp;description=%e8%87%aa%e6%9e%b6%e7%b6%b2%e7%ab%99%e7%ad%86%e8%a8%98%ef%bc%9a%e4%bd%bf%e7%94%a8Github%20%2b%20Hugo%ef%bc%88%e4%b8%ad%ef%bc%89" target="_blank" rel="noopener"
         title="Share on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
           <path
@@ -485,8 +613,21 @@
       
       <ul class="list-group list-group-horizontal" style="flex-direction: row">
         
+        <li class="list-group-item b-0 p-0">
+
+          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/post/2025/website/create_static_web_1/"
+            data-toggle="tooltip" data-placement="top" title="自架網站筆記：使用Github &#43; Hugo（上）">&larr;
+            Previous Post</a>
+        </li>
+        
 
 
+        
+        <li class="list-group-item ms-auto b-0 p-0">
+          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/post/2025/website/create_static_web_3/"
+            data-toggle="tooltip" data-placement="top" title="自架網站筆記：使用Github &#43; Hugo（下）">Next Post
+            &rarr;</a>
+        </li>
         
       </ul>
       
@@ -502,7 +643,121 @@
   
   
   
+  
+  
 
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 mt-3">
+        <h3>Read More</h3>
+        <hr />
+      </div>
+
+      
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
+    <a href="https://AH-DevWorks.github.io/post/2025/website/create_static_web_3/">
+        <div class="card single-post-card h-100 shadow-effect border">
+            
+
+            
+            <div class="card-body">
+
+                <h3 class="fw-medium post-title">自架網站筆記：使用Github &#43; Hugo（下）</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  2025年4月9日
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+                <div class="post-entry">
+
+                    
+                    ——自架靜態網站的過程紀錄．下篇——
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+
+
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
+    <a href="https://AH-DevWorks.github.io/post/2025/website/create_static_web_1/">
+        <div class="card single-post-card h-100 shadow-effect border">
+            
+
+            
+            <div class="card-body">
+
+                <h3 class="fw-medium post-title">自架網站筆記：使用Github &#43; Hugo（上）</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  2025年4月5日
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+                <div class="post-entry">
+
+                    
+                    ——自架靜態網站的過程紀錄．上篇——
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    <h6 class="text-muted link-underline">Read More <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+
+
+      
+    </div>
+  </div>
   
   
 

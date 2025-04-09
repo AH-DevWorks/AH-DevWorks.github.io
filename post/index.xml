@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Website on Meditations in Code - A.H.</title>
-    <link>https://AH-DevWorks.github.io/tags/website/</link>
-    <description>Recent content in Website on Meditations in Code - A.H.</description>
+    <title>Meditations in Code - A.H.</title>
+    <link>https://AH-DevWorks.github.io/post/</link>
+    <description>Recent content on Meditations in Code - A.H.</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>a.h.devworks@gmail.com (AH-DevWorks)</managingEditor>
     <webMaster>a.h.devworks@gmail.com (AH-DevWorks)</webMaster>
     <lastBuildDate>Wed, 09 Apr 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://AH-DevWorks.github.io/tags/website/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://AH-DevWorks.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>自架網站筆記：使用Github &#43; Hugo（下）</title>
       <link>https://AH-DevWorks.github.io/post/2025/website/create_static_web_3/</link>
