@@ -1,0 +1,30 @@
+{{ $header := .Get "header" }}
+{{ $title := .Get "title" }}
+{{ $content := .Get "content" }}
+
+{{ $role := .Get "role" }}
+{{ $roleClass := "" }}
+
+{{ if eq $role "success"}}
+    {{ $roleClass = "info-cards suggest"}}
+{{ else }}
+    {{ $roleClass = "info-card-bg"}}
+{{ end }}
+
+<div class="info-card mb-3">
+  <div class="info-card-body">
+    {{ with $title }}
+      <h4 class="info-card-title">{{ . }}</h4>
+    {{ end }}
+    
+    <div class="info-card-text">
+      {{ if eq $header "lorem-ipsum" }}
+        {{ $content }}
+      {{ else if eq $header "another-info" }}
+        <!-- Some other predefined content -->
+      {{ else }}
+        {{ $content }}
+      {{ end }}
+    </div>
+  </div>
+</div>
