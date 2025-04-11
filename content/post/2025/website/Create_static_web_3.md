@@ -24,7 +24,7 @@ git push origin main  # 如果檔案較多較大，push後建議等一下
 5. `git add [檔案]` 後，可以先 `hugo server` 本地確認網站更新無誤；或直接 `hugo` 後把 public/ 內新檔覆蓋更新到母資料夾
 6. `git add .` --> `git commit` --> `git push origin main` ，過幾分鐘 github 處理好，刷新網站即可。
    + 可以到github 的web-repo檢查進度（如下圖✅｜萬一出現❌表示哪裡出了問題，要回頭檢查）
-<img src="/img/post/github_check_sucess.jpg" title="github_check_sucess_20250409">
+![github_check_sucess](/img/post/github_check_sucess.jpg)
 
 
 ### 常見QA
