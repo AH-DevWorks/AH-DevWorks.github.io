@@ -60,7 +60,7 @@
   "headline": "自架網站筆記：使用Github \u002b Hugo（中）",
   "description" : "——自架靜態網站的過程紀錄．中篇——",
   "inLanguage" : "en",
-  "wordCount":  163 ,
+  "wordCount":  131 ,
   "datePublished" : "2025-04-07T00:00:00",
   "dateModified" : "2025-04-07T00:00:00",
   "image" : "https:\/\/AH-DevWorks.github.io\/",
@@ -447,7 +447,7 @@
 
 <hr>
 <blockquote>
-<p>通常要有「contents」、「static」這兩個資料夾，但也不一定，像Lightbi就是「contents」、「assets」這兩個，「img」包含在assets/裡。建議翻查主題的Documents，有寫最好，沒寫的話就只能自己多hugo server測試幾次。</p></blockquote>
+<p>通常是「contents」、「static」這兩個資料夾，但也不一定，建議翻查主題的Documents，有寫最好，沒寫的話就只能自己多hugo server測試幾次。</p></blockquote>
 <ol start="4">
 <li>建立一篇測試文章，如 <code>echo -e &quot;+++\ntitle = \&quot;First Note\&quot;\ndate = 2025-04-05\n+++\n\nThis is my first note.&quot; &gt; content/notes/first-note.md</code> 或自己寫一個.md檔</li>
 <li>push上去</li>
@@ -455,28 +455,20 @@
 <ul>
 <li>注意這裡<!-- raw HTML omitted --><!-- raw HTML omitted -->不要<!-- raw HTML omitted --><!-- raw HTML omitted -->執行 <code>hugo new site</code>，Contents-Repo只負責網站上的內容檔案</li>
 </ul>
-<ol start="6">
-<li><!-- raw HTML omitted -->將 Contents-Repo 引入到 Website-Repo<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<hr>
 <ul>
-<li>cd回到 PART I 建立好的 Website-Repo 資料夾</li>
+<li>[2025/04/11 更新]
+6. 把Content-Repo的檔案（<code>content/</code>資料夾裡的.md文件 ＆ 可能有<code>static/</code>裡的圖片等額外檔案）確認都ok後，在這個資料夾先git add -&gt; commit -&gt; push 一次後，手動複製 <code>content/ static/</code>兩資料夾到 Web-Repo/ 底下，覆蓋更新原本Web-Repo/裡面的同名資料夾跟檔案
+<ul>
+<li>註: 原本submodule引入的方式太複雜，也容易出錯，反正兩個repo的檔案都在同一電腦本機，乾脆版本管理用各自的git，移動用手動的處理比較快。</li>
 </ul>
 </li>
-<li><strong>加入 Contents-Repo 作為子模組，將 Contents-Repo 的內容直接映射到 content/ 跟 assets/ 資料夾</strong></li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add -b main https://github.com/<span style="font-weight:bold">[</span>user_name<span style="font-weight:bold">]</span>/<span style="font-weight:bold">[</span>Contents-Repo<span style="font-weight:bold">]</span>.git Contents-Repo
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 然後再分別把其下兩個資料夾連結到對應的「content/」「assets/」:</span>
-</span></span><span style="display:flex;"><span>ln -s Contents-Repo/content content
-</span></span><span style="display:flex;"><span>ln -s Contents-Repo/assets assets
-</span></span></code></pre></div><ul>
-<li>注意：這裡可能會出現像 <code>fatal: 'content' already exists and is not a valid git repo</code> 等錯誤&ndash;&gt;直接把原本資料夾裡有的「content」砍掉（或是裡面資料先備份到其他地方、之後再放回去）</li>
 </ul>
-<ol start="8">
-<li>抓取submodule內容</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule update --init --recursive
-</span></span></code></pre></div><ol start="9">
-<li>再次 <code>hugo server</code> 測試，正確的話原本在Contents-Repo裡面的文章（步驟4做的）應該會顯示在網站theme對應的地方（如網站 [Notes] 標籤底下）</li>
-<li>沒問題的話記得push提交更改</li>
+<ol start="7">
+<li>再次 <code>hugo server</code> 測試，正確的話原本在Contents-Repo裡面的文章（步驟4做的）應該會顯示在網站對應的地方（如網站 [Notes] 標籤底下）</li>
+<li>沒問題的話記得Web-repo 也要 push提交更改。</li>
+<li>之後主要寫日記、文章、圖片都在Content-Repo進行，完成後git版本更新，再複製進Web-Repo/ 後 hugo，Web-Repo/也記得每次都要版本更新。這樣萬一哪次檔案不小心誤刪或蓋掉，還是可以回溯。</li>
 </ol>
 <hr>
 <hr>
