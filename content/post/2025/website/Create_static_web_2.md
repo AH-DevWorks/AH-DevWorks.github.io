@@ -81,7 +81,8 @@ git add .
 git commit -m "Generate static site"
 git push origin main
 ```
-4. 檢查網站是否正常顯示（github倉庫-Settings-Pages會顯示「Your site live at `https://...`」）
+4. 再次add -> commit -> push
+5. 檢查網站是否正常顯示（github倉庫-Settings-Pages會顯示「Your site live at `https://...`」）
 
 ---
 

@@ -2,7 +2,7 @@
 title: 自架網站筆記：使用Github + Hugo（下）
 date: 2025-04-09
 tags: ["hugo","blog","website"]
-Description  : "——自架靜態網站的過程紀錄．下篇——"
+Description: "——自架靜態網站的過程紀錄．下篇——"
 featured: true
 ---
 
@@ -27,13 +27,18 @@ git push origin main  # 如果檔案較多較大，push後建議等一下
 ![github_check_sucess](/img/post/github_check_sucess.jpg)
 
 
-### 常見QA
+### 常見QA & Tips
 1. **【本機跑正常，GitHub Pages 樣式卻很簡陋】**：一路做到PART III都沒問題，但實際網址連到的網頁外觀卻跟「hugo server」測試時「http://localhost:1313/...」的網頁明顯不同。
     + 通常是baseURL沒設定好，或是publish的相對路徑、theme路徑或資源沒有正確被拷貝，導致Github Pages抓不到樣式
     + 建議前述PART I的步驟7第二點再次確認：baseURL應該會是「https://[你的使用者名稱].github.io/」
     + 確認hugo生成的public檔案必須全部拷貝到前一層資料夾（通常就是「/[你的使用者名稱].github.io」）
     + 且每次修正後，都要重新hugo、update一次，讓Github Pagese更新（通常push後不會即時刷新，要等一下 --> 可看github倉庫-Settings-Pages網站網址底下的小字「Last deployed by @user xxx minutes ago」來判斷刷新了沒）
     + 有時候可能是theme本身的問題，假如theme本身有exampleSite（contents, layout等資料夾），建議可以複製回去、保持樣式，之後再來把範本內文取代掉
+2. **修改網站圖示(Favicon / Website Icon)**
+   + 瀏覽網頁時，畫面上方網頁名稱的旁邊的那個小icon就是Favicon，預設會是主題自帶的icon。
+![favicon](/img/post/favicon.png)
+   + 製作 Favicon : 可以用 [favicon.io](https://favicon.io/favicon-generator/) 或 [RealFaviconGenerator](https://realfavicongenerator.net/) 之類的免費網站；懂PS的話也可以自己做，記得縮成512x512再轉成 `.ico` 或 `.png` 格式。
+   + 把Web-Repo/static/favicon 底下的檔案替換掉，重新hugo就行。
 
 ---
 ---
