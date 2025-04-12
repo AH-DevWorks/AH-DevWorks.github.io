@@ -60,7 +60,7 @@
   "headline": "自架網站筆記：使用Github \u002b Hugo（下）",
   "description" : "——自架靜態網站的過程紀錄．下篇——",
   "inLanguage" : "en",
-  "wordCount":  123 ,
+  "wordCount":  144 ,
   "datePublished" : "2025-04-09T00:00:00",
   "dateModified" : "2025-04-09T00:00:00",
   "image" : "https:\/\/AH-DevWorks.github.io\/",
@@ -416,7 +416,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="常見qa">常見QA</h3>
+<h3 id="常見qa--tips">常見QA &amp; Tips</h3>
 <ol>
 <li><strong>【本機跑正常，GitHub Pages 樣式卻很簡陋】</strong>：一路做到PART III都沒問題，但實際網址連到的網頁外觀卻跟「hugo server」測試時「http://localhost:1313/&hellip;」的網頁明顯不同。
 <ul>
@@ -425,6 +425,14 @@
 <li>確認hugo生成的public檔案必須全部拷貝到前一層資料夾（通常就是「/[你的使用者名稱].github.io」）</li>
 <li>且每次修正後，都要重新hugo、update一次，讓Github Pagese更新（通常push後不會即時刷新，要等一下 &ndash;&gt; 可看github倉庫-Settings-Pages網站網址底下的小字「Last deployed by @user xxx minutes ago」來判斷刷新了沒）</li>
 <li>有時候可能是theme本身的問題，假如theme本身有exampleSite（contents, layout等資料夾），建議可以複製回去、保持樣式，之後再來把範本內文取代掉</li>
+</ul>
+</li>
+<li><strong>修改網站圖示(Favicon / Website Icon)</strong>
+<ul>
+<li>瀏覽網頁時，畫面上方網頁名稱的旁邊的那個小icon就是Favicon，預設會是主題自帶的icon。
+<img src="/img/post/favicon.png" alt="favicon"></li>
+<li>製作 Favicon : 可以用 <a href="https://favicon.io/favicon-generator/">favicon.io</a> 或 <a href="https://realfavicongenerator.net/">RealFaviconGenerator</a> 之類的免費網站；懂PS的話也可以自己做，記得縮成512x512再轉成 <code>.ico</code> 或 <code>.png</code> 格式。</li>
+<li>把Web-Repo/static/favicon 底下的檔案替換掉，重新hugo就行。</li>
 </ul>
 </li>
 </ol>
@@ -828,7 +836,7 @@
         </p>
         
         <p class="credits theme-by text-muted">
-          Powered by <a href="https://gohugo.io">Hugo</a> & <a href="https://github.com/binokochumolvarghese/lightbi-hugo">Lightbi.</a>&nbsp; Made with ❤ by <a href="https://binovarghese.com">Bino</a>
+          Powered by <a href="https://gohugo.io">Hugo</a> & <a href="https://github.com/binokochumolvarghese/lightbi-hugo">Lightbi.</a>&nbsp; Made with 🧋➕🤔 by <a href="https://ah-devworks.github.io/">AH-Dev</a>
           
         </p>
       </div>
@@ -850,7 +858,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     
   </body>
