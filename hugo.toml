@@ -1,7 +1,7 @@
 baseURL = "https://AH-DevWorks.github.io"
-DefaultContentLanguage = "en"
+DefaultContentLanguage = "zh-tw"
 defaultContentLanguageInSubdir = false
-languageCode = "en-us"
+languageCode = "zh-tw"
 title = "Meditations in Code - A.H."
 theme = "lightbi-hugo"
 metaDataFormat = "yaml"
@@ -88,7 +88,7 @@ showPostImage = false
 
 [[menu.main]]
     name = "Tags"
-    url = "/tags/blog/"
+    url = "/tags/"
     weight = 3
 
 [[menu.main]]

@@ -4,6 +4,7 @@ date: 2025-04-05
 tags: ["hugo","blog","website"]
 Description  : "——自架靜態網站的過程紀錄．上篇——"
 featured: true
+lastmod: 2025-04-09
 ---
 
 > + 第一篇文章，總之先簡單記錄這個靜態網站怎麼做的，不然大概隔幾天又忘光光。

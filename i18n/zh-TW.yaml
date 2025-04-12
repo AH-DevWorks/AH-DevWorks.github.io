@@ -1,0 +1,74 @@
+# Content
+- id: dateFormat
+  translation: "January 2, 2006"
+- id: shortdateFormat
+  translation: "2 Jan, 2006 15:04:05"
+- id: postedOnDate
+  translation: "發表於 {{ . }}"
+- id: lastModified
+  translation: "| 更新於：{{ . }}"
+- id: translationsLabel
+  translation: "其他語言: "
+- id: translationsSeparator
+  translation: ", "
+- id: readMore
+  translation: "閱讀全文"
+- id: olderPosts
+  translation: "更舊的文章"
+- id: newerPosts
+  translation: "更新的文章"
+- id: previousPost
+  translation: "上一篇"
+- id: nextPost
+  translation: "下一篇"
+- id: readTime
+  translation: "分鐘"
+- id: words
+  translation: "個字"
+
+
+# 404 page
+- id: pageNotFound
+  translation: "哎呀呀，這個頁面不存在，去其他地方逛逛吧。 (404 錯誤)"
+
+# Footer
+- id: poweredBy # Accepts HTML
+  translation: 'Powered by <a href="https://gohugo.io">Hugo</a> & <a href="https://github.com/binokochumolvarghese/lightbi-hugo">Lightbi.</a>&nbsp; Made with 🧋➕🤔 by <a href="https://ah-devworks.github.io/">AH-Dev</a>'
+
+# Navigation
+- id: toggleNavigation
+  translation: "開關導覽"
+- id: languageSwitcherLabel
+  translation: "語言"
+- id: gcseLabelShort
+  translation: "搜尋"
+- id: gcseLabelLong
+  translation: "搜尋 {{ .Site.Title }}"
+- id: gcseClose
+  translation: "關閉"
+
+# Staticman
+- id: noComment
+  translation: "沒有評論"
+- id: oneComment
+  translation: "則評論"
+- id: moreComment
+  translation: "則評論"
+- id: useMarkdown
+  translation: "您可以使用Markdown語法"
+- id: yourName
+  translation: "您的名字"
+- id: yourEmail
+  translation: "您的電子信箱"
+- id: yourWebsite
+  translation: "您的網頁"
+
+# Delayed Disqus
+- id: show
+  translation: "顯示"
+- id: comments
+  translation: "則評論"
+
+# Related posts
+- id: seeAlso
+  translation: "其他相關"

@@ -4,6 +4,7 @@ date: 2025-04-07
 tags: ["hugo","blog","website"]
 Description  : "——自架靜態網站的過程紀錄．中篇——"
 featured: true
+lastmod: 2025-04-11
 ---
 
 #### [【前一回】自架網站筆記：使用Github + Hugo（上）](https://ah-devworks.github.io/notes/website/create_static_web_1/)

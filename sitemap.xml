@@ -3,37 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://AH-DevWorks.github.io/post/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://AH-DevWorks.github.io/tags/blog/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://AH-DevWorks.github.io/tags/hugo/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://AH-DevWorks.github.io/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://AH-DevWorks.github.io/tags/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://AH-DevWorks.github.io/tags/website/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://AH-DevWorks.github.io/post/2025/website/create_static_web_3/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -43,6 +43,11 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://AH-DevWorks.github.io/post/2025/website/create_static_web_2/</loc>
+    <lastmod>2025-04-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://AH-DevWorks.github.io/notes/</loc>
     <lastmod>2025-04-07T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -52,13 +57,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://AH-DevWorks.github.io/notes/</loc>
-    <lastmod>2025-04-07T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://AH-DevWorks.github.io/post/2025/website/create_static_web_1/</loc>
-    <lastmod>2025-04-05T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
