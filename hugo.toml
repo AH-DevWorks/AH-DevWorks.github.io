@@ -14,7 +14,7 @@ pygmentsCodefencesGuessSyntax = true
 #disqusShortname = "XXX"
 #googleAnalytics = "XXX"
 enableRobotsTXT = true
-enableGitInfo = true
+enableGitInfo = false
 summaryLength  = "30"
 ignoreLogs = ['warning-goldmark-raw-html']
 
