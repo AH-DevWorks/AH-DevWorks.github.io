@@ -8,8 +8,22 @@
     <language>zh-tw</language>
     <managingEditor>a.h.devworks@gmail.com (AH-DevWorks)</managingEditor>
     <webMaster>a.h.devworks@gmail.com (AH-DevWorks)</webMaster>
-    <lastBuildDate>Sat, 12 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://AH-DevWorks.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Journal</title>
+      <link>https://AH-DevWorks.github.io/tags/journal/</link>
+      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/journal/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Learning</title>
+      <link>https://AH-DevWorks.github.io/tags/learning/</link>
+      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/learning/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Blog</title>
       <link>https://AH-DevWorks.github.io/tags/blog/</link>
@@ -29,13 +43,6 @@
       <link>https://AH-DevWorks.github.io/tags/website/</link>
       <pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
       <guid>https://AH-DevWorks.github.io/tags/website/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Learning</title>
-      <link>https://AH-DevWorks.github.io/tags/learning/</link>
-      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
-      <guid>https://AH-DevWorks.github.io/tags/learning/</guid>
       <description></description>
     </item>
   </channel>
