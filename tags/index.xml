@@ -8,20 +8,41 @@
     <language>zh-tw</language>
     <managingEditor>a.h.devworks@gmail.com (AH-DevWorks)</managingEditor>
     <webMaster>a.h.devworks@gmail.com (AH-DevWorks)</webMaster>
-    <lastBuildDate>Sun, 13 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://AH-DevWorks.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Journal</title>
-      <link>https://AH-DevWorks.github.io/tags/journal/</link>
-      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
-      <guid>https://AH-DevWorks.github.io/tags/journal/</guid>
+      <title>Algorithm</title>
+      <link>https://AH-DevWorks.github.io/tags/algorithm/</link>
+      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bubble Sort</title>
+      <link>https://AH-DevWorks.github.io/tags/bubble-sort/</link>
+      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/bubble-sort/</guid>
       <description></description>
     </item>
     <item>
       <title>Learning</title>
       <link>https://AH-DevWorks.github.io/tags/learning/</link>
-      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
       <guid>https://AH-DevWorks.github.io/tags/learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sorting</title>
+      <link>https://AH-DevWorks.github.io/tags/sorting/</link>
+      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/sorting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Journal</title>
+      <link>https://AH-DevWorks.github.io/tags/journal/</link>
+      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/journal/</guid>
       <description></description>
     </item>
     <item>
