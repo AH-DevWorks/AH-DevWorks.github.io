@@ -8,8 +8,15 @@
     <language>zh-tw</language>
     <managingEditor>a.h.devworks@gmail.com (AH-DevWorks)</managingEditor>
     <webMaster>a.h.devworks@gmail.com (AH-DevWorks)</webMaster>
-    <lastBuildDate>Mon, 14 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://AH-DevWorks.github.io/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>轉職路：AI養成班 Week 2.</title>
+      <link>https://AH-DevWorks.github.io/notes/2025/weekly_journal_202504_2/</link>
+      <pubDate>Sun, 20 Apr 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/notes/2025/weekly_journal_202504_2/</guid>
+      <description>&lt;h4 id=&#34;第二週414415417419&#34;&gt;第二週：4/14、4/15、4/17、4/19&lt;/h4&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://AH-DevWorks.github.io/img/notes/pexels-ravikant-1715161.jpg&#34; alt=&#34;Image by Ravi Kant from Pixabay&#34;&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;It is not things themselves that disturb us, but our opinions about them.  — Epictetus&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;相同功能/達成結果相同情況下，Recursive (call stack) 比for loop更占記憶體空間（∵Heap）&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;Recursive&lt;/code&gt; 每一次呼叫，程式會分配一塊stack frame(堆疊空間)給該函數，並保留目前狀態，等待下一層遞迴回傳後再繼續執行&#xA;&lt;ul&gt;&#xA;&lt;li&gt;導致每層呼叫都佔據一些記憶體&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;for loop&lt;/code&gt; 每個只要一次函數呼叫的堆疊空間，不會有額外的函數呼叫堆疊&#xA;&lt;ul&gt;&#xA;&lt;li&gt;除非每圈都創造很多objects，否則使用空間是固定的&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;python有堆疊上限: 預設1000層(可用 &lt;code&gt;sys.getrecursionlimit()&lt;/code&gt; 查看)&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#555&#34;&gt;sys&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#999&#34;&gt;print&lt;/span&gt;(sys&lt;span style=&#34;font-weight:bold&#34;&gt;.&lt;/span&gt;getrecursionlimit())&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;超過就會 &lt;code&gt;RecursionError: maximum recursion depth exceeded in comparison&lt;/code&gt; → 無法回傳或Crash或記憶體爆炸&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;em&gt;函式也可指派給變數&lt;/em&gt; &amp;ndash;&amp;gt; 類似代數中「變數可以代表一個值」的觀念&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Python 實作 Bubble Sort</title>
       <link>https://AH-DevWorks.github.io/post/2025/algorithm/bubble_sort_20250414/</link>

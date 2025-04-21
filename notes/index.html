@@ -324,6 +324,100 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-10">
+                    <h3 class="fw-medium post-title">轉職路：AI養成班 Week 2.</h3>
+                </div>
+                <div class="col-md-2 d-flex justify-content-end">
+                    <a href="https://AH-DevWorks.github.io/notes/2025/weekly_journal_202504_2/">
+                        <button type="button" class="btn btn-outline-dark">
+                            Link
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            
+
+            <p class="post-meta">
+                <span class="post-meta text-muted">
+  
+  
+
+  2025年4月20日
+
+  
+
+  
+
+  
+
+  
+</span>
+
+            </p>
+            
+            <div class="post-entry">
+
+                <h4 id="第二週414415417419">第二週：4/14、4/15、4/17、4/19</h4>
+<p><img src="/img/notes/pexels-ravikant-1715161.jpg" alt="Image by Ravi Kant from Pixabay"></p>
+<blockquote>
+<p>It is not things themselves that disturb us, but our opinions about them.  — Epictetus</p></blockquote>
+<hr>
+<ul>
+<li>
+<p><strong>相同功能/達成結果相同情況下，Recursive (call stack) 比for loop更占記憶體空間（∵Heap）</strong></p>
+<ul>
+<li><code>Recursive</code> 每一次呼叫，程式會分配一塊stack frame(堆疊空間)給該函數，並保留目前狀態，等待下一層遞迴回傳後再繼續執行
+<ul>
+<li>導致每層呼叫都佔據一些記憶體</li>
+</ul>
+</li>
+<li><code>for loop</code> 每個只要一次函數呼叫的堆疊空間，不會有額外的函數呼叫堆疊
+<ul>
+<li>除非每圈都創造很多objects，否則使用空間是固定的</li>
+</ul>
+</li>
+<li>python有堆疊上限: 預設1000層(可用 <code>sys.getrecursionlimit()</code> 查看)
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">sys</span>
+</span></span><span style="display:flex;"><span><span style="color:#999">print</span>(sys<span style="font-weight:bold">.</span>getrecursionlimit())
+</span></span></code></pre></div><ul>
+<li>超過就會 <code>RecursionError: maximum recursion depth exceeded in comparison</code> → 無法回傳或Crash或記憶體爆炸</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><em>函式也可指派給變數</em> &ndash;&gt; 類似代數中「變數可以代表一個值」的觀念</p>
+                
+                    <a href="/notes/2025/weekly_journal_202504_2/">閱讀全文→</a>
+                
+            </div>
+        </div>
+        
+        
+        
+        <div class="card-footer text-muted">
+            <div class="blog-tags">
+                
+                <a href="https://AH-DevWorks.github.io/tags/learning/">learning</a>
+                
+                <a href="https://AH-DevWorks.github.io/tags/journal/">journal</a>
+                
+            </div>
+        </div>
+        
+
+
+
+
+    </div>
+</div>
+    
+    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
+    
+        <div class="card border mb-3 "> 
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
                     <h3 class="fw-medium post-title">轉職路：AI養成班 Week 1.</h3>
                 </div>
                 <div class="col-md-2 d-flex justify-content-end">
@@ -357,7 +451,6 @@
             
             <div class="post-entry">
 
-                
                 <h4 id="第一週4748410412">第一週：4/7、4/8、4/10、4/12</h4>
 <p><img src="/img/notes/blossoms-6991112_640.jpg" alt="Image by wal_172619 from Pixabay"></p>
 <hr>
@@ -495,78 +588,8 @@ set its value to <code>1</code></li>
 <ul>
 <li>
 <p><a href="https://www.hello-algo.com/zh-hant/">Hello 演算法</a></p>
-<ul>
-<li>~ 4.2</li>
-<li>從位址計算公式的角度看，索引本質上是<code>記憶體位址的偏移量</code>。首個元素的位址偏移量是0 ，因此陣列首個元素的索引為0是合理的</li>
-<li>由於陣列的長度是固定的，因此插入一個元素必定會導致陣列尾部元素“丟失”</li>
-<li>刪除元素完成後，原先末尾的元素變得“無意義”，所以無須特意去修改
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="font-weight:bold">import</span> <span style="color:#555">numpy</span> <span style="font-weight:bold">as</span> <span style="color:#555">np</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 建立一固定長度的 numpy 陣列</span>
-</span></span><span style="display:flex;"><span>arr <span style="font-weight:bold">=</span> np<span style="font-weight:bold">.</span>array([<span style="color:#099">10</span>, <span style="color:#099">20</span>, <span style="color:#099">30</span>, <span style="color:#099">40</span>, <span style="color:#099">50</span>])
-</span></span><span style="display:flex;"><span><span style="color:#999">print</span>(<span style="color:#b84">&#34;原始陣列：&#34;</span>, arr)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 插入一個元素到index[2]，並移動後面的元素</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 手動模擬插入（ numpy 不像 list 可以直接 insert）</span>
-</span></span><span style="display:flex;"><span>arr[<span style="color:#099">3</span>:] <span style="font-weight:bold">=</span> arr[<span style="color:#099">2</span>:<span style="font-weight:bold">-</span><span style="color:#099">1</span>]  <span style="color:#998;font-style:italic"># 往後推一格</span>
-</span></span><span style="display:flex;"><span>arr[<span style="color:#099">2</span>] <span style="font-weight:bold">=</span> <span style="color:#099">99</span>  <span style="color:#998;font-style:italic"># 插入新值</span>
-</span></span><span style="display:flex;"><span><span style="color:#999">print</span>(<span style="color:#b84">&#34;插入 99 後：&#34;</span>, arr)  <span style="color:#998;font-style:italic"># 原本的 50 被擠掉了</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 刪除索引 1 的元素（把後面的往前搬）</span>
-</span></span><span style="display:flex;"><span>arr[<span style="color:#099">1</span>:<span style="font-weight:bold">-</span><span style="color:#099">1</span>] <span style="font-weight:bold">=</span> arr[<span style="color:#099">2</span>:]
-</span></span><span style="display:flex;"><span><span style="color:#999">print</span>(<span style="color:#b84">&#34;刪除索引 1 後：&#34;</span>, arr)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 最後一格雖然還有值，但已經是「無意義」的資料</span>
-</span></span><span style="display:flex;"><span><span style="color:#999">print</span>(<span style="color:#b84">&#34;最尾端元素實際上已經沒用了：&#34;</span>, arr[<span style="font-weight:bold">-</span><span style="color:#099">1</span>])
-</span></span></code></pre></div></li>
-</ul>
-</li>
-<li>
-<p>自架 <code>GitHub + Hugo 靜態網站</code>(<a href="https://ah-devworks.github.io//tags/hugo/">https://ah-devworks.github.io//tags/hugo/</a>)：</p>
-<ul>
-<li>UI(font, i18n/[language] yaml, favicon)、footer調整</li>
-<li>技術彙整大致完成，剩餘額外補充待整理</li>
-<li>網站尚有改善空間（Google Analytics、SEO&hellip;），但反正能用了，先暫時這樣堪用就好</li>
-</ul>
-</li>
-<li>
-<p><code>實體書</code></p>
-<ul>
-<li>岡野原大輔 (2024). <em>精確掌握 AI 大趨勢！深度學習技術解密：日本 AI 神人，帶你正確學會從機器學習到生成式 AI 的核心基礎</em> (王心薇 &amp; 施威銘研究室, Trans.). 旗標.
-<ul>
-<li>讀到第二章</li>
-<li>順便根據其中2.1節額外找 <a href="https://www.junyiacademy.org/course-compare/math-high/math-high-publisher/s-ma-sanmin/s-ma-sanmin-10/s-ma-s-mg10-b2-3/v/umu0FcmBivg">最小平方法(Least Squares)教學</a>，雖然現在機器學習應該都不是用OLS了</li>
-</ul>
-</li>
-<li>Ceder, N. (2019). <em>Python 技術者們：練功！老手帶路教你精通正宗 Python 程式</em> (張耀鴻, Trans.). 旗標.
-<ul>
-<li>中文是根據3rd Edition翻譯的，查了一下原作者Naomi Ceder今年有4th Edition</li>
-<li>以英文4th edition為主、中文3rd Edtion為輔，讀到2.3.2</li>
-<li>目前比較明顯差異是不再要求裝Anaconda之類的IDE，改用Google Colab hosted Jupyter Notebook放範例
-<ul>
-<li>Jupyter筆記本由兩種類型的單元格組成：文本單元格和代碼單元格</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><code>Udemy線上課程</code></p>
-<ul>
-<li>smtplib</li>
-<li>網路託管：<a href="https://www.pythonanywhere.com/">PythonAnywhere</a>
-<ul>
-<li>smtplib的涉及個人信箱帳密，還是別放到網上比較好</li>
-<li>其他一些無關且須重複執行的project倒是可以託管</li>
-</ul>
-</li>
-<li>進度嚴重落後，這周弄靜態網站花太多時間了🫠</li>
-</ul>
-</li>
-</ul>
-<hr>
-
+                
+                    <a href="/notes/2025/weekly_journal_202504_1/">閱讀全文→</a>
                 
             </div>
         </div>
@@ -637,20 +660,6 @@ set its value to <code>1</code></li>
             <a href="https://linkedin.com/in/username" title="LinkedIn" target="_blank">
               <span class="mx-2">
                 <i class="bi bi-linkedin"></i>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="https://stackoverflow.com/users/XXXXXXX/username" title="StackOverflow" target="_blank">
-              <span class="mx-2">
-                <i class="bi bi-stack-overflow"></i>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/username" title="Instagram" target="_blank">
-              <span class="mx-2">
-                <i class="bi bi-instagram"></i>
               </span>
             </a>
           </li>
