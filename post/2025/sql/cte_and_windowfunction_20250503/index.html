@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="zh-tw" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>SQL - CTE(Common Table Expression)＆Window Function - Meditations in Code - A.H.</title>
+<meta name="description" content="SQL 自學筆記——CTE＆Window Function">
+
+<meta name="author" content="AH-DevWorks"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Meditations in Code - A.H.",
+    
+    "url": "https:\/\/AH-DevWorks.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/AH-DevWorks.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/AH-DevWorks.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/AH-DevWorks.github.io\/post\/2025\/sql\/cte_and_windowfunction_20250503\/",
+          "name": "SQL cte( common table expression)＆ window function"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "map[authorinfo:All the world’s a stage, and all the men and women merely players. They have their exits and their entrances, and one man in his time plays many parts. authorpostimage: email:a.h.devworks@gmail.com github:AH-DevWorks linkedin:username name:AH-DevWorks website:https:\/\/ah-devworks.github.io\/]"
+  },
+  "headline": "SQL - CTE(Common Table Expression)＆Window Function",
+  "description" : "SQL 自學筆記——CTE＆Window Function",
+  "inLanguage" : "zh-tw",
+  "wordCount":  458 ,
+  "datePublished" : "2025-05-03T00:00:00",
+  "dateModified" : "2025-05-03T00:00:00",
+  "image" : "https:\/\/AH-DevWorks.github.io\/",
+  "keywords" : [ "learning, SQL, CTE, Window Function" ],
+  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/post\/2025\/sql\/cte_and_windowfunction_20250503\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/AH-DevWorks.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/AH-DevWorks.github.io\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="SQL - CTE(Common Table Expression)＆Window Function" />
+<meta property="og:description" content="SQL 自學筆記——CTE＆Window Function">
+<meta property="og:url" content="https://AH-DevWorks.github.io/post/2025/sql/cte_and_windowfunction_20250503/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Meditations in Code - A.H." />
+<link rel="apple-touch-icon" sizes="180x180" href=" https://AH-DevWorks.github.io/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://AH-DevWorks.github.io/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://AH-DevWorks.github.io/favicon/favicon-16x16.png">
+
+
+<meta name="generator" content="Hugo 0.145.0">
+<link rel="alternate" href="https://AH-DevWorks.github.io/index.xml" type="application/rss+xml" title="Meditations in Code - A.H.">
+<script src="https://AH-DevWorks.github.io/js/dark-mode.js"></script><script src="https://AH-DevWorks.github.io/vendor/lunr/lunr.min.js"></script><script src="https://AH-DevWorks.github.io/vendor/lunr/lunr.stemmer.support.js"></script>
+        <script src="https://AH-DevWorks.github.io/vendor/lunr/lunr.zh.js"></script><script src="https://AH-DevWorks.github.io/js/lunr-search.js" data-index="/search.json"></script><link rel="stylesheet" href="/style.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://AH-DevWorks.github.io/css/custom.min.f8a07ac5009ace2462a7d4ac43d718cede520d105ce74d3fdf960843acaaaa7c.css">
+
+
+
+<style>
+  body, p {
+    font-size: 0.95rem !important;
+  }
+  h1 { font-size: 37px !important; }
+  h2 { font-size: 32px !important; }
+  h3 { font-size: 28px !important; }
+  h4 { font-size: 22px !important; }
+  h5 { font-size: 18px !important; }
+  h6 { font-size: 15px !important; }
+
+  .blog-post p, 
+  .post-entry p,
+  article p,
+  .container[role=main] p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .blog-post li,
+  .post-entry li,
+  article li,
+  .container[role=main] li {
+    font-size: 1rem !important; 
+    line-height: 1.6 !important;
+  }
+
+  .blog-post a,
+  .post-entry a,
+  article a,
+  .container[role=main] a {
+    font-size: 0.85rem !important; 
+    line-height: 1.4 !important;
+  }
+
+  .container[role=main] {
+  font-size: 1rem !important;
+  }
+ 
+</style>
+
+
+
+
+
+ 
+
+<link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+
+<script  src="https://AH-DevWorks.github.io/vendor/glightbox/js/glightbox.min.js"></script>
+ 
+  </head>
+  <body>
+    
+<div class="container fixed-top mw-100">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
+
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top p-0">
+        <div class="container">
+
+          <a class="navbar-brand fw-bold" href="https://AH-DevWorks.github.io/">Meditations in Code - A.H.</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav mb-2 mb-lg-0 align-items-baseline">
+              
+              
+
+              <li class="nav-item">
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Home"
+                  href="/"> Home</a>
+              </li>
+
+              
+              
+              
+
+              <li class="nav-item">
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Notes"
+                  href="/notes/"> Notes</a>
+              </li>
+
+              
+              
+              
+
+              <li class="nav-item">
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Tags"
+                  href="/tags/"> Tags</a>
+              </li>
+
+              
+              
+              
+
+              <li class="nav-item">
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="Collections"
+                  href="/collections/"> Collections</a>
+              </li>
+
+              
+              
+              
+
+              <li class="nav-item">
+                
+                
+                
+                
+                
+
+                <a class="nav-link " title="About"
+                  href="/about/"> About</a>
+              </li>
+
+              
+              
+
+
+                
+            
+
+            
+              <li class="nav-item nav-link">
+                <a id="dark-mode-toggle" class="bi bi-moon-stars" role="button"></a>
+              </li>
+
+              
+              
+              <li class="nav-item search-item">
+                <form id="search" class="search" role="search">
+                  <label for="search-input" class="bi bi-search search-icon"></label>
+                  <input type="search" id="search-input" class="search-input">
+                </form>
+              </li>
+              
+            </ul>
+
+            
+            <template id="search-heading" hidden data-results-none=""
+              data-results-one=""
+              data-results-many="">
+              <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+                  <h1 id="search-title" class="search-title"></h1>
+                </div>
+              </div>
+            </template>
+
+            <template id="search-result" hidden>
+              <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+                  <article class="content post">
+                    <h2><a class="summary-title-link"></a></h2>
+                    <div class="post-entry"></div>
+                    <div class="read-more-section">
+                      <h6 class="text-muted link-underline">
+                        <a class="read-more-link">
+                          閱讀全文
+                          <i class="bi bi-arrow-right"></i>
+                        </a>
+                      </h6>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </template>
+            
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+</div>
+    
+
+
+
+
+
+
+
+
+
+<header class="header-section ">
+
+  <div class="intro-header no-img mt-10">
+    <div class="container">
+      <div class="row justify-content-center">
+        
+        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+          
+
+          
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            
+
+            <div class="post-heading">
+              
+
+              
+
+              
+              <h1 class="fw-semibold display-5 lh-1 mb-3"> 
+                SQL - CTE(Common Table Expression)＆Window Function
+                
+              </h1>
+              
+              
+
+              
+
+              
+              
+              <span class="post-meta">
+  <div class="row post-meta text-muted">
+    <div class="col-sm-12 col-md-6 px-0">
+      
+      
+      
+
+      
+      
+      AH-DevWorks |
+      
+      
+
+      &nbsp;2025年5月3日
+
+      
+    </div>
+
+
+    <div class="col-sm-12 col-md-6 text-sm-start text-md-end px-0">
+      
+
+      
+    </div>
+
+    
+  </div>
+</span>
+              
+              
+            </div>
+          </div>
+          
+        </div>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</header>
+
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+
+    
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+      <article role="main" class="blog-post">
+        <blockquote>
+<p>上課老師說時間不夠，這兩項目講不到，就當作延伸。</p>
+<p>自學後做了些紀錄。</p></blockquote>
+<hr>
+<h4 id="目錄">目錄</h4>
+<ul>
+<li><strong><a href="#ctecommon-table-expression-%E4%B8%80%E8%88%AC%E8%B3%87%E6%96%99%E8%A1%A8%E9%81%8B%E7%AE%97%E5%BC%8F">CTE(Common Table Expression)</a></strong></li>
+<li><strong><a href="#window-function-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B8%E8%A6%96%E7%AA%97%E5%87%BD%E6%95%B8">Window Function</a></strong></li>
+</ul>
+<hr>
+<h2 id="ctecommon-table-expression-一般資料表運算式">CTE(Common Table Expression) 一般資料表運算式</h2>
+<h3 id="說明">說明</h3>
+<ul>
+<li>CTE是 SQL 裡的一種臨時結果集</li>
+<li>「暫存」且「具名」的結果集合，透過<code>AS</code>關鍵字將查詢結果暫時儲存</li>
+<li>創建後可在SELECT、INSERT、UPDATE、DELETE等處使用，讓查詢邏輯更清晰、可讀性更高</li>
+<li><code>【基本語法】</code>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="font-weight:bold">WITH</span><span style="color:#bbb"> </span>CTE名稱<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2">查詢語句</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="font-weight:bold">*</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>CTE名稱;<span style="color:#bbb">
+</span></span></span></code></pre></div></li>
+<li>【基本範例1：查各部門平均薪資，按部門分類】
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- CTE
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">WITH</span><span style="color:#bbb"> </span>cte_name<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span>Department,<span style="color:#bbb"> </span><span style="font-weight:bold">AVG</span>(Salary)<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>AvgSalary<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>Employees<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="font-weight:bold">GROUP</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>Department<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="font-weight:bold">*</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>cte_name;<span style="color:#bbb">  </span><span style="color:#998;font-style:italic">-- 使用上面創的CTE
+</span></span></span></code></pre></div></li>
+<li>【基本範例2：查出薪資高於全體平均薪資的員工】
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="font-weight:bold">WITH</span><span style="color:#bbb"> </span>avg_salary<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="font-weight:bold">AVG</span>(sal)<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>avg_sal<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>emp<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span>e.<span style="font-weight:bold">*</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>employees<span style="color:#bbb"> </span>e<span style="color:#bbb"> </span><span style="font-weight:bold">CROSS</span><span style="color:#bbb"> </span><span style="font-weight:bold">JOIN</span><span style="color:#bbb"> </span>avg_salary<span style="color:#bbb"> </span>a<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">WHERE</span><span style="color:#bbb"> </span>e.salary<span style="color:#bbb"> </span><span style="font-weight:bold">&gt;</span><span style="color:#bbb"> </span>a.avg_sal;<span style="color:#bbb">
+</span></span></span></code></pre></div></li>
+</ul>
+<h3 id="cte-用於-tree-recursion-樹狀結構遞迴">CTE 用於 Tree Recursion 樹狀結構遞迴</h3>
+<ul>
+<li>CTE適用在處理遞迴資料結構，或整理複雜查詢邏輯</li>
+<li><em>【範例：查出公司內部從老闆開始，往下每層的隸屬關係】</em>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="font-weight:bold">WITH</span><span style="color:#bbb"> </span><span style="font-weight:bold">RECURSIVE</span><span style="color:#bbb"> </span>employee_hierarchy<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">-- 單只寫 NULL 會被推斷成字元長度太短，所以明確指定型別: CONVERT(NULL, CHAR(25))
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">-- 這裡CONVERT()預設型別不能使用 VARCHAR --&gt; MySQL本身的限制，能用固定size的CHAR，但可變長度的VARCHAR不能處理
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">-- 加level只是方便把各員工所屬層級看得更清楚
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">    </span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span>id,<span style="color:#bbb"> </span>name,<span style="color:#bbb"> </span>manager_id,<span style="color:#bbb"> </span><span style="font-weight:bold">CAST</span>(<span style="font-weight:bold">NULL</span><span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#999">CHAR</span>(<span style="color:#099">25</span>))<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>manager_name,<span style="color:#bbb"> </span><span style="color:#099">1</span><span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="font-weight:bold">level</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>employees<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="font-weight:bold">WHERE</span><span style="color:#bbb"> </span>manager_id<span style="color:#bbb"> </span><span style="font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="font-weight:bold">NULL</span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">-- 初始層級：BOSS (沒有上級mgr(manager))
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="font-weight:bold">UNION</span><span style="color:#bbb"> </span><span style="font-weight:bold">ALL</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">-- 遞迴層級：找出每一層的下屬
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">    </span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span>e.id,<span style="color:#bbb"> </span>e.name,<span style="color:#bbb"> </span>e.manager_id,<span style="color:#bbb"> </span>h.name<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>manager_name,<span style="color:#bbb"> </span>h.<span style="font-weight:bold">level</span><span style="color:#bbb"> </span><span style="font-weight:bold">+</span><span style="color:#bbb"> </span><span style="color:#099">1</span><span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>employees<span style="color:#bbb"> </span>e<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="font-weight:bold">JOIN</span><span style="color:#bbb"> </span>employee_hierarchy<span style="color:#bbb"> </span>h<span style="color:#bbb"> </span><span style="font-weight:bold">ON</span><span style="color:#bbb"> </span>e.manager_id<span style="color:#bbb"> </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>h.id<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="font-weight:bold">*</span><span style="color:#bbb"> </span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>employee_hierarchy<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span><span style="font-weight:bold">level</span>;<span style="color:#bbb">
+</span></span></span></code></pre></div></li>
+</ul>
+<h3 id="cte-vs-subquery">CTE vs. Subquery</h3>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>CTE（Common Table Expression）</th>
+          <th>Subquery（子查詢）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>語法位置</td>
+          <td>使用 <code>WITH</code> 開頭，通常在主查詢之前</td>
+          <td>可以寫在 <code>FROM</code>、<code>WHERE</code>、<code>SELECT</code> 等處</td>
+      </tr>
+      <tr>
+          <td>可重用性</td>
+          <td>定義好的CTE可在同一個查詢中重複使用</td>
+          <td>無法重複使用；每次都要寫完整的查詢內容</td>
+      </tr>
+      <tr>
+          <td>可讀性</td>
+          <td>較佳，易於拆解複雜邏輯</td>
+          <td>當巢狀太深時，可讀性較差</td>
+      </tr>
+      <tr>
+          <td>支援遞迴</td>
+          <td>✅ 可使用 <code>WITH RECURSIVE</code></td>
+          <td>❌ 不支援遞迴</td>
+      </tr>
+      <tr>
+          <td>效能差異</td>
+          <td>理論上差不多，實際依資料庫優化器與查詢內容而異</td>
+          <td>一般查詢引擎也會優化 subquery 為臨時表格</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<ul>
+<li><em>參考資料：<a href="https://vocus.cc/wo/66af87e8fd89780001717db8">SQL語法 - CTE 一般資料表運算式（COMMON TABLE EXPRESSION）</a></em></li>
+</ul>
+<hr>
+<hr>
+<h2 id="window-function-窗口函數視窗函數">Window Function 窗口函數／視窗函數</h2>
+<h3 id="說明-1">說明</h3>
+<ul>
+<li>SQL 中的一種分析工具，可以針對每一列資料，計算其在某個「資料視窗（window）」中的統計結果，而不會將資料壓縮成單一列</li>
+<li>「在資料列上滑動『一個局部範圍』進行計算」（e.g.每個部門的薪資排名、累積總和等）</li>
+<li><code>【基本語法】</code>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="font-weight:bold">&lt;</span>Window_Function_name<span style="font-weight:bold">&gt;</span>(<span style="color:#a61717;background-color:#e3d2d2">欄位</span>)<span style="color:#bbb"> </span>OVER<span style="color:#bbb"> </span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>[PARTITION<span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2">分組欄位</span>]<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>[<span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2">排序欄位</span>]<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>[<span style="font-weight:bold">ROWS</span><span style="color:#bbb"> </span><span style="font-weight:bold">BETWEEN</span><span style="color:#bbb"> </span>...]<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>)<span style="color:#bbb">
+</span></span></span></code></pre></div></li>
+<li><code>PARTITION BY</code>: 把資料按照某欄位分組形成多個「window」，然後在每一組中各自執行視窗函數邏輯
+<ul>
+<li>跟GROUP BY不同：GROUP BY後資料筆數通常會減少；PARTITION BY後資料筆數不變、結合原本欄位。
+<ul>
+<li>GROUP BY不能搭配Window Function</li>
+</ul>
+</li>
+<li>PARTITION BY 可以省略 &ndash;&gt; 表示「整張table為一個視窗」，window function 會對所有資料列共同計算（如下聚合型的範例2）</li>
+</ul>
+</li>
+</ul>
+<h3 id="常見的-window-function">常見的 Window Function</h3>
+<ul>
+<li><strong>Aggregate-style 聚合型</strong>：SUM(), COUNT(), AVG(), MAX(), MIN()</li>
+<li><strong>Ranking 排序型</strong>：ROW_NUMBER(), RANK(), DENSE_RANK()</li>
+<li><strong>Value Offset 位移型</strong>：LAG(), LEAD(), FIRST_VALUE(), LAST_VALUE()</li>
+</ul>
+<h4 id="聚合型-window-function">聚合型 Window Function</h4>
+<blockquote>
+<p>在一般查詢 / GROUP BY 語境下也可用，但在 Window Function語境下，不會壓縮rows</p></blockquote>
+<ul>
+<li>【範例1：加總每個部門的銷售總額（每列都顯示）】
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span>employee_id,<span style="color:#bbb"> </span>department,<span style="color:#bbb"> </span>amount,<span style="color:#bbb"> </span><span style="font-weight:bold">SUM</span>(amount)<span style="color:#bbb"> </span>OVER<span style="color:#bbb"> </span>(PARTITION<span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>department)<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>total_in_dept<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>sales;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#998;font-style:italic">-- 顯示每筆銷售及所在部門的總銷售金額
+</span></span></span></code></pre></div></li>
+<li>【範例2：排序各員工薪資佔人事總成本的百分比】
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 省略PARTITION BY 的用法
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span>id,<span style="color:#bbb"> </span>name,<span style="color:#bbb"> </span>job,<span style="color:#bbb"> </span>salary,<span style="color:#bbb"> </span>CONCAT(ROUND(salary<span style="font-weight:bold">/</span><span style="font-weight:bold">SUM</span>(salary)<span style="color:#bbb"> </span>OVER()<span style="color:#bbb"> </span><span style="font-weight:bold">*</span><span style="color:#bbb"> </span><span style="color:#099">100</span>,<span style="color:#bbb"> </span><span style="color:#099">2</span>),<span style="color:#bbb"> </span><span style="color:#b84">&#39;%&#39;</span>)<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>personnel_costs_percent<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>employee<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>salary<span style="color:#bbb"> </span><span style="font-weight:bold">DESC</span>;<span style="color:#bbb"> </span><span style="color:#998;font-style:italic">-- 高到低排序
+</span></span></span></code></pre></div></li>
+</ul>
+<h4 id="排序型-window-function">排序型 Window Function</h4>
+<ul>
+<li>
+<p><strong>ROW_NUMBER()</strong>: 給每一行一個不重複的序號，且<code>就算指定比對的數值一樣（如score都=1000），仍會排出高低次序</code>。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="font-weight:bold">*</span>,<span style="color:#bbb"> </span>ROW_NUMBER()<span style="color:#bbb"> </span>OVER<span style="color:#bbb"> </span>(<span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>salary<span style="color:#bbb"> </span><span style="font-weight:bold">DESC</span>)<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>sal_row_rank<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>employee;<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li>所以各 row 再多加明確排序欄位（如 <code>ROW_NUMBER() OVER (ORDER BY SALARY DESC, ID ASC)</code>）比較好 ==&gt; 避免同值之間「非確定性」（nondeterministic）的先後順序。</li>
+</ul>
+</li>
+<li>
+<p><strong>RANK()</strong>: 相較於ROW_NUMBER()，RANK()會把同數值的項目給予同編號，且<code>若序號重複，往後序號會跳號</code> (ex. 1,2,2,4,5,&hellip;)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="font-weight:bold">*</span>,<span style="color:#bbb"> </span>RANK()<span style="color:#bbb"> </span>OVER<span style="color:#bbb"> </span>(<span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>salary<span style="color:#bbb"> </span><span style="font-weight:bold">DESC</span>)<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>sal_row_rank<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>employee;<span style="color:#bbb">
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>DENSE_RANK()</strong>: 類似RANK()，但<code>重複不跳號</code>  (ex. 1,2,2,3,4,&hellip;)</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="font-weight:bold">*</span>,<span style="color:#bbb"> </span>DENSE_RANK()<span style="color:#bbb"> </span>OVER<span style="color:#bbb"> </span>(<span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>salary<span style="color:#bbb"> </span><span style="font-weight:bold">DESC</span>)<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>sal_row_rank<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>employee;<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
+<li><strong>NTILE(n)</strong>: （或歸類在分析型）分位排序，把資料依照參數(正整數n)拆成n組(tiles)，每組儘量平均放入數量儘量相同的資料、且依序給予序號
+<ul>
+<li>常用在需要分等第/區間的情況</li>
+<li>若data總筆數不能被n整除，前幾組會多一筆資料
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 將所有員工依照薪水高到低排序，分成4組，並且標示每筆屬於哪一組
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span>employee_id,<span style="color:#bbb"> </span>salary,<span style="color:#bbb"> </span>NTILE(<span style="color:#099">4</span>)<span style="color:#bbb"> </span>OVER<span style="color:#bbb"> </span>(<span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>salary<span style="color:#bbb"> </span><span style="font-weight:bold">DESC</span>)<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>salary_quartile<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>employee;<span style="color:#bbb">
+</span></span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h4 id="位移型-window-function">位移型 Window Function</h4>
+<blockquote>
+<p>這類函數會取排序之後的上一筆、下一筆或特定位置的值，方便做時間序列比較、成長率分析等</p>
+<p>透過 SELF JOIN 也能達成類似結果（但外觀看起來不太一樣）</p></blockquote>
+<ul>
+<li><code>LAG() OVER (PARTITION BY ... ORDER BY ...)</code>：把資料往後移動，用來與上一列資料比較
+<ul>
+<li><code>LAG( [ 要位移的欄位 ], [ 位移列數 ], [ 沒資料時的預設值 ] )</code></li>
+</ul>
+</li>
+<li><code>LEAD() OVER (PARTITION BY ... ORDER BY ...)</code>: 把資料往前移動，用來與下一列資料比較</li>
+<li><code>FIRST_VALUE(column_name) OVER (PARTITION BY ... ORDER BY ...)</code>：查詢該分區第一列資料</li>
+<li><code>LAST_VALUE(column_name) OVER (PARTITION BY ... ORDER BY ...)</code>：查詢該分區最後一列資料</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 找出各部門裡「最早錄用員工的錄用日期」，分別顯示在各部門員工欄位右側
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span>name,<span style="color:#bbb"> </span><span style="color:#999">DATE</span>(hiredate),<span style="color:#bbb"> </span>department_id,<span style="color:#bbb"> </span><span style="color:#999">DATE</span>(FIRST_VALUE(hiredate)<span style="color:#bbb"> </span>OVER<span style="color:#bbb"> </span>(PARTITION<span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>department_id))<span style="color:#bbb"> </span><span style="font-weight:bold">AS</span><span style="color:#bbb"> </span>dept_earliest_hiredate<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>employee;<span style="color:#bbb">
+</span></span></span></code></pre></div><hr>
+<ul>
+<li><em>參考資料： <a href="https://haosquare.com/sql-window-function-intro/">SQL 窗口函數 Window Function：三大應用快速教學</a></em></li>
+</ul>
+
+      </article>
+    </div>
+  </div>
+
+  
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+      <hr class="m-0"/>
+    </div>
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
+      
+      <div class="blog-tags">
+        
+        <a href="https://AH-DevWorks.github.io/tags/learning/">learning</a>
+        
+        <a href="https://AH-DevWorks.github.io/tags/sql/">SQL</a>
+        
+        <a href="https://AH-DevWorks.github.io/tags/cte/">CTE</a>
+        
+        <a href="https://AH-DevWorks.github.io/tags/window-function/">Window Function</a>
+        
+      </div>
+      
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+      
+      <section id="social-share">
+        <div class="list-inline footer-links">
+          
+
+<div>
+  <p>Use the share button below if you liked it.</p>
+</div>
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+    <li>
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fsql%2fcte_and_windowfunction_20250503%2f" target="_blank" title="Share on Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
+          <path
+            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+        </svg>
+      </a>
+    </li>
+    
+    <li>
+      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fsql%2fcte_and_windowfunction_20250503%2f&amp;text=SQL%20-%20CTE%28Common%20Table%20Expression%29%ef%bc%86Window%20Function&amp;via=map%5bauthorinfo%3aAll%20the%20world%e2%80%99s%20a%20stage%2c%20and%20all%20the%20men%20and%20women%20merely%20players.%20They%20have%20their%20exits%20and%20their%20entrances%2c%20and%20one%20man%20in%20his%20time%20plays%20many%20parts.%20authorpostimage%3a%20email%3aa.h.devworks%40gmail.com%20github%3aAH-DevWorks%20linkedin%3ausername%20name%3aAH-DevWorks%20website%3ahttps%3a%2f%2fah-devworks.github.io%2f%5d"
+        target="_blank" title="Share on Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
+          <path
+            d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
+        </svg>
+      </a>
+    </li>
+
+
+    
+    <li>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fsql%2fcte_and_windowfunction_20250503%2f&amp;title=SQL%20-%20CTE%28Common%20Table%20Expression%29%ef%bc%86Window%20Function"
+        target="_blank" title="Share on LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
+          <path
+            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+        </svg>
+      </a>
+    </li>
+
+    <li>
+      <a target="_blank" rel="noopener noreferrer" aria-label="share SQL - CTE(Common Table Expression)＆Window Function on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fsql%2fcte_and_windowfunction_20250503%2f&title=SQL%20-%20CTE%28Common%20Table%20Expression%29%ef%bc%86Window%20Function">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
+          viewBox="0 0 16 16">
+          <path
+            d="M6.167 8a.831.831 0 0 0-.83.83c0 .459.372.84.83.831a.831.831 0 0 0 0-1.661zm1.843 3.647c.315 0 1.403-.038 1.976-.611a.232.232 0 0 0 0-.306.213.213 0 0 0-.306 0c-.353.363-1.126.487-1.67.487-.545 0-1.308-.124-1.671-.487a.213.213 0 0 0-.306 0 .213.213 0 0 0 0 .306c.564.563 1.652.61 1.977.61zm.992-2.807c0 .458.373.83.831.83.458 0 .83-.381.83-.83a.831.831 0 0 0-1.66 0z" />
+          <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.828-1.165c-.315 0-.602.124-.812.325-.801-.573-1.9-.945-3.121-.993l.534-2.501 1.738.372a.83.83 0 1 0 .83-.869.83.83 0 0 0-.744.468l-1.938-.41a.203.203 0 0 0-.153.028.186.186 0 0 0-.086.134l-.592 2.788c-1.24.038-2.358.41-3.17.992-.21-.2-.496-.324-.81-.324a1.163 1.163 0 0 0-.478 2.224c-.02.115-.029.23-.029.353 0 1.795 2.091 3.256 4.669 3.256 2.577 0 4.668-1.451 4.668-3.256 0-.114-.01-.238-.029-.353.401-.181.688-.592.688-1.069 0-.65-.525-1.165-1.165-1.165z" />
+        </svg>
+      </a>
+    </li>
+
+    
+    
+
+
+    
+    <li>
+      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fsql%2fcte_and_windowfunction_20250503%2f&amp;description=SQL%20-%20CTE%28Common%20Table%20Expression%29%ef%bc%86Window%20Function" target="_blank" rel="noopener"
+        title="Share on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
+          <path
+            d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<p class="text-muted">It makes me smile, when I see it.</p>
+        </div>
+      </section>
+      
+    </div>
+
+    
+    
+    
+
+    <div class="col-lg-8 offset-lg-2 col-md-12 offset-md-1 pt-4">
+      
+      <ul class="list-group list-group-horizontal" style="flex-direction: row">
+        
+        <li class="list-group-item b-0 p-0">
+
+          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/post/2025/algorithm/bubble_sort_20250414/"
+            data-toggle="tooltip" data-placement="top" title="Python 實作 Bubble Sort">&larr;
+            上一篇</a>
+        </li>
+        
+
+
+        
+      </ul>
+      
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+    </div>
+  </div>
+  
+</div>
+
+<div class="">
+  
+  
+  
+  
+  
+
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 mt-3">
+        <h3>閱讀全文</h3>
+        <hr />
+      </div>
+
+      
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
+    <a href="https://AH-DevWorks.github.io/notes/2025/weekly_journal_202504_2/">
+        <div class="card single-post-card h-100 shadow-effect border">
+            
+
+            
+            <div class="card-body">
+
+                <h3 class="fw-medium post-title">轉職路：AI養成班 Week 2.</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  2025年4月20日
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+                <div class="post-entry">
+
+                    
+                    當周學習與生活雜記
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    <h6 class="text-muted link-underline">閱讀全文 <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+
+
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
+    <a href="https://AH-DevWorks.github.io/post/2025/algorithm/bubble_sort_20250414/">
+        <div class="card single-post-card h-100 shadow-effect border">
+            
+
+            
+            <div class="card-body">
+
+                <h3 class="fw-medium post-title">Python 實作 Bubble Sort</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  2025年4月14日
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+                <div class="post-entry">
+
+                    
+                    氣泡排序法（泡沫排序法）練習
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    <h6 class="text-muted link-underline">閱讀全文 <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+
+
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
+    <a href="https://AH-DevWorks.github.io/notes/2025/weekly_journal_202504_1/">
+        <div class="card single-post-card h-100 shadow-effect border">
+            
+
+            
+            <div class="card-body">
+
+                <h3 class="fw-medium post-title">轉職路：AI養成班 Week 1.</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  2025年4月13日
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+                <div class="post-entry">
+
+                    
+                    當周學習與生活雜記
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    <h6 class="text-muted link-underline">閱讀全文 <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+
+
+      
+    </div>
+  </div>
+  
+  
+
+  
+
+</div>
+
+    
+
+
+<footer>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul
+          class="list-inline list-group list-group-horizontal text-center footer-links d-flex justify-content-center flex-row">
+
+          
+          <li>
+            <a href="mailto:a.h.devworks@gmail.com" title="Email me" target="_blank">
+              <span class="mx-2">
+                <i class="bi bi-envelope"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/AH-DevWorks" title="GitHub" target="_blank">
+              <span class="mx-2">
+                <i class="bi bi-github"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/username" title="LinkedIn" target="_blank">
+              <span class="mx-2">
+                <i class="bi bi-linkedin"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="credits copyright text-muted">
+          
+          
+          <a href="https://ah-devworks.github.io/">AH-DevWorks</a>
+          
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+          2025
+          
+
+          
+          &nbsp;&bull;&nbsp;
+          <a href="https://AH-DevWorks.github.io/">Meditations in Code - A.H.</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          Powered by <a href="https://gohugo.io">Hugo</a> & <a href="https://github.com/binokochumolvarghese/lightbi-hugo">Lightbi.</a>&nbsp; Made with 🧋➕🤔 by <a href="https://ah-devworks.github.io/">AH-Dev</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://AH-DevWorks.github.io/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://AH-DevWorks.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> 
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("pre.chroma").forEach(function (element) {
+    element.style.padding = "0";
+  });
+});
+ </script>
+
+
+<link rel="stylesheet" href="https://AH-DevWorks.github.io/css/custom.min.f8a07ac5009ace2462a7d4ac43d718cede520d105ce74d3fdf960843acaaaa7c.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>
+
