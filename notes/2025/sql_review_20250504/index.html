@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Python 實作 Bubble Sort - Meditations in Code - A.H.</title>
-<meta name="description" content="氣泡排序法（泡沫排序法）練習">
+<title>SQL Test - Review - Meditations in Code - A.H.</title>
+<meta name="description" content="重點觀念複習">
 
 <meta name="author" content="AH-DevWorks"><script type="application/ld+json">
 {
@@ -45,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/AH-DevWorks.github.io\/post\/2025\/algorithm\/bubble_sort_20250414\/",
-          "name": "Python 實作 bubble sort"
+          "@id": "https:\/\/AH-DevWorks.github.io\/notes\/2025\/sql_review_20250504\/",
+          "name": "SQL test review"
         }
     }]
 }
@@ -57,15 +57,15 @@
   "author": {
     "name" : "map[authorinfo:All the world’s a stage, and all the men and women merely players. They have their exits and their entrances, and one man in his time plays many parts. authorpostimage: email:a.h.devworks@gmail.com github:AH-DevWorks linkedin:username name:AH-DevWorks website:https:\/\/ah-devworks.github.io\/]"
   },
-  "headline": "Python 實作 Bubble Sort",
-  "description" : "氣泡排序法（泡沫排序法）練習",
+  "headline": "SQL Test - Review",
+  "description" : "重點觀念複習",
   "inLanguage" : "zh-tw",
-  "wordCount":  131 ,
-  "datePublished" : "2025-04-14T00:00:00",
-  "dateModified" : "2025-04-14T00:00:00",
+  "wordCount":  191 ,
+  "datePublished" : "2025-05-04T00:00:00",
+  "dateModified" : "2025-05-04T00:00:00",
   "image" : "https:\/\/AH-DevWorks.github.io\/",
-  "keywords" : [ "learning, algorithm, sorting, bubble sort" ],
-  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/post\/2025\/algorithm\/bubble_sort_20250414\/",
+  "keywords" : [ "learning, sql" ],
+  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/notes\/2025\/sql_review_20250504\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/AH-DevWorks.github.io\/",
@@ -79,9 +79,9 @@
 }
 </script>
 
-<meta property="og:title" content="Python 實作 Bubble Sort" />
-<meta property="og:description" content="氣泡排序法（泡沫排序法）練習">
-<meta property="og:url" content="https://AH-DevWorks.github.io/post/2025/algorithm/bubble_sort_20250414/" />
+<meta property="og:title" content="SQL Test - Review" />
+<meta property="og:description" content="重點觀念複習">
+<meta property="og:url" content="https://AH-DevWorks.github.io/notes/2025/sql_review_20250504/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Meditations in Code - A.H." />
 <link rel="apple-touch-icon" sizes="180x180" href=" https://AH-DevWorks.github.io/favicon/apple-touch-icon.png">
@@ -195,7 +195,7 @@
                 
                 
 
-                <a class="nav-link " title="Notes"
+                <a class="nav-link  active " title="Notes"
                   href="/notes/"> Notes</a>
               </li>
 
@@ -327,14 +327,14 @@
           <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
             
 
-            <div class="post-heading">
+            <div class="notes-heading">
               
 
               
 
               
               <h1 class="fw-semibold display-5 lh-1 mb-3"> 
-                Python 實作 Bubble Sort
+                SQL Test - Review
                 
               </h1>
               
@@ -343,35 +343,6 @@
               
 
               
-              
-              <span class="post-meta">
-  <div class="row post-meta text-muted">
-    <div class="col-sm-12 col-md-6 px-0">
-      
-      
-      
-
-      
-      
-      AH-DevWorks |
-      
-      
-
-      &nbsp;2025年4月14日
-
-      
-    </div>
-
-
-    <div class="col-sm-12 col-md-6 text-sm-start text-md-end px-0">
-      
-
-      
-    </div>
-
-    
-  </div>
-</span>
               
               
             </div>
@@ -396,67 +367,82 @@
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <h2 id="python實作-bubble-sort">Python實作 Bubble Sort</h2>
-<blockquote>
-<p>※排序演算法(Sorting Algorithm)是將資料依特定規則進行重新排列的演算法，通常是依照資料的大小進行排列，Bubble Sort是其中之一。</p></blockquote>
-<blockquote>
-<p>※資料排序後，就能進一步對其進行更有效率的分析或搜尋。如「二分搜尋法」在資料數較多時，效率高於循序搜尋，但執行二分搜尋之前，必須先將原始資料排序。</p></blockquote>
-<h3 id="程式碼">程式碼</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">user_input_check</span>(message):
-</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">while</span> <span style="font-weight:bold">True</span>:
-</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">try</span>:
-</span></span><span style="display:flex;"><span>            user_input <span style="font-weight:bold">=</span> <span style="color:#999">input</span>(message)
-</span></span><span style="display:flex;"><span>            <span style="font-weight:bold">if</span> <span style="color:#b84">&#39;.&#39;</span> <span style="font-weight:bold">not</span> <span style="font-weight:bold">in</span> user_input:
-</span></span><span style="display:flex;"><span>                <span style="font-weight:bold">return</span> <span style="color:#999">int</span>(user_input)
-</span></span><span style="display:flex;"><span>            <span style="font-weight:bold">else</span>:
-</span></span><span style="display:flex;"><span>                <span style="font-weight:bold">return</span> <span style="color:#999">float</span>(user_input)
-</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">except</span> <span style="color:#900;font-weight:bold">ValueError</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#999">print</span>(<span style="color:#b84">&#34;請輸入正確的數字...&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">def</span> <span style="color:#900;font-weight:bold">bubble_sort</span>(number_list):
-</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">for</span> i <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(<span style="color:#099">1</span>, <span style="color:#999">len</span>(number_list)):
-</span></span><span style="display:flex;"><span>        <span style="color:#999">print</span>(<span style="color:#b84">f</span><span style="color:#b84">&#34;### 第</span><span style="color:#b84">{</span>i<span style="color:#b84">}</span><span style="color:#b84">輪 ###&#34;</span>)
-</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">for</span> j <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(<span style="color:#999">len</span>(number_list) <span style="font-weight:bold">-</span> i):
-</span></span><span style="display:flex;"><span>            <span style="font-weight:bold">if</span> number_list[j] <span style="font-weight:bold">&gt;</span> number_list[j <span style="font-weight:bold">+</span> <span style="color:#099">1</span>]:
-</span></span><span style="display:flex;"><span>                number_list[j], number_list[j <span style="font-weight:bold">+</span> <span style="color:#099">1</span>] <span style="font-weight:bold">=</span> number_list[j <span style="font-weight:bold">+</span> <span style="color:#099">1</span>], number_list[j]
-</span></span><span style="display:flex;"><span>        <span style="color:#999">print</span>(<span style="color:#b84">f</span><span style="color:#b84">&#34;&gt;&gt;資料狀態: </span><span style="color:#b84">{</span>number_list<span style="color:#b84">}</span><span style="color:#b84">&#34;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#999">print</span>(<span style="color:#b84">&#34;-------------------&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="font-weight:bold">return</span> number_list
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#999">print</span>(<span style="color:#b84">&#34;———請輸入以下資訊———&#34;</span>)
-</span></span><span style="display:flex;"><span>data_length <span style="font-weight:bold">=</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">while</span> data_length <span style="font-weight:bold">&lt;=</span> <span style="color:#099">0</span>:
-</span></span><span style="display:flex;"><span>    data_length <span style="font-weight:bold">=</span> <span style="color:#999">int</span>(user_input_check(<span style="color:#b84">&#34;資料總數量：</span><span style="color:#b84">\n</span><span style="color:#b84">&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>data_list <span style="font-weight:bold">=</span> []
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">for</span> num <span style="font-weight:bold">in</span> <span style="color:#999">range</span>(data_length):
-</span></span><span style="display:flex;"><span>    data_list<span style="font-weight:bold">.</span>append(user_input_check(<span style="color:#b84">f</span><span style="color:#b84">&#34;第</span><span style="color:#b84">{</span>num <span style="font-weight:bold">+</span> <span style="color:#099">1</span><span style="color:#b84">}</span><span style="color:#b84">筆資料: &#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#999">print</span>(<span style="color:#b84">f</span><span style="color:#b84">&#34;</span><span style="color:#b84">\n\n</span><span style="color:#b84">原始資料:</span><span style="color:#b84">{</span>data_list<span style="color:#b84">}</span><span style="color:#b84">&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#999">print</span>(<span style="color:#b84">&#34;-------------------&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>sorted_list <span style="font-weight:bold">=</span> bubble_sort(data_list<span style="font-weight:bold">.</span>copy())
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#999">print</span>(<span style="color:#b84">f</span><span style="color:#b84">&#34;排序後資料: </span><span style="color:#b84">{</span>sorted_list<span style="color:#b84">}</span><span style="color:#b84">&#34;</span>)
-</span></span></code></pre></div><h3 id="執行畫面">執行畫面</h3>
-<figure><img src="/img/notes/Bubble-Sort-2025-04-14.png" width="400px">
-</figure>
-
-<h3 id="說明">說明</h3>
-<ol>
-<li>上面程式碼是自己練習寫的，可能不是最好的bubble sort寫法</li>
-<li><code>user_input_check(message)</code>: 輸入檢查，跟bubble sort無關，只是習慣放</li>
-<li><code>bubble_sort(number_list)</code>: 排序法本體，外層 for loop 控制排序的輪數，每輪最後會把一個最大值排到最右側；內層 for loop 進行相鄰元素比較與交換
+        <h3 id="-所有的-dml-都可以在-view-上操作">❌ 所有的 DML 都可以在 View 上操作</h3>
 <ul>
-<li>值得一提是中間 <code>number_list[j], number_list[j + 1] = number_list[j + 1], number_list[j]</code> ，這種寫法是Python特有的，涉及 tuple 型別的 packing / unpacking ，一行就能交換兩變數值</li>
-<li>如果是其他程式語言，要兩數互換大多需要再一個temp變數，分三行如 <code>temp=var1</code>、<code>var1=var2</code>、<code>var2=temp</code></li>
+<li><strong>Simple View</strong> ==&gt; 滿足下列條件，才可以用DML
+<ul>
+<li>只有一個Base Table，沒有JOIN</li>
+<li>沒有使用Function(SUM, AVG等)或分組(GROUP BY, DISTINCT 等)</li>
+<li>Updateable 可更新</li>
 </ul>
 </li>
-<li>從巢狀for loop就能看出bubble sort的時間複雜度是O(n²)，效率差，實務上基本沒人會用。但就入門迴圈邏輯＆資料操作思維來說，應該還是有幫助。至少我希望有幫助&hellip;✏️</li>
-</ol>
-
+<li><strong>Complex View</strong>
+<ul>
+<li><!-- raw HTML omitted --><!-- raw HTML omitted -->NO DML<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="-foreign-key-可由多個欄位組成">✅ Foreign Key 可由多個欄位組成</h3>
+<ul>
+<li>可以由多個欄位組成複合外鍵（Composite Foreign Key），只要這些欄位對應參照表的一組 PK 或 UK 即可</li>
+<li>p.s. FK可以是NULL空值</li>
+</ul>
+<hr>
+<h3 id="ddl-data-definition-language">DDL (Data Definition Language)</h3>
+<ul>
+<li>CREATE, DROP, ALTER, RENAME, TRUNCATE</li>
+</ul>
+<h3 id="dml-data-manipulation-language">DML (Data Manipulation Language)</h3>
+<ul>
+<li>INSERT, UPDATE, DELETE, *SELECT</li>
+<li>*註: 亦有分類將 SELECT 單獨歸類為 DQL (Data Query Language)</li>
+</ul>
+<h3 id="dcl-data-control-language">DCL (Data Control Language)</h3>
+<ul>
+<li>GRANT, REVOKE</li>
+</ul>
+<h3 id="tcl-transaction-control-language">TCL (Transaction Control Language)</h3>
+<ul>
+<li>COMMIT, ROLLBACK, SAVEPOINT</li>
+</ul>
+<hr>
+<h3 id="sql-語法順序--實際執行順序">SQL 語法順序 ≠ 實際執行順序</h3>
+<h4 id="語法順序ex">語法順序ex.</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span>name,<span style="color:#bbb"> </span><span style="font-weight:bold">COUNT</span>(<span style="font-weight:bold">*</span>)<span style="color:#bbb"> </span><span style="font-weight:bold">as</span><span style="color:#bbb"> </span>order_count<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>orders<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">WHERE</span><span style="color:#bbb"> </span>status<span style="color:#bbb"> </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span><span style="color:#b84">&#39;completed&#39;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">GROUP</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>name<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">HAVING</span><span style="color:#bbb"> </span><span style="font-weight:bold">COUNT</span>(<span style="font-weight:bold">*</span>)<span style="color:#bbb"> </span><span style="font-weight:bold">&gt;</span><span style="color:#bbb"> </span><span style="color:#099">5</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>order_count<span style="color:#bbb"> </span><span style="font-weight:bold">DESC</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">LIMIT</span><span style="color:#bbb"> </span><span style="color:#099">10</span>;<span style="color:#bbb">
+</span></span></span></code></pre></div><h4 id="實際執行順序-logical-execution-order">實際執行順序 Logical Execution Order</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="font-weight:bold">FROM</span><span style="color:#bbb">        </span><span style="color:#998;font-style:italic">-- 1.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">WHERE</span><span style="color:#bbb">       </span><span style="color:#998;font-style:italic">-- 2.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">GROUP</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">-- 3.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">HAVING</span><span style="color:#bbb">      </span><span style="color:#998;font-style:italic">-- 4.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">SELECT</span><span style="color:#bbb">      </span><span style="color:#998;font-style:italic">-- 5.※
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">-- 6.所以ORDER BY 裡可用 SELECT 定義的 column別名
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">LIMIT</span><span style="color:#bbb">       </span><span style="color:#998;font-style:italic">-- 7.
+</span></span></span></code></pre></div><h4 id="-mysql-實作上會提前解析-select-子句中的別名可看成select在第3順位">⚠ MySQL 實作上會提前解析 SELECT 子句中的別名：可看成SELECT在第3順位</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span>employee_name<span style="color:#bbb"> </span>Name,<span style="color:#bbb"> </span>department_id<span style="color:#bbb"> </span>D_ID,<span style="color:#bbb"> </span><span style="font-weight:bold">MAX</span>(salary)<span style="color:#bbb"> </span>M_sal<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>employees<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">WHERE</span><span style="color:#bbb"> </span>hiredate<span style="color:#bbb"> </span><span style="font-weight:bold">&gt;</span><span style="color:#bbb"> </span><span style="color:#b84">&#39;2011-02-01&#39;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">GROUP</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>Name,<span style="color:#bbb"> </span>D_ID<span style="color:#bbb">         </span><span style="color:#998;font-style:italic">-- 可以用別名Name, D_ID
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">HAVING</span><span style="color:#bbb"> </span>M_sal<span style="color:#bbb"> </span><span style="font-weight:bold">&gt;</span><span style="color:#bbb"> </span><span style="color:#099">1600</span><span style="color:#bbb">         </span><span style="color:#998;font-style:italic">-- 可以用別名 m_sal
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>Name<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">LIMIT</span><span style="color:#bbb"> </span><span style="color:#099">3</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#b84">&#39;&#39;&#39; ↓ SELECT 提前解析 &#39;&#39;&#39;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">WHERE</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">SELECT</span><span style="color:#bbb">   </span><span style="color:#998;font-style:italic">-- &lt;-- ※
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">GROUP</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span><span style="color:#998;font-style:italic">-- 以下幾個都可用column別名
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">HAVING</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">LIMIT</span><span style="color:#bbb">
+</span></span></span></code></pre></div>
       </article>
     </div>
   </div>
@@ -472,11 +458,7 @@
         
         <a href="https://AH-DevWorks.github.io/tags/learning/">learning</a>
         
-        <a href="https://AH-DevWorks.github.io/tags/algorithm/">algorithm</a>
-        
-        <a href="https://AH-DevWorks.github.io/tags/sorting/">sorting</a>
-        
-        <a href="https://AH-DevWorks.github.io/tags/bubble-sort/">bubble sort</a>
+        <a href="https://AH-DevWorks.github.io/tags/sql/">sql</a>
         
       </div>
       
@@ -495,7 +477,7 @@
   <ul class="share">
     
     <li>
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2falgorithm%2fbubble_sort_20250414%2f" target="_blank" title="Share on Facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fsql_review_20250504%2f" target="_blank" title="Share on Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
           <path
             d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
@@ -504,7 +486,7 @@
     </li>
     
     <li>
-      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2falgorithm%2fbubble_sort_20250414%2f&amp;text=Python%20%e5%af%a6%e4%bd%9c%20Bubble%20Sort&amp;via=map%5bauthorinfo%3aAll%20the%20world%e2%80%99s%20a%20stage%2c%20and%20all%20the%20men%20and%20women%20merely%20players.%20They%20have%20their%20exits%20and%20their%20entrances%2c%20and%20one%20man%20in%20his%20time%20plays%20many%20parts.%20authorpostimage%3a%20email%3aa.h.devworks%40gmail.com%20github%3aAH-DevWorks%20linkedin%3ausername%20name%3aAH-DevWorks%20website%3ahttps%3a%2f%2fah-devworks.github.io%2f%5d"
+      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fsql_review_20250504%2f&amp;text=SQL%20Test%20-%20Review&amp;via=map%5bauthorinfo%3aAll%20the%20world%e2%80%99s%20a%20stage%2c%20and%20all%20the%20men%20and%20women%20merely%20players.%20They%20have%20their%20exits%20and%20their%20entrances%2c%20and%20one%20man%20in%20his%20time%20plays%20many%20parts.%20authorpostimage%3a%20email%3aa.h.devworks%40gmail.com%20github%3aAH-DevWorks%20linkedin%3ausername%20name%3aAH-DevWorks%20website%3ahttps%3a%2f%2fah-devworks.github.io%2f%5d"
         target="_blank" title="Share on Twitter">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
           <path
@@ -516,7 +498,7 @@
 
     
     <li>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2falgorithm%2fbubble_sort_20250414%2f&amp;title=Python%20%e5%af%a6%e4%bd%9c%20Bubble%20Sort"
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fsql_review_20250504%2f&amp;title=SQL%20Test%20-%20Review"
         target="_blank" title="Share on LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
           <path
@@ -526,8 +508,8 @@
     </li>
 
     <li>
-      <a target="_blank" rel="noopener noreferrer" aria-label="share Python 實作 Bubble Sort on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2falgorithm%2fbubble_sort_20250414%2f&title=Python%20%e5%af%a6%e4%bd%9c%20Bubble%20Sort">
+      <a target="_blank" rel="noopener noreferrer" aria-label="share SQL Test - Review on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fsql_review_20250504%2f&title=SQL%20Test%20-%20Review">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
           viewBox="0 0 16 16">
           <path
@@ -544,7 +526,7 @@
 
     
     <li>
-      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2falgorithm%2fbubble_sort_20250414%2f&amp;description=Python%20%e5%af%a6%e4%bd%9c%20Bubble%20Sort" target="_blank" rel="noopener"
+      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fsql_review_20250504%2f&amp;description=SQL%20Test%20-%20Review" target="_blank" rel="noopener"
         title="Share on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
           <path
@@ -572,19 +554,13 @@
         
         <li class="list-group-item b-0 p-0">
 
-          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/post/2025/website/create_static_web_3/"
-            data-toggle="tooltip" data-placement="top" title="自架網站筆記：使用Github &#43; Hugo（下）">&larr;
+          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/notes/2025/weekly_journal_202504_2/"
+            data-toggle="tooltip" data-placement="top" title="轉職路：AI養成班 Week 2.">&larr;
             上一篇</a>
         </li>
         
 
 
-        
-        <li class="list-group-item ms-auto b-0 p-0">
-          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/post/2025/sql/cte_and_windowfunction_20250503/"
-            data-toggle="tooltip" data-placement="top" title="SQL - CTE(Common Table Expression)＆Window Function">下一篇
-            &rarr;</a>
-        </li>
         
       </ul>
       
@@ -612,56 +588,6 @@
       </div>
 
       
-      
-
-      
-<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
-    <a href="https://AH-DevWorks.github.io/notes/2025/sql_review_20250504/">
-        <div class="card single-post-card h-100 shadow-effect border">
-            
-
-            
-            <div class="card-body">
-
-                <h3 class="fw-medium post-title">SQL Test - Review</h3>
-                
-
-                <p class="post-meta">
-                    <span class="post-meta text-muted">
-  
-  
-
-  2025年5月4日
-
-  
-
-  
-
-  
-
-  
-</span>
-
-                </p>
-                
-                <div class="post-entry">
-
-                    
-                    重點觀念複習
-
-                    
-                </div>
-
-                <div class="read-more-section">
-                    <h6 class="text-muted link-underline">閱讀全文 <i class="bi bi-arrow-right"></i></h6>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-
-
-
       
 
       
@@ -748,6 +674,56 @@
 
                     
                     當周學習與生活雜記
+
+                    
+                </div>
+
+                <div class="read-more-section">
+                    <h6 class="text-muted link-underline">閱讀全文 <i class="bi bi-arrow-right"></i></h6>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+
+
+      
+
+      
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
+    <a href="https://AH-DevWorks.github.io/post/2025/algorithm/bubble_sort_20250414/">
+        <div class="card single-post-card h-100 shadow-effect border">
+            
+
+            
+            <div class="card-body">
+
+                <h3 class="fw-medium post-title">Python 實作 Bubble Sort</h3>
+                
+
+                <p class="post-meta">
+                    <span class="post-meta text-muted">
+  
+  
+
+  2025年4月14日
+
+  
+
+  
+
+  
+
+  
+</span>
+
+                </p>
+                
+                <div class="post-entry">
+
+                    
+                    氣泡排序法（泡沫排序法）練習
 
                     
                 </div>

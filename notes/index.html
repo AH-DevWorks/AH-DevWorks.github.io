@@ -324,6 +324,144 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-10">
+                    <h3 class="fw-medium post-title">SQL Test - Review</h3>
+                </div>
+                <div class="col-md-2 d-flex justify-content-end">
+                    <a href="https://AH-DevWorks.github.io/notes/2025/sql_review_20250504/">
+                        <button type="button" class="btn btn-outline-dark">
+                            Link
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            
+
+            <p class="post-meta">
+                <span class="post-meta text-muted">
+  
+  
+
+  2025年5月4日
+
+  
+
+  
+
+  
+
+  
+</span>
+
+            </p>
+            
+            <div class="post-entry">
+
+                <h3 id="-所有的-dml-都可以在-view-上操作">❌ 所有的 DML 都可以在 View 上操作</h3>
+<ul>
+<li><strong>Simple View</strong> ==&gt; 滿足下列條件，才可以用DML
+<ul>
+<li>只有一個Base Table，沒有JOIN</li>
+<li>沒有使用Function(SUM, AVG等)或分組(GROUP BY, DISTINCT 等)</li>
+<li>Updateable 可更新</li>
+</ul>
+</li>
+<li><strong>Complex View</strong>
+<ul>
+<li><!-- raw HTML omitted --><!-- raw HTML omitted -->NO DML<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="-foreign-key-可由多個欄位組成">✅ Foreign Key 可由多個欄位組成</h3>
+<ul>
+<li>可以由多個欄位組成複合外鍵（Composite Foreign Key），只要這些欄位對應參照表的一組 PK 或 UK 即可</li>
+<li>p.s. FK可以是NULL空值</li>
+</ul>
+<hr>
+<h3 id="ddl-data-definition-language">DDL (Data Definition Language)</h3>
+<ul>
+<li>CREATE, DROP, ALTER, RENAME, TRUNCATE</li>
+</ul>
+<h3 id="dml-data-manipulation-language">DML (Data Manipulation Language)</h3>
+<ul>
+<li>INSERT, UPDATE, DELETE, *SELECT</li>
+<li>*註: 亦有分類將 SELECT 單獨歸類為 DQL (Data Query Language)</li>
+</ul>
+<h3 id="dcl-data-control-language">DCL (Data Control Language)</h3>
+<ul>
+<li>GRANT, REVOKE</li>
+</ul>
+<h3 id="tcl-transaction-control-language">TCL (Transaction Control Language)</h3>
+<ul>
+<li>COMMIT, ROLLBACK, SAVEPOINT</li>
+</ul>
+<hr>
+<h3 id="sql-語法順序--實際執行順序">SQL 語法順序 ≠ 實際執行順序</h3>
+<h4 id="語法順序ex">語法順序ex.</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span>name,<span style="color:#bbb"> </span><span style="font-weight:bold">COUNT</span>(<span style="font-weight:bold">*</span>)<span style="color:#bbb"> </span><span style="font-weight:bold">as</span><span style="color:#bbb"> </span>order_count<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>orders<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">WHERE</span><span style="color:#bbb"> </span>status<span style="color:#bbb"> </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span><span style="color:#b84">&#39;completed&#39;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">GROUP</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>name<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">HAVING</span><span style="color:#bbb"> </span><span style="font-weight:bold">COUNT</span>(<span style="font-weight:bold">*</span>)<span style="color:#bbb"> </span><span style="font-weight:bold">&gt;</span><span style="color:#bbb"> </span><span style="color:#099">5</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>order_count<span style="color:#bbb"> </span><span style="font-weight:bold">DESC</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">LIMIT</span><span style="color:#bbb"> </span><span style="color:#099">10</span>;<span style="color:#bbb">
+</span></span></span></code></pre></div><h4 id="實際執行順序-logical-execution-order">實際執行順序 Logical Execution Order</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="font-weight:bold">FROM</span><span style="color:#bbb">        </span><span style="color:#998;font-style:italic">-- 1.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">WHERE</span><span style="color:#bbb">       </span><span style="color:#998;font-style:italic">-- 2.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">GROUP</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">-- 3.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">HAVING</span><span style="color:#bbb">      </span><span style="color:#998;font-style:italic">-- 4.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">SELECT</span><span style="color:#bbb">      </span><span style="color:#998;font-style:italic">-- 5.※
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">-- 6.所以ORDER BY 裡可用 SELECT 定義的 column別名
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">LIMIT</span><span style="color:#bbb">       </span><span style="color:#998;font-style:italic">-- 7.
+</span></span></span></code></pre></div><h4 id="-mysql-實作上會提前解析-select-子句中的別名可看成select在第3順位">⚠ MySQL 實作上會提前解析 SELECT 子句中的別名：可看成SELECT在第3順位</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="font-weight:bold">SELECT</span><span style="color:#bbb"> </span>employee_name<span style="color:#bbb"> </span>Name,<span style="color:#bbb"> </span>department_id<span style="color:#bbb"> </span>D_ID,<span style="color:#bbb"> </span><span style="font-weight:bold">MAX</span>(salary)<span style="color:#bbb"> </span>M_sal<span style="color:#bbb"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb"> </span>employees<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">WHERE</span><span style="color:#bbb"> </span>hiredate<span style="color:#bbb"> </span><span style="font-weight:bold">&gt;</span><span style="color:#bbb"> </span><span style="color:#b84">&#39;2011-02-01&#39;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">GROUP</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>Name,<span style="color:#bbb"> </span>D_ID<span style="color:#bbb">         </span><span style="color:#998;font-style:italic">-- 可以用別名Name, D_ID
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">HAVING</span><span style="color:#bbb"> </span>M_sal<span style="color:#bbb"> </span><span style="font-weight:bold">&gt;</span><span style="color:#bbb"> </span><span style="color:#099">1600</span><span style="color:#bbb">         </span><span style="color:#998;font-style:italic">-- 可以用別名 m_sal
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span>Name<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">LIMIT</span><span style="color:#bbb"> </span><span style="color:#099">3</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#b84">&#39;&#39;&#39; ↓ SELECT 提前解析 &#39;&#39;&#39;</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">FROM</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">WHERE</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">SELECT</span><span style="color:#bbb">   </span><span style="color:#998;font-style:italic">-- &lt;-- ※
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">GROUP</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb"> </span><span style="color:#998;font-style:italic">-- 以下幾個都可用column別名
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">HAVING</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="font-weight:bold">BY</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="font-weight:bold">LIMIT</span><span style="color:#bbb">
+</span></span></span></code></pre></div>
+                
+            </div>
+        </div>
+        
+        
+        
+        <div class="card-footer text-muted">
+            <div class="blog-tags">
+                
+                <a href="https://AH-DevWorks.github.io/tags/learning/">learning</a>
+                
+                <a href="https://AH-DevWorks.github.io/tags/sql/">sql</a>
+                
+            </div>
+        </div>
+        
+
+
+
+
+    </div>
+</div>
+    
+    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
+    
+        <div class="card border mb-3 "> 
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
                     <h3 class="fw-medium post-title">轉職路：AI養成班 Week 2.</h3>
                 </div>
                 <div class="col-md-2 d-flex justify-content-end">
