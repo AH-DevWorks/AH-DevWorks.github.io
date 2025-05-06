@@ -8,8 +8,15 @@
     <language>zh-tw</language>
     <managingEditor>a.h.devworks@gmail.com (AH-DevWorks)</managingEditor>
     <webMaster>a.h.devworks@gmail.com (AH-DevWorks)</webMaster>
-    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://AH-DevWorks.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>轉職路：AI養成班 Week 3.</title>
+      <link>https://AH-DevWorks.github.io/notes/2025/weekly_journal_202504_3/</link>
+      <pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/notes/2025/weekly_journal_202504_3/</guid>
+      <description>&lt;h4 id=&#34;第三週422424428&#34;&gt;第三週：4/22、4/24～4/28&lt;/h4&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://AH-DevWorks.github.io/img/notes/XPark_2505.jpg&#34; alt=&#34;Image by AH-DevWorks&#34;&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Xpark - &amp;ldquo;Tomorin&amp;rdquo; the King Penguin&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;MySQL&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;DDL, DML(/DQL), TCL, E-R Model(UML)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;MongoDB NoSQL&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;Commands&lt;/code&gt;: show, insert, find, delete, etc.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;_id&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Python&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;NumPy, Pandas, Matplotlib&lt;/li&gt;&#xA;&lt;li&gt;Class Variable, Instance Variable&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h4 id=&#34;自補充&#34;&gt;自補充&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;SQL&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ah-devworks.github.io/post/2025/sql/cte_and_windowfunction_20250503/#ctecommon-table-expression-%E4%B8%80%E8%88%AC%E8%B3%87%E6%96%99%E8%A1%A8%E9%81%8B%E7%AE%97%E5%BC%8F&#34;&gt;CTE(Common Table Expression)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ah-devworks.github.io/post/2025/sql/cte_and_windowfunction_20250503/#window-function-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B8%E8%A6%96%E7%AA%97%E5%87%BD%E6%95%B8&#34;&gt;Window Function&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;hr&gt;&#xA;&lt;h4 id=&#34;其他自學&#34;&gt;其他自學&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;code&gt;實體書&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>SQL Test - Review</title>
       <link>https://AH-DevWorks.github.io/notes/2025/sql_review_20250504/</link>
