@@ -54,7 +54,7 @@ sorted_list = bubble_sort(data_list.copy())
 print(f"排序後資料: {sorted_list}")
 ```
 ### 執行畫面
-{{< figure src="/img/notes/Bubble-Sort-2025-04-14.png" width="400px" >}}
+{{< figure src="/img/post/Bubble-Sort-2025-04-14.png" width="400px" >}}
 
 
 ### 說明

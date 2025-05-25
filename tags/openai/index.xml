@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenAI on Meditations in Code - A.H.</title>
+    <link>https://AH-DevWorks.github.io/tags/openai/</link>
+    <description>Recent content in OpenAI on Meditations in Code - A.H.</description>
+    <generator>Hugo</generator>
+    <language>zh-tw</language>
+    <managingEditor>a.h.devworks@gmail.com (AH-DevWorks)</managingEditor>
+    <webMaster>a.h.devworks@gmail.com (AH-DevWorks)</webMaster>
+    <lastBuildDate>Sun, 25 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://AH-DevWorks.github.io/tags/openai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用 OpenAI GPT API 翻譯小說 （同步式）</title>
+      <link>https://AH-DevWorks.github.io/post/2025/api/synchronous-openai-doc-translator_202505/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/post/2025/api/synchronous-openai-doc-translator_202505/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://AH-DevWorks.github.io/img/post/Sample_20250522.jpg&#34; alt=&#34;Image by AH-DevWorks&#34;&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Comparison - Before-and-After Text&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;openai-doc-translator-openai-文件翻譯器&#34;&gt;OpenAi Doc Translator (OpenAI 文件翻譯器)&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;透過 OpenAI 模型 API ，快速翻譯你自己的文件。&#xA;雖然標題是寫翻譯「小說」，但其實任何文件——只要能轉成.txt文字檔——都能翻譯&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;-檔案連結&#34;&gt;&amp;raquo; &lt;a href=&#34;https://github.com/AH-DevWorks/synchronous-openai-doc-translator&#34;&gt;檔案連結&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;可以直接點進上面連結，按綠色的「&amp;lt;&amp;gt; Code」按鈕 → 「Download ZIP」→ 解壓縮後照著網頁上的說明或「readme.md」文件進行&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;這是個人Side Project的副產物，核心是呼叫OpenAI的API，搭配簡單的前處理（原文段落自動拆分）＆循環串接，達到「翻譯文本連貫性」的效果&lt;/li&gt;&#xA;&lt;li&gt;內容儘量寫得簡單，不懂程式的人大概也能照著操作，拿自己的OpenAI金鑰來翻譯文件&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;特色&#34;&gt;特色&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;從原文前處理到譯文串接都是在本機程式上進行，只有「翻譯」階段的文本才會連網傳到 OpenAI Model上面進行AI翻譯&lt;/li&gt;&#xA;&lt;li&gt;最大好處就是只會經過 OpenAI ，不會再有其他第三方服務拿到你的資料或權限&lt;/li&gt;&#xA;&lt;li&gt;用你自己的API，除了你自己以外，也不會有其他人知道你翻譯了些什麼&#xA;&lt;ul&gt;&#xA;&lt;li&gt;P.S. OpenAI API 服務的帳號後台 &lt;a href=&#34;https://platform.openai.com/&#34;&gt;https://platform.openai.com/&lt;/a&gt; 上面也提供使用者手動確認歷史紀錄、Credits用量、自動Credits儲值等功能&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;當然，操作上肯定沒有其他像是「沉浸式翻譯」之類的網路外掛套件來得方便簡單，功能也沒那麼豐富&#xA;&lt;ul&gt;&#xA;&lt;li&gt;懂程式的人也可以拿這個程式當基底，自己擴展像是讀取圖片、單純聊天對話、摘要PDF等功能，反正只要OpenAI有給API的都能擴展&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;openai-doc-translator-使用教學&#34;&gt;OpenAi Doc Translator 使用教學&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;基本就只是照搬readme.md內容，多加上幾張示意圖&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
