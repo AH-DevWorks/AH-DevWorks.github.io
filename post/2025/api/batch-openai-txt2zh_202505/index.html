@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>用 OpenAI GPT API 翻譯小說 （同步式） - Meditations in Code - A.H.</title>
-<meta name="description" content="簡單的API工具，用 OpenAI 的AI模型(gpt-4.1)來把 .txt 檔案翻譯成繁體中文">
+<title>用 OpenAI GPT Batch API 大量翻譯小說 （非同步式） - Meditations in Code - A.H.</title>
+<meta name="description" content="Batch API工具，用 OpenAI 的AI模型(o4-mini)批次同時處理多筆 .txt 檔案翻譯">
 
 <meta name="author" content="AH-DevWorks"><script type="application/ld+json">
 {
@@ -45,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/AH-DevWorks.github.io\/post\/2025\/api\/synchronous-openai-doc-translator_202505\/",
-          "name": "用 open ai gpt API 翻譯小說 （同步式）"
+          "@id": "https:\/\/AH-DevWorks.github.io\/post\/2025\/api\/batch-openai-txt2zh_202505\/",
+          "name": "用 open ai gpt batch API 大量翻譯小說 （非同步式）"
         }
     }]
 }
@@ -57,15 +57,15 @@
   "author": {
     "name" : "map[authorinfo:All the world’s a stage, and all the men and women merely players. They have their exits and their entrances, and one man in his time plays many parts. authorpostimage: email:a.h.devworks@gmail.com github:AH-DevWorks linkedin:username name:AH-DevWorks website:https:\/\/ah-devworks.github.io\/]"
   },
-  "headline": "用 OpenAI GPT API 翻譯小說 （同步式）",
-  "description" : "簡單的API工具，用 OpenAI 的AI模型(gpt-4.1)來把 .txt 檔案翻譯成繁體中文",
+  "headline": "用 OpenAI GPT Batch API 大量翻譯小說 （非同步式）",
+  "description" : "Batch API工具，用 OpenAI 的AI模型(o4-mini)批次同時處理多筆 .txt 檔案翻譯",
   "inLanguage" : "zh-tw",
-  "wordCount":  301 ,
-  "datePublished" : "2025-05-20T00:00:00",
-  "dateModified" : "2025-05-20T00:00:00",
+  "wordCount":  259 ,
+  "datePublished" : "2025-05-26T00:00:00",
+  "dateModified" : "2025-05-26T00:00:00",
   "image" : "https:\/\/AH-DevWorks.github.io\/",
   "keywords" : [ "blog, API, OpenAI, model" ],
-  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/post\/2025\/api\/synchronous-openai-doc-translator_202505\/",
+  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/post\/2025\/api\/batch-openai-txt2zh_202505\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/AH-DevWorks.github.io\/",
@@ -79,9 +79,9 @@
 }
 </script>
 
-<meta property="og:title" content="用 OpenAI GPT API 翻譯小說 （同步式）" />
-<meta property="og:description" content="簡單的API工具，用 OpenAI 的AI模型(gpt-4.1)來把 .txt 檔案翻譯成繁體中文">
-<meta property="og:url" content="https://AH-DevWorks.github.io/post/2025/api/synchronous-openai-doc-translator_202505/" />
+<meta property="og:title" content="用 OpenAI GPT Batch API 大量翻譯小說 （非同步式）" />
+<meta property="og:description" content="Batch API工具，用 OpenAI 的AI模型(o4-mini)批次同時處理多筆 .txt 檔案翻譯">
+<meta property="og:url" content="https://AH-DevWorks.github.io/post/2025/api/batch-openai-txt2zh_202505/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Meditations in Code - A.H." />
 <link rel="apple-touch-icon" sizes="180x180" href=" https://AH-DevWorks.github.io/favicon/apple-touch-icon.png">
@@ -334,7 +334,7 @@
 
               
               <h1 class="fw-semibold display-5 lh-1 mb-3"> 
-                用 OpenAI GPT API 翻譯小說 （同步式）
+                用 OpenAI GPT Batch API 大量翻譯小說 （非同步式）
                 
               </h1>
               
@@ -357,10 +357,8 @@
       
       
 
-      &nbsp;2025年5月20日
+      &nbsp;2025年5月26日
 
-      
-      &nbsp;|&nbsp;<i class="fas fa-edit"></i>&nbsp;| 更新於：2025年5月25日
       
     </div>
 
@@ -398,63 +396,45 @@
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <p><img src="/img/post/Sample_20250522.jpg" alt="Image by AH-DevWorks"></p>
+        <h2 id="batch-openai-txt2zh-非同步-txt-檔批次翻譯器">batch-openai-txt2zh (非同步 .txt 檔批次翻譯器)</h2>
 <blockquote>
-<p>Comparison - Before-and-After Text</p></blockquote>
-<hr>
-<h2 id="openai-doc-translator-openai-文件翻譯器">OpenAi Doc Translator (OpenAI 文件翻譯器)</h2>
-<blockquote>
-<p>透過 OpenAI 模型 API ，快速翻譯你自己的文件。</p>
+<p>透過 OpenAI 模型的 Batch API ，大量批次把你的文件上傳給AI翻譯。</p>
 <p>雖然標題是寫翻譯「小說」，但其實任何文件——只要能轉成.txt文字檔——都能翻譯</p></blockquote>
+<ul>
+<li>和前一篇[<a href="https://ah-devworks.github.io/post/2025/api/synchronous-openai-doc-translator_202505/"><strong>同步式翻譯</strong></a>]方法最大的不同在於「程式開起來跑一次start後，檔案就會上傳給AI處理，本機程式可以關掉，過一陣子再重啟確認翻譯完成了沒」，程式/網路/電腦都不用一直開著</li>
+</ul>
 <h3 id="檔案連結">檔案連結↓</h3>
 <blockquote>
-<p><a href="https://github.com/AH-DevWorks/synchronous-openai-doc-translator">https://github.com/AH-DevWorks/synchronous-openai-doc-translator</a></p></blockquote>
+<p><a href="https://github.com/AH-DevWorks/batch-openai-txt2zh">https://github.com/AH-DevWorks/batch-openai-txt2zh</a></p></blockquote>
 <ul>
 <li>可以直接點進上面連結，按綠色的「&lt; &gt; Code」按鈕 → 「Download ZIP」→ 解壓縮後照著網頁上的說明或「readme.md」文件進行</li>
 </ul>
 <hr>
-<ul>
-<li>這是個人Side Project的副產物，核心是呼叫OpenAI的API，搭配簡單的前處理（原文段落自動拆分）＆循環串接，達到「翻譯文本連貫性」的效果</li>
-<li>內容儘量寫得簡單，不懂程式的人大概也能照著操作，拿自己的OpenAI金鑰來翻譯文件</li>
-</ul>
-<hr>
-<h3 id="特色">特色</h3>
-<ul>
-<li>從原文前處理到譯文串接都是在本機程式上進行，只有「翻譯」階段的文本才會連網傳到 OpenAI Model上面進行AI翻譯</li>
-<li>最大好處就是只會經過 OpenAI ，不會再有其他第三方服務拿到你的資料或權限</li>
-<li>用你自己的API，除了你自己以外，也不會有其他人知道你翻譯了些什麼
-<ul>
-<li>P.S. OpenAI API 服務的帳號後台 <a href="https://platform.openai.com/">https://platform.openai.com/</a> 上面也提供使用者手動確認歷史紀錄、Credits用量、自動Credits儲值等功能</li>
-</ul>
-</li>
-<li>當然，操作上肯定沒有其他像是「沉浸式翻譯」之類的網路外掛套件來得方便簡單，功能也沒那麼豐富
-<ul>
-<li>懂程式的人也可以拿這個程式當基底，自己擴展像是讀取圖片、單純聊天對話、摘要PDF等功能，反正只要OpenAI有給API的都能擴展</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="openai-doc-translator-使用教學">OpenAi Doc Translator 使用教學</h3>
+<h3 id="使用教學">使用教學</h3>
 <blockquote>
-<p>基本就只是照搬readme.md內容，多加上幾張示意圖</p></blockquote>
-<h4 id="檔案連結-1"><strong><a href="https://github.com/AH-DevWorks/synchronous-openai-doc-translator">檔案連結</a></strong></h4>
+<p>過程大部份內容都跟前一篇[<a href="https://ah-devworks.github.io/post/2025/api/synchronous-openai-doc-translator_202505/">同步式</a>]的類似，只有啟動的指令稍微不同</p></blockquote>
+<h4 id="檔案連結-1"><strong><a href="https://github.com/AH-DevWorks/batch-openai-txt2zh">檔案連結</a></strong></h4>
 <ol>
-<li>點進上面連結，按綠色的「&lt; &gt; Code」按鈕 → 「Download ZIP」→ 解壓縮（包含「synchronous-openai-doc-translator-main」這個最外層資料夾）
+<li>點進上面連結，按綠色的「&lt; &gt; Code」按鈕 → 「Download ZIP」→ 解壓縮（包含「batch-openai-txt2zh」這個最外層資料夾）
 <ul>
 <li>解壓縮完的資料夾裡面應該至少會有這些項目：</li>
 </ul>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>synchronous-openai-doc-translator-main/
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>batch-openai-txt2zh/
 </span></span><span style="display:flex;"><span>├── main.py                <span style="color:#998;font-style:italic"># 程式進入點</span>
-</span></span><span style="display:flex;"><span>├── files_handler.py       <span style="color:#998;font-style:italic"># 處理檔案（讀取／儲存）</span>
-</span></span><span style="display:flex;"><span>├── text_segmenter.py      <span style="color:#998;font-style:italic"># 拆分原文txt檔成為段落</span>
-</span></span><span style="display:flex;"><span>├── api_translator.py      <span style="color:#998;font-style:italic"># 呼叫OpenAI API處理翻譯</span>
+</span></span><span style="display:flex;"><span>├── batch_handler.py       <span style="color:#998;font-style:italic"># 建立＆確認batch；任務進度確認</span>
+</span></span><span style="display:flex;"><span>├── check_limits.py        <span style="color:#998;font-style:italic"># 估算tokens總數 </span>
+</span></span><span style="display:flex;"><span>├── parse_output.py        <span style="color:#998;font-style:italic"># 解析 .jsonl ，將翻譯完畢之內容儲存為 .txt</span>
 </span></span><span style="display:flex;"><span>├── .env                   <span style="color:#998;font-style:italic"># API金鑰所在位置</span>
-</span></span><span style="display:flex;"><span>├── input_files/           <span style="color:#998;font-style:italic"># *** 把要翻譯的 .txt 檔放進這裡 ***</span>
-</span></span><span style="display:flex;"><span>├── output_files/          <span style="color:#998;font-style:italic"># 翻譯完畢的檔案會出現在這個資料夾</span>
+</span></span><span style="display:flex;"><span>├── input_files/           <span style="color:#998;font-style:italic"># ***【請把你要翻譯的 .txt 檔案放入此資料夾】***</span>
+</span></span><span style="display:flex;"><span>├── output_files/
+</span></span><span style="display:flex;"><span>│   └── translated_txts/   <span style="color:#998;font-style:italic"># 翻譯完畢的檔案位於此處</span>
 </span></span><span style="display:flex;"><span>├── requirements.txt       <span style="color:#998;font-style:italic"># 依賴套件列表</span>
-</span></span><span style="display:flex;"><span>├── README.md              <span style="color:#998;font-style:italic"># 【使用說明】</span>
+</span></span><span style="display:flex;"><span>├── batch_files/           <span style="color:#998;font-style:italic"># 存放 .jsonl 酬載(payloads)</span>
+</span></span><span style="display:flex;"><span>├── batch_state/           <span style="color:#998;font-style:italic"># 留存近期batch_id</span>
+</span></span><span style="display:flex;"><span>├── readme.md              <span style="color:#998;font-style:italic"># 【使用說明】</span>
+</span></span><span style="display:flex;"><span>├── finished_files/        <span style="color:#998;font-style:italic"># 存放已完成任務之原始文檔</span>
 </span></span><span style="display:flex;"><span>└── sample_docs/           <span style="color:#998;font-style:italic"># 範例文件</span>
 </span></span></code></pre></div><ol start="2">
 <li>
@@ -495,70 +475,67 @@
 </ul>
 </li>
 <li>
-<p>執行主程式：在<code>main.py所在的資料夾</code>內點選滑鼠右鍵 —&gt; 選擇「在終端中開啟」 —&gt; 輸入 <code>python main.py</code> -&gt; 順利的話就會看到視窗開始跑進度條，表示已經開始翻譯了</p>
+<p>執行主程式：在<code>main.py所在的資料夾</code>內點選滑鼠右鍵 —&gt; 選擇「在終端中開啟」 —&gt; 輸入 <code>python main.py start</code> -&gt; 順利的話就會看到視窗跑出「<code>[✅] 上傳完成。檔案 ID:xxxxx</code>」的訊息，表示已經上傳給AI開始翻譯了</p>
 <ul>
-<li>記得「不能」把這個執行中的視窗關閉（可以縮小或放到畫面旁邊），也儘量不要斷網</li>
-<li>耗費的時間是依照原文字數＆文件數量的多寡而定，可參考底下我的簡單估計</li>
+<li>這時就可以放心把這個執行中的視窗關閉，或是要斷網、關機都可以，檔案是在 OpenAI 那邊處理的</li>
+<li>耗費的時間是依照原文字數＆文件數量的多寡而定</li>
+<li>過程中可以隨時打開程式來確認進度：在<code>main.py所在的資料夾</code>內點選滑鼠右鍵 —&gt; 選擇「在終端中開啟」 —&gt; 輸入 <code>python main.py status</code></li>
 </ul>
 </li>
 <li>
-<p>視窗顯示都翻譯完畢後，可以點進 [output_files] 資料夾，裡面以「[Translated]&hellip;」開頭的就是翻譯好的檔案了</p>
+<p>確認進度＆下載完成檔：在<code>main.py所在的資料夾</code>內點選滑鼠右鍵 —&gt; 選擇「在終端中開啟」 —&gt; 輸入 <code>python main.py status</code></p>
+<ul>
+<li>如果都翻譯完成，應該會跳出一堆勾勾（✅）符號的訊息，最後一則是「<code>[✅] 翻譯檔案整理完畢：...</code>」，表示成功</li>
+<li>點進 [output_files]&ndash;&gt;[translated_txts] 資料夾，裡面就是翻譯好的各檔案；原始原文txt檔則會挪到 [finished_files] 資料夾裡</li>
+</ul>
 </li>
 </ol>
 <hr>
-<h4 id="額外補充">額外補充</h4>
-<ol>
-<li>
-<p>根據個人經驗，翻譯一本原文（英文）字數 95,000 左右的小說，大約需要 40～60 分鐘</p>
-</li>
-<li>
-<p>但實際 AI 在「讀」文字的時候，看的不是「原文有幾個字」，而是會把字句拆成 <code>Token</code> (符記)：一個英文單詞如果是由比較多個字母組成，就可能被拆成2～3個token；中文字則通常是一個字一個token。如下面示意的：
-<!-- raw HTML omitted --></p>
-<ul>
-<li><a href="https://platform.openai.com/tokenizer">Tokenizer | OpenAI Platform</a>: 把原文複製貼上，就能推估有多少tokens</li>
-</ul>
-</li>
-<li>
-<p>OpenAI API是以token來計價，以這個程式呼叫的「gpt-4.1-mini」來說：</p>
-<ul>
-<li>Input Tokens(輸入的tokens，也就是每次翻譯的原文＆程式告訴AI要做翻譯的中文指令)：每一百萬個tokens=美金$0.40元</li>
-<li>Output Tokens(輸出的tokens，也就是AI翻譯好、回傳給我們的中文內容)：每一百萬個tokens=美金$1.60元</li>
-</ul>
-</li>
-<li>
-<p>從上面就可以看出，「用程式來跟AI模型交流」的方式，如果不是用量很兇，算起來會比直接登入ChatGPT、訂閱Plus等方案來得划算</p>
-</li>
-<li>
-<p>但有一點要注意：這個 OpenAi Doc Translator 程式原始目標是「小說的翻譯」，「小說」非常重視邏輯、語氣、人名的前後一致，所以程式裡用了一種「能讓翻譯連貫」的方法，而這個方法會讓 Input Tokens 提昇</p>
-<ul>
-<li>這裡不講得太複雜，只說結論：如果你要翻譯的是「超長篇鉅作（比如魔戒三部曲）」，建議不要一次就把整本將近500頁原文、快要20萬字的小說放進 [input_files] 資料夾裡</li>
-<li>==&gt; 但你可以把每一本再拆成2～3個txt檔（像是按照章節去拆，每一份txt檔案裡面包含3～5章之類的）。例如原本魔戒有3大本txt檔，拆好之後變成12個分章的txt檔案，這時後再一起放進 [input_files] ，總tokens數量在AI看來就會比較少，簡單來說就是比較省錢</li>
-<li>要是擔心這樣拆分，人名/地名會不連貫的話，可以預先在每一份小txt檔內文的最前面，自己手動加上「對照表」、告訴AI：</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>☆【人名/地名對照表，請按照對照表來翻譯】☆
-</span></span><span style="display:flex;"><span>Frodo Baggins：佛羅多·巴金斯
-</span></span><span style="display:flex;"><span>Gandalf：甘道夫
-</span></span><span style="display:flex;"><span>Aragorn：亞拉岡
-</span></span><span style="display:flex;"><span>Legolas：勒苟拉斯
-</span></span><span style="display:flex;"><span>Gollum：咕嚕
-</span></span><span style="display:flex;"><span>☆【以上是人名/地名對照表】☆
-</span></span><span style="display:flex;"><span>The Fellowship of the Ring
-</span></span><span style="display:flex;"><span>J.R.R. Tolkien
-</span></span><span style="display:flex;"><span>Chapter I: A Long-expected Party
-</span></span><span style="display:flex;"><span>When Mr. Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.
-</span></span><span style="display:flex;"><span>Bilbo was very rich and very...
-</span></span></code></pre></div></li>
-</ol>
+<h4 id="額外補充--操作指令集">額外補充 &mdash; 操作指令集</h4>
+<table>
+  <thead>
+      <tr>
+          <th>動作</th>
+          <th>指令</th>
+          <th>說明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>預估 Token 使用量</td>
+          <td><code>python main.py check-limit</code></td>
+          <td>送出前先檢查是否超量</td>
+      </tr>
+      <tr>
+          <td>開始翻譯</td>
+          <td><code>python main.py start</code></td>
+          <td>上傳 JSONL → 建立 Batch 任務</td>
+      </tr>
+      <tr>
+          <td>查詢進度/下載結果</td>
+          <td><code>python main.py status</code></td>
+          <td>進度查詢；若完成，則自動下載檔案</td>
+      </tr>
+      <tr>
+          <td>取消目前批次</td>
+          <td><code>python main.py cancel</code></td>
+          <td>向 OpenAI API 發送取消請求</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+</blockquote>
+<hr>
 <hr>
 <blockquote>
 <p>簡單說明如上，假如有任何疑問，歡迎<a href="mailto:a.h.devworks@gmail.com%3E">發E-mail給我</a> 或到上面檔案連結裡的 github add new issue</p></blockquote>
 <hr>
 <h5 id="參考資源">參考資源</h5>
 <ul>
-<li><a href="https://platform.openai.com/docs/api-reference/responses">OpenAI Responses API Documentation</a></li>
-<li><a href="https://platform.openai.com/docs/models">Models</a></li>
-<li><a href="https://platform.openai.com/tokenizer">Tokenizer</a></li>
+<li><a href="https://platform.openai.com/docs/guides/batch">OpenAI Batch API Documentation</a></li>
 </ul>
+<hr>
+<h5 id="ps-其實用n8n或其他ai-agent八成更快但手刻的成就感總是高一點"><!-- raw HTML omitted -->p.s. 其實用n8n或其他AI Agent八成更快，但手刻的成就感總是高一點<!-- raw HTML omitted --></h5>
 
       </article>
     </div>
@@ -598,7 +575,7 @@
   <ul class="share">
     
     <li>
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fapi%2fsynchronous-openai-doc-translator_202505%2f" target="_blank" title="Share on Facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fapi%2fbatch-openai-txt2zh_202505%2f" target="_blank" title="Share on Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
           <path
             d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
@@ -607,7 +584,7 @@
     </li>
     
     <li>
-      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fapi%2fsynchronous-openai-doc-translator_202505%2f&amp;text=%e7%94%a8%20OpenAI%20GPT%20API%20%e7%bf%bb%e8%ad%af%e5%b0%8f%e8%aa%aa%20%ef%bc%88%e5%90%8c%e6%ad%a5%e5%bc%8f%ef%bc%89&amp;via=map%5bauthorinfo%3aAll%20the%20world%e2%80%99s%20a%20stage%2c%20and%20all%20the%20men%20and%20women%20merely%20players.%20They%20have%20their%20exits%20and%20their%20entrances%2c%20and%20one%20man%20in%20his%20time%20plays%20many%20parts.%20authorpostimage%3a%20email%3aa.h.devworks%40gmail.com%20github%3aAH-DevWorks%20linkedin%3ausername%20name%3aAH-DevWorks%20website%3ahttps%3a%2f%2fah-devworks.github.io%2f%5d"
+      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fapi%2fbatch-openai-txt2zh_202505%2f&amp;text=%e7%94%a8%20OpenAI%20GPT%20Batch%20API%20%e5%a4%a7%e9%87%8f%e7%bf%bb%e8%ad%af%e5%b0%8f%e8%aa%aa%20%ef%bc%88%e9%9d%9e%e5%90%8c%e6%ad%a5%e5%bc%8f%ef%bc%89&amp;via=map%5bauthorinfo%3aAll%20the%20world%e2%80%99s%20a%20stage%2c%20and%20all%20the%20men%20and%20women%20merely%20players.%20They%20have%20their%20exits%20and%20their%20entrances%2c%20and%20one%20man%20in%20his%20time%20plays%20many%20parts.%20authorpostimage%3a%20email%3aa.h.devworks%40gmail.com%20github%3aAH-DevWorks%20linkedin%3ausername%20name%3aAH-DevWorks%20website%3ahttps%3a%2f%2fah-devworks.github.io%2f%5d"
         target="_blank" title="Share on Twitter">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
           <path
@@ -619,7 +596,7 @@
 
     
     <li>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fapi%2fsynchronous-openai-doc-translator_202505%2f&amp;title=%e7%94%a8%20OpenAI%20GPT%20API%20%e7%bf%bb%e8%ad%af%e5%b0%8f%e8%aa%aa%20%ef%bc%88%e5%90%8c%e6%ad%a5%e5%bc%8f%ef%bc%89"
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fapi%2fbatch-openai-txt2zh_202505%2f&amp;title=%e7%94%a8%20OpenAI%20GPT%20Batch%20API%20%e5%a4%a7%e9%87%8f%e7%bf%bb%e8%ad%af%e5%b0%8f%e8%aa%aa%20%ef%bc%88%e9%9d%9e%e5%90%8c%e6%ad%a5%e5%bc%8f%ef%bc%89"
         target="_blank" title="Share on LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
           <path
@@ -629,8 +606,8 @@
     </li>
 
     <li>
-      <a target="_blank" rel="noopener noreferrer" aria-label="share 用 OpenAI GPT API 翻譯小說 （同步式） on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fapi%2fsynchronous-openai-doc-translator_202505%2f&title=%e7%94%a8%20OpenAI%20GPT%20API%20%e7%bf%bb%e8%ad%af%e5%b0%8f%e8%aa%aa%20%ef%bc%88%e5%90%8c%e6%ad%a5%e5%bc%8f%ef%bc%89">
+      <a target="_blank" rel="noopener noreferrer" aria-label="share 用 OpenAI GPT Batch API 大量翻譯小說 （非同步式） on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fapi%2fbatch-openai-txt2zh_202505%2f&title=%e7%94%a8%20OpenAI%20GPT%20Batch%20API%20%e5%a4%a7%e9%87%8f%e7%bf%bb%e8%ad%af%e5%b0%8f%e8%aa%aa%20%ef%bc%88%e9%9d%9e%e5%90%8c%e6%ad%a5%e5%bc%8f%ef%bc%89">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
           viewBox="0 0 16 16">
           <path
@@ -647,7 +624,7 @@
 
     
     <li>
-      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fapi%2fsynchronous-openai-doc-translator_202505%2f&amp;description=%e7%94%a8%20OpenAI%20GPT%20API%20%e7%bf%bb%e8%ad%af%e5%b0%8f%e8%aa%aa%20%ef%bc%88%e5%90%8c%e6%ad%a5%e5%bc%8f%ef%bc%89" target="_blank" rel="noopener"
+      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fapi%2fbatch-openai-txt2zh_202505%2f&amp;description=%e7%94%a8%20OpenAI%20GPT%20Batch%20API%20%e5%a4%a7%e9%87%8f%e7%bf%bb%e8%ad%af%e5%b0%8f%e8%aa%aa%20%ef%bc%88%e9%9d%9e%e5%90%8c%e6%ad%a5%e5%bc%8f%ef%bc%89" target="_blank" rel="noopener"
         title="Share on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
           <path
@@ -675,19 +652,13 @@
         
         <li class="list-group-item b-0 p-0">
 
-          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/post/2025/sql/cte_and_windowfunction_20250503/"
-            data-toggle="tooltip" data-placement="top" title="SQL - CTE(Common Table Expression)＆Window Function">&larr;
+          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/post/2025/api/synchronous-openai-doc-translator_202505/"
+            data-toggle="tooltip" data-placement="top" title="用 OpenAI GPT API 翻譯小說 （同步式）">&larr;
             上一篇</a>
         </li>
         
 
 
-        
-        <li class="list-group-item ms-auto b-0 p-0">
-          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/post/2025/api/batch-openai-txt2zh_202505/"
-            data-toggle="tooltip" data-placement="top" title="用 OpenAI GPT Batch API 大量翻譯小說 （非同步式）">下一篇
-            &rarr;</a>
-        </li>
         
       </ul>
       
@@ -719,14 +690,14 @@
 
       
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
-    <a href="https://AH-DevWorks.github.io/post/2025/api/batch-openai-txt2zh_202505/">
+    <a href="https://AH-DevWorks.github.io/post/2025/api/synchronous-openai-doc-translator_202505/">
         <div class="card single-post-card h-100 shadow-effect border">
             
 
             
             <div class="card-body">
 
-                <h3 class="fw-medium post-title">用 OpenAI GPT Batch API 大量翻譯小說 （非同步式）</h3>
+                <h3 class="fw-medium post-title">用 OpenAI GPT API 翻譯小說 （同步式）</h3>
                 
 
                 <p class="post-meta">
@@ -734,8 +705,10 @@
   
   
 
-  2025年5月26日
+  2025年5月20日
 
+  
+  | 更新於：2025年5月25日
   
 
   
@@ -750,7 +723,7 @@
                 <div class="post-entry">
 
                     
-                    Batch API工具，用 OpenAI 的AI模型(o4-mini)批次同時處理多筆 .txt 檔案翻譯
+                    簡單的API工具，用 OpenAI 的AI模型(gpt-4.1)來把 .txt 檔案翻譯成繁體中文
 
                     
                 </div>

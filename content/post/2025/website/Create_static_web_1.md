@@ -11,6 +11,14 @@ lastmod: 2025-04-09
 > + 原本只打算寫給自己複習用，所以有些我已經懂的部份（像是Git）寫比較簡單。如果有緣的你無意看到這篇，想看懂，但看不懂，歡迎[私信我](mailto:a.h.devworks@gmail.com>)。
 > + 如果你/妳看到這篇文章的時候，網站已經有留言功能，也歡迎留言詢問。
 
+---
+
+#### 目錄
++ **[PART 0 : 在動手之前 - 關於這個靜態網站](#part-0--在動手之前---關於這個靜態網站)**
++ **[PART I : 基礎設定](#part-i--基礎設定)**
+
+---
+
 ### PART 0 : 在動手之前 - 關於這個靜態網站
 預先構想這個網站會由兩大部份（2 repositories）構成：
 1. Website-Repo：負責靜態網站呈現（用 Hugo build 出來的 HTML/CSS/JS）。
@@ -46,7 +54,7 @@ git push origin main
 {{/* < info_cards header="suggest" title="這裡以Lightbi為例" content="https://themes.gohugo.io/themes/lightbi-hugo/" > */}}
 7. 把這個theme設成預設：
     + 回到步驟5建立好的母資料夾，`vi hugo.toml`
-    + 編輯toml內容： A. [baseURL]改成步驟3負責網站本身的repo網址(通常是https://[user_name].github.io/)；B. [title]改隨意（會顯示往站上）；C. [theme]改成前幾步驟挑選的
+    + 編輯toml內容： A. [baseURL]改成步驟3負責網站本身的repo網址(通常是https://[user_name].github.io/)；B. [title]改隨意（會顯示在網站上）；C. [theme]改成前幾步驟挑選的
 
 ---
 
@@ -67,4 +75,4 @@ git push origin main
  
  ---
 
-##### [【下一回】自架網站筆記：使用Github + Hugo（中）](https://ah-devworks.github.io/notes/website/create_static_web_2/)
+##### [【下一回】自架網站筆記：使用Github + Hugo（中）](https://ah-devworks.github.io/post/2025/website/create_static_web_2/)

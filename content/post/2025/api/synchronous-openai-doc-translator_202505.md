@@ -4,7 +4,6 @@ Date: 2025-05-20
 Tags: ["blog","API","OpenAI","model"]
 Description: "簡單的API工具，用 OpenAI 的AI模型(gpt-4.1)來把 .txt 檔案翻譯成繁體中文"
 lastmod: 2025-05-25
-featured: true
 draft: false
 ---
 
@@ -15,10 +14,12 @@ draft: false
  
 ## OpenAi Doc Translator (OpenAI 文件翻譯器)
 > 透過 OpenAI 模型 API ，快速翻譯你自己的文件。
+> 
 > 雖然標題是寫翻譯「小說」，但其實任何文件——只要能轉成.txt文字檔——都能翻譯
 
-## >> [檔案連結](https://github.com/AH-DevWorks/synchronous-openai-doc-translator)
-+ 可以直接點進上面連結，按綠色的「<> Code」按鈕 → 「Download ZIP」→ 解壓縮後照著網頁上的說明或「readme.md」文件進行
+### 檔案連結↓
+>[https://github.com/AH-DevWorks/synchronous-openai-doc-translator](https://github.com/AH-DevWorks/synchronous-openai-doc-translator)
++ 可以直接點進上面連結，按綠色的「< > Code」按鈕 → 「Download ZIP」→ 解壓縮後照著網頁上的說明或「readme.md」文件進行
 
 ---
  
@@ -40,8 +41,8 @@ draft: false
 ### OpenAi Doc Translator 使用教學
 > 基本就只是照搬readme.md內容，多加上幾張示意圖
 
-#### [檔案連結](https://github.com/AH-DevWorks/synchronous-openai-doc-translator)
-1. 點進上面連結，按綠色的「<> Code」按鈕 → 「Download ZIP」→ 解壓縮（包含「synchronous-openai-doc-translator-main」這個最外層資料夾）
+#### **[檔案連結](https://github.com/AH-DevWorks/synchronous-openai-doc-translator)**
+1. 點進上面連結，按綠色的「< > Code」按鈕 → 「Download ZIP」→ 解壓縮（包含「synchronous-openai-doc-translator-main」這個最外層資料夾）
    + 解壓縮完的資料夾裡面應該至少會有這些項目：
 ```bash
 synchronous-openai-doc-translator-main/

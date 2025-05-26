@@ -7,7 +7,13 @@ featured: true
 lastmod: 2025-04-11
 ---
 
-#### [【前一回】自架網站筆記：使用Github + Hugo（上）](https://ah-devworks.github.io/notes/website/create_static_web_1/)
+#### [【前一回】自架網站筆記：使用Github + Hugo（上）](https://ah-devworks.github.io/post/2025/website/create_static_web_1/)
+
+---
+
+#### 目錄
++ **[PART II : 設定內容倉庫（Contents-Repo）](#part-ii--設定內容倉庫contents-repo)**
++ **[PART III : 部署網站到 GitHub Pages](#part-iii--部署網站到-github-pages)**
 
 ---
 
@@ -91,4 +97,4 @@ git push origin main
 
 ---
 
-#### [自架網站筆記：使用Github + Hugo（下）](https://ah-devworks.github.io/notes/website/create_static_web_3/)
+#### [自架網站筆記：使用Github + Hugo（下）](https://ah-devworks.github.io/post/2025/website/create_static_web_3/)

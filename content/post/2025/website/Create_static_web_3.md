@@ -7,8 +7,8 @@ featured: true
 lastmod: 2025-05-11
 ---
 
-#### [自架網站筆記：使用Github + Hugo（上）](https://ah-devworks.github.io/notes/website/create_static_web_1/)
-#### [自架網站筆記：使用Github + Hugo（中）](https://ah-devworks.github.io/notes/website/create_static_web_2/)
+#### [自架網站筆記：使用Github + Hugo（上）](https://ah-devworks.github.io/post/2025/website/create_static_web_1/)
+#### [自架網站筆記：使用Github + Hugo（中）](https://ah-devworks.github.io/post/2025/website/create_static_web_2/)
 
 ---
 
