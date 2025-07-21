@@ -8,20 +8,41 @@
     <language>zh-tw</language>
     <managingEditor>a.h.devworks@gmail.com (AH-DevWorks)</managingEditor>
     <webMaster>a.h.devworks@gmail.com (AH-DevWorks)</webMaster>
-    <lastBuildDate>Mon, 26 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://AH-DevWorks.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>API</title>
-      <link>https://AH-DevWorks.github.io/tags/api/</link>
-      <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
-      <guid>https://AH-DevWorks.github.io/tags/api/</guid>
+      <title>Ai</title>
+      <link>https://AH-DevWorks.github.io/tags/ai/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Blog</title>
       <link>https://AH-DevWorks.github.io/tags/blog/</link>
-      <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
       <guid>https://AH-DevWorks.github.io/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Opencv</title>
+      <link>https://AH-DevWorks.github.io/tags/opencv/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/opencv/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Yolo</title>
+      <link>https://AH-DevWorks.github.io/tags/yolo/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/yolo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>API</title>
+      <link>https://AH-DevWorks.github.io/tags/api/</link>
+      <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/api/</guid>
       <description></description>
     </item>
     <item>

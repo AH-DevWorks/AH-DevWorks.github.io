@@ -3,21 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://AH-DevWorks.github.io/post/</loc>
-    <lastmod>2025-05-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://AH-DevWorks.github.io/tags/api/</loc>
-    <lastmod>2025-05-26T00:00:00+00:00</lastmod>
+    <loc>https://AH-DevWorks.github.io/tags/ai/</loc>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://AH-DevWorks.github.io/tags/blog/</loc>
-    <lastmod>2025-05-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://AH-DevWorks.github.io/</loc>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://AH-DevWorks.github.io/tags/opencv/</loc>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://AH-DevWorks.github.io/tags/</loc>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://AH-DevWorks.github.io/post/2025/ai/vid-polymorph_20250722/</loc>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://AH-DevWorks.github.io/tags/yolo/</loc>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://AH-DevWorks.github.io/tags/api/</loc>
     <lastmod>2025-05-26T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -28,11 +53,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://AH-DevWorks.github.io/tags/openai/</loc>
-    <lastmod>2025-05-26T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://AH-DevWorks.github.io/tags/</loc>
     <lastmod>2025-05-26T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
