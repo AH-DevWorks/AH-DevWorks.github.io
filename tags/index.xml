@@ -8,8 +8,36 @@
     <language>zh-tw</language>
     <managingEditor>a.h.devworks@gmail.com (AH-DevWorks)</managingEditor>
     <webMaster>a.h.devworks@gmail.com (AH-DevWorks)</webMaster>
-    <lastBuildDate>Mon, 21 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://AH-DevWorks.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cli</title>
+      <link>https://AH-DevWorks.github.io/tags/cli/</link>
+      <pubDate>Tue, 29 Jul 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/cli/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://AH-DevWorks.github.io/tags/docker/</link>
+      <pubDate>Tue, 29 Jul 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Object Detection</title>
+      <link>https://AH-DevWorks.github.io/tags/object-detection/</link>
+      <pubDate>Tue, 29 Jul 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/object-detection/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Yolo</title>
+      <link>https://AH-DevWorks.github.io/tags/yolo/</link>
+      <pubDate>Tue, 29 Jul 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/yolo/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ai</title>
       <link>https://AH-DevWorks.github.io/tags/ai/</link>
@@ -29,13 +57,6 @@
       <link>https://AH-DevWorks.github.io/tags/opencv/</link>
       <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
       <guid>https://AH-DevWorks.github.io/tags/opencv/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Yolo</title>
-      <link>https://AH-DevWorks.github.io/tags/yolo/</link>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
-      <guid>https://AH-DevWorks.github.io/tags/yolo/</guid>
       <description></description>
     </item>
     <item>

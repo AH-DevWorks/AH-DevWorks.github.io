@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Vid-PolyMorph — 多種視覺特效的影片處理 - Meditations in Code - A.H.</title>
-<meta name="description" content="試著不靠 AE 之類的剪輯軟體，用程式＋模組做出各種影片效果">
+<title>YOLOv12/v11 模型訓練與推論 - Meditations in Code - A.H.</title>
+<meta name="description" content="使用 Python CLI 與 DevContainer 建立可重複訓練與推論的 YOLOv12/v11 工程環境">
 
 <meta name="author" content="AH-DevWorks"><script type="application/ld+json">
 {
@@ -45,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/AH-DevWorks.github.io\/post\/2025\/ai\/vid-polymorph_20250722\/",
-          "name": "Vid poly morph — 多種視覺特效的影片處理"
+          "@id": "https:\/\/AH-DevWorks.github.io\/post\/2025\/ai\/yolo-devcontainer_20250729\/",
+          "name": "Yolov12 v11 模型訓練與推論"
         }
     }]
 }
@@ -57,15 +57,15 @@
   "author": {
     "name" : "map[authorinfo:All the world’s a stage, and all the men and women merely players. They have their exits and their entrances, and one man in his time plays many parts. authorpostimage: email:a.h.devworks@gmail.com github:AH-DevWorks linkedin:username name:AH-DevWorks website:https:\/\/ah-devworks.github.io\/]"
   },
-  "headline": "Vid-PolyMorph — 多種視覺特效的影片處理",
-  "description" : "試著不靠 AE 之類的剪輯軟體，用程式＋模組做出各種影片效果",
+  "headline": "YOLOv12\/v11 模型訓練與推論",
+  "description" : "使用 Python CLI 與 DevContainer 建立可重複訓練與推論的 YOLOv12\/v11 工程環境",
   "inLanguage" : "zh-tw",
-  "wordCount":  300 ,
-  "datePublished" : "2025-07-21T00:00:00",
-  "dateModified" : "2025-07-21T00:00:00",
+  "wordCount":  275 ,
+  "datePublished" : "2025-07-29T00:00:00",
+  "dateModified" : "2025-07-29T00:00:00",
   "image" : "https:\/\/AH-DevWorks.github.io\/",
-  "keywords" : [ "opencv, blog, yolo, ai" ],
-  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/post\/2025\/ai\/vid-polymorph_20250722\/",
+  "keywords" : [ "yolo, object detection, cli, docker" ],
+  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/post\/2025\/ai\/yolo-devcontainer_20250729\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/AH-DevWorks.github.io\/",
@@ -79,9 +79,9 @@
 }
 </script>
 
-<meta property="og:title" content="Vid-PolyMorph — 多種視覺特效的影片處理" />
-<meta property="og:description" content="試著不靠 AE 之類的剪輯軟體，用程式＋模組做出各種影片效果">
-<meta property="og:url" content="https://AH-DevWorks.github.io/post/2025/ai/vid-polymorph_20250722/" />
+<meta property="og:title" content="YOLOv12/v11 模型訓練與推論" />
+<meta property="og:description" content="使用 Python CLI 與 DevContainer 建立可重複訓練與推論的 YOLOv12/v11 工程環境">
+<meta property="og:url" content="https://AH-DevWorks.github.io/post/2025/ai/yolo-devcontainer_20250729/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Meditations in Code - A.H." />
 <link rel="apple-touch-icon" sizes="180x180" href=" https://AH-DevWorks.github.io/favicon/apple-touch-icon.png">
@@ -334,7 +334,7 @@
 
               
               <h1 class="fw-semibold display-5 lh-1 mb-3"> 
-                Vid-PolyMorph — 多種視覺特效的影片處理
+                YOLOv12/v11 模型訓練與推論
                 
               </h1>
               
@@ -357,7 +357,7 @@
       
       
 
-      &nbsp;2025年7月21日
+      &nbsp;2025年7月29日
 
       
     </div>
@@ -396,179 +396,107 @@
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <p><em>A visual and technical showcase of video transformation effects using OpenCV &amp; DL Models.</em><!-- raw HTML omitted --></p>
-<p><img src="/img/post/vid-polyMorph-demo.gif" alt="Demo Image"></p>
+        <p><em>A clean and reproducible pipeline for YOLO training, validation, testing and prediction using CLI and VSCode DevContainers.</em></p>
 <hr>
 <h4 id="目錄-table-of-contents">目錄 Table of Contents</h4>
 <ul>
-<li><strong><a href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E5%81%9A%E9%80%99%E5%80%8B--why-build-this">為什麼做這個？</a></strong></li>
-<li><strong><a href="#%E5%AE%89%E8%A3%9D%E8%88%87%E5%9F%B7%E8%A1%8C%E6%96%B9%E5%BC%8F">安裝與執行方式</a></strong></li>
-<li><strong><a href="#%E6%9E%B6%E6%A7%8B%E8%A8%AD%E8%A8%88">架構設計</a></strong></li>
-<li><strong><a href="#%E5%8A%9F%E8%83%BD%E8%88%87%E6%8A%80%E8%A1%93%E7%B4%B0%E7%AF%80">功能與技術細節</a></strong></li>
-<li><strong><a href="#%E6%88%91%E5%AD%B8%E5%88%B0%E7%9A%84">我學到的</a></strong></li>
-<li><strong><a href="#%E6%8A%80%E8%A1%93%E8%B3%87%E6%BA%90%E8%88%87%E5%8F%83%E8%80%83">技術資源與參考</a></strong></li>
+<li><a href="#%E5%8B%95%E6%A9%9F%E8%88%87%E7%94%A8%E9%80%94--why-this-setup">動機與用途 | Why this setup?</a></li>
+<li><a href="#%E5%9F%B7%E8%A1%8C%E6%96%B9%E5%BC%8F--how-to-run">執行方式 | How to Run</a>
+<ul>
+<li><a href="#1-clone-%E5%B0%88%E6%A1%88">1. Clone 專案</a></li>
+<li><a href="#2-1-%E4%BD%BF%E7%94%A8-vscode-devcontainer-%E6%8E%A8%E8%96%A6">2-1. 使用 VSCode DevContainer (推薦)</a></li>
+<li><a href="#2-2-%E9%96%8B%E5%95%9F%E5%BE%8C%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8-py-%E5%9F%B7%E8%A1%8C">2-2. 開啟後直接使用 <code>.py</code> 執行</a></li>
+</ul>
+</li>
+<li><a href="#cli-%E6%A8%A1%E7%B5%84%E8%A8%AD%E8%A8%88--cli-script-design">CLI 模組設計 | CLI Script Design</a></li>
+<li><a href="#%E5%B8%B8%E8%A6%8B%E8%AA%BF%E6%95%B4%E9%BB%9E--customizable-elements">常見調整點 | Customizable Elements</a></li>
+<li><a href="#%E5%BF%83%E5%BE%97%E8%88%87%E5%82%99%E5%BF%98--notes--learnings">心得與備忘 | Notes &amp; Learnings</a></li>
 </ul>
 <hr>
-<h2 id="為什麼做這個--why-build-this">為什麼做這個？ | Why build this?</h2>
+<h2 id="動機與用途--why-this-setup">動機與用途 | Why this setup?</h2>
 <ol>
-<li>學了些 OpenCV 知識，就來試試不靠 AE 之類的剪輯軟體，用程式＋模組做出各種影片效果。</li>
-<li>因為好玩</li>
-<li>順便交作業</li>
+<li>原本是轉職班小組專題的模型訓練核心程式，經過不少 Trial and Error，到中期才比較完整。整理、分享出來，當作一個歷程紀錄</li>
+<li>程式本身提供一套 YOLO（v11、v12為主）的物件偵測流程（Train-Valid-Test）</li>
+<li>以 notebook 為主要使用介面，支援互動式開發與視覺化</li>
+<li>另提供 Python CLI 腳本，用於簡化批次執行或伺服器自動化</li>
+<li>使用 Docker 容器封裝整體環境，確保部署時對跨平台／系統的一致性</li>
+<li>對應訓練、驗證、測試、推論流程皆已封裝為獨立模組，可彈性組合使用</li>
 </ol>
 <hr>
-<h2 id="安裝與執行方式">安裝與執行方式</h2>
+<h2 id="執行方式--how-to-run">執行方式 | How to Run</h2>
 <h3 id="1-clone-專案">1. Clone 專案</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/AH-DevWorks/vid-polymorph.git
-</span></span><span style="display:flex;"><span><span style="color:#999">cd</span> vid-polymorph-main
-</span></span></code></pre></div><h3 id="2-使用-devcontainer-推薦">2. 使用 DevContainer (推薦)</h3>
-<p>專案內建 <code>.devcontainer/</code>，可直接透過 VSCode Remote Container 啟動 GPU 開發環境。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># [vscode] F1 → Dev Containers: Reopen in Container</span>
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 初次開啟時選擇： Reopen in Container</span>
-</span></span></code></pre></div><p>或者也可手動 build Docker：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker build -t vidpolymorph .
-</span></span><span style="display:flex;"><span>docker run --gpus all -v <span style="color:#b84">${</span><span style="color:#008080">PWD</span><span style="color:#b84">}</span>:/workspace -w /workspace vidpolymorph python3 vid-poly-morph.py
-</span></span></code></pre></div><h3 id="3-或使用-jupyter-notebook">3. 或使用 Jupyter Notebook</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 開啟 notebook</span>
-</span></span><span style="display:flex;"><span>jupyter notebook
-</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 選擇 `vid-poly-morph.ipynb`</span>
-</span></span></code></pre></div><hr>
-<h2 id="架構設計">架構設計</h2>
-<p>影片會依時間序列，套用多種特效，並即時疊加縮圖與提示字樣。整體流程如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>→ 逐一輸入影片(如video/123.mp4)的影格
-</span></span><span style="display:flex;"><span>   → 動態放大至 1.5x
-</span></span><span style="display:flex;"><span>      → 套用對應特效（時間排程）
-</span></span><span style="display:flex;"><span>         → 疊加縮圖與狀態文字
-</span></span><span style="display:flex;"><span>            → 寫入 video/123_output.mp4
-</span></span></code></pre></div><p>時間上的「特效排程」可自訂比例，例如 <code>[3] 4 in 1 + Flip</code> 佔整段影片的 10%。</p>
-<p>每個效果都對應一個模組函式，如：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>(<span style="color:#099">0.10</span>, <span style="color:#b84">&#34;[4] 4 in 1 + Flip&#34;</span>, <span style="font-weight:bold">lambda</span> canvas, scaled, idx: four_in_one(
-</span></span><span style="display:flex;"><span>    canvas, scaled, effects<span style="font-weight:bold">=</span>[
-</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">None</span>,
-</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">lambda</span> x: cv2<span style="font-weight:bold">.</span>flip(x, <span style="color:#099">1</span>),
-</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">lambda</span> x: cv2<span style="font-weight:bold">.</span>flip(x, <span style="color:#099">0</span>),
-</span></span><span style="display:flex;"><span>        <span style="font-weight:bold">lambda</span> x: cv2<span style="font-weight:bold">.</span>flip(x, <span style="font-weight:bold">-</span><span style="color:#099">1</span>)
-</span></span><span style="display:flex;"><span>    ])),
-</span></span></code></pre></div><p>藉此維持主邏輯簡潔，且讓特效模組易於擴充或重組。</p>
-<hr>
-<h2 id="功能與技術細節">功能與技術細節</h2>
-<p>影片中的特效依照時間順序依序展示以下處理手法：</p>
-<table>
-  <thead>
-      <tr>
-          <th style="text-align: center">效果編號 ID</th>
-          <th style="text-align: center">特效說明 Effect</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: center"><code>[0]</code></td>
-          <td style="text-align: center">1.0 → 1.5 倍線性放大</td>
-      </tr>
-      <tr>
-          <td style="text-align: center"><code>[1]</code></td>
-          <td style="text-align: center">維持 1.5 倍尺寸</td>
-      </tr>
-      <tr>
-          <td style="text-align: center"><code>[2]</code></td>
-          <td style="text-align: center">旋轉 1080 度（共 3 圈）</td>
-      </tr>
-      <tr>
-          <td style="text-align: center"><code>[3]</code></td>
-          <td style="text-align: center">四分割遮罩（圓、矩形、橢圓、三角形）/ 4-in-1 masking</td>
-      </tr>
-      <tr>
-          <td style="text-align: center"><code>[4]</code></td>
-          <td style="text-align: center">四分割翻轉效果 / 4-in-1 flip effects</td>
-      </tr>
-      <tr>
-          <td style="text-align: center"><code>[5]</code></td>
-          <td style="text-align: center">16-in-1 彩色映射顯示 / 16-in-1 colormap panel</td>
-      </tr>
-      <tr>
-          <td style="text-align: center"><code>[6]</code></td>
-          <td style="text-align: center">邊緣偵測 (Sobel/Canny/Laplacian)</td>
-      </tr>
-      <tr>
-          <td style="text-align: center"><code>[7]</code></td>
-          <td style="text-align: center">高斯差分 / Difference of Gaussian (DoG)</td>
-      </tr>
-      <tr>
-          <td style="text-align: center"><code>[8]</code></td>
-          <td style="text-align: center">形態學處理 / Morphological operations (Dilation, Opening, Gradient)</td>
-      </tr>
-      <tr>
-          <td style="text-align: center"><code>[9]</code></td>
-          <td style="text-align: center">特徵點偵測與描述 / Feature detection &amp; descriptors (SIFT, SuperPoint, ORB)</td>
-      </tr>
-      <tr>
-          <td style="text-align: center"><code>[10-1]</code></td>
-          <td style="text-align: center">RetinaFace 偵測 + 馬賽克</td>
-      </tr>
-      <tr>
-          <td style="text-align: center"><code>[10-2]</code></td>
-          <td style="text-align: center">純 RetinaFace 人臉偵測</td>
-      </tr>
-      <tr>
-          <td style="text-align: center"><code>[11]</code></td>
-          <td style="text-align: center">YOLOv11 物件偵測</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="我學到的">我學到的</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/AH-DevWorks/yolo-devcontainer.git
+</span></span><span style="display:flex;"><span><span style="color:#999">cd</span> yolo-devcontainer
+</span></span></code></pre></div><ul>
+<li>**預訓練權重(.pt檔)**可到 <a href="https://www.ultralytics.com/">Ultralytics 網站</a> 下載
 <ul>
-<li>如何安排、控制特效「時長」與「順序」</li>
-<li>熟悉程式視覺特效模組化與可擴充性</li>
-<li>啟用 GPU-ready Docker 容器（TensorFlow 2.15 + OpenCV）</li>
+<li><a href="https://docs.ultralytics.com/models/yolo12/#detection-performance-coco-val2017">v12</a></li>
+<li><a href="https://docs.ultralytics.com/models/yolo11/#performance-metrics">v11</a></li>
+</ul>
+</li>
+<li>p.s. 權重有分大小（n, s, m, l, x），建議衡量本機性能做挑選
+<ul>
+<li>個人使用 32GB RAM | RTX 4070(12G)，頂多到<strong>l</strong>，x 會直接 OOM 爆記憶體</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-1-使用-vscode-devcontainer-推薦">2-1. 使用 VSCode DevContainer (推薦)</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 開啟 VSCode 後選擇</span>
+</span></span><span style="display:flex;"><span>F1 → Dev Containers: Reopen in Container
+</span></span></code></pre></div><h3 id="2-2-開啟後直接使用-py-執行">2-2. 開啟後直接使用 <code>.py</code> 執行</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python train.py --model models/yolo12n.pt --data data.yaml
+</span></span><span style="display:flex;"><span>python valid.py --model runs/train/weights/best.pt
+</span></span><span style="display:flex;"><span>python test.py  --model runs/train/weights/best.pt
+</span></span><span style="display:flex;"><span>python predict.py --model runs/train/weights/best.pt --source dataset/images/test
+</span></span></code></pre></div><hr>
+<h2 id="cli-模組設計--cli-script-design">CLI 模組設計 | CLI Script Design</h2>
+<p>所有 CLI script 使用統一的 <code>argparse</code> 介面（定義於 <code>_common.py</code>），並在各執行檔中加上必要擴充參數。
+例如 <code>train.py</code> 支援以下主要參數：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>--model         初始模型權重路徑 <span style="font-weight:bold">(</span>e.g. yolov8n.pt<span style="font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>--data          訓練資料 yaml 設定檔
+</span></span><span style="display:flex;"><span>--epochs        訓練輪數
+</span></span><span style="display:flex;"><span>--cos_lr        是否使用 cosine lr decay
+</span></span><span style="display:flex;"><span>--multi_scale   是否啟用多尺度訓練
+</span></span><span style="display:flex;"><span>--optimizer     選擇 Optimizer <span style="font-weight:bold">(</span>e.g. SGD, AdamW<span style="font-weight:bold">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="常見調整點--customizable-elements">常見調整點 | Customizable Elements</h2>
+<ul>
+<li><strong>資料集路徑</strong>：預設為 <code>./dataset/</code>
+<ul>
+<li>Dataset 除了自己準備、標記以外，也可到 cityscapes、Roboflow 等網站先下載已標記好的來嘗試訓練</li>
+<li>關於如何準備＆標記資料集，可能改天會再發一篇簡單的心得文章</li>
+<li>Ultralytics提供的預訓練權重（如yolov11m.pt、yolov12l.pt）就是用COCO的來訓練，縱使不做遷移學習，也可以有基本幾種類別辨識。如以下影片的最後5秒就是直接拿yolo11來偵測影片，能抓到「person」、「umbrella」、「bicycle」等類別
+<a href="https://youtu.be/FRSJIysQV74?t=96"><img src="https://i.ytimg.com/vi/FRSJIysQV74/hqdefault.jpg" alt="Watch the video"></a><!-- raw HTML omitted -->
+<ul>
+<li>關於這影片可參考我另一篇 <strong><a href="https://ah-devworks.github.io/post/2025/ai/vid-polymorph_20250722/">OpenCV文章</a></strong></li>
+</ul>
+</li>
+<li>文末另有我小組專案最後的成果（藥品辨識模型 with YOLOv12）示意圖供參</li>
+</ul>
+</li>
+<li><strong>config 檔案</strong>：<code>data.yaml</code> 與模型 <code>*.yaml</code> 可自己隨資料集替換</li>
+<li><strong>超參數調整</strong>：可直接修改 <code>train.py</code> 呼叫區或透過命令列參數覆寫</li>
+<li><strong>Notebook 配合</strong>：與 notebook 訓練結果 (如 best.pt) 可相互參考，不衝突</li>
 </ul>
 <hr>
-<h2 id="附錄技術資源與參考">附錄：技術資源與參考</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>+ OpenCV
-</span></span><span style="display:flex;"><span>+ RetinaFace — 高準確率人臉偵測器  
-</span></span><span style="display:flex;"><span>  → High-accuracy face detector  
-</span></span><span style="display:flex;"><span>  https://github.com/serengil/retinaface
-</span></span><span style="display:flex;"><span>+ SuperPoint — 自監督式特徵點偵測與描述子  
-</span></span><span style="display:flex;"><span>  → Self-supervised keypoint detector <span style="color:#a61717;background-color:#e3d2d2">&amp;</span> descriptor  
-</span></span><span style="display:flex;"><span>  https://github.com/rpautrat/SuperPoint
-</span></span><span style="display:flex;"><span>+ YOLOv11（官方預訓練版本）— https://docs.ultralytics.com/tasks/detect/
-</span></span><span style="display:flex;"><span>+ tqdm / NumPy / matplotlib 等輔助工具
-</span></span></code></pre></div>
-
-
-
-
-
-    
-
-
-
-<div class="card mb-3 p-0 alert alert-success ">
-    <div class="card-body">
-         
-        <h4 class="card-title">
-            YOLO 模型
-        </h4>
-        
-
-        <p class="card-text text-muted fs-6">
-            
-                 
-                    假如對於自己訓練 YOLO 模型有興趣，可以看我的另一篇文章：https://ah-devworks.github.io/
-                
-            
-        </p>
-    </div>
-</div>
-
+<h2 id="心得與備忘--notes--learnings">心得與備忘 | Notes &amp; Learnings</h2>
+<ul>
+<li>使用 DevContainer + Dockerfile，能最小化環境問題，並順利支援 CUDA GPU 訓練</li>
+<li>[！]但整個專案過程裡曾經偶爾出現幾次意外的Error如「&lsquo;AAttn&rsquo; object has no attribute &lsquo;qkv&rsquo;&hellip;」、「Can&rsquo;t get attribute &lsquo;A2C2f&rsquo; on &lt;module &lsquo;ultralytics.nn.modules.block&rsquo;&hellip;&gt;」&mdash;&gt; 爬文說只要更新ultralytics套件即可（須注意numpy版本應&lt;2才不衝突）；目前Dockerfile等有做預防措施，但不保證一定不會出現</li>
+<li>CLI 方式可輕鬆整合自動化腳本，部署至伺服器或嵌入設備</li>
+<li>Ultralytics 的 YOLO API 本身支援 <code>.train()</code>, <code>.val()</code>, <code>.predict()</code> 等方法</li>
+<li>實測YOLOv12 Fine-tune 藥丸辨識（50種左右）每一Class張數約100張左右（使用Copy-Paste Method），Augmentations兩倍，總training set張數約11K；訓練150epoch、batch=8、開啟cos_lr跟multi_scl後成效佳。Inference 結果如下圖
+<ul>
+<li>關於 Copy-Paste Method，改天可能會再寫一篇簡介</li>
+</ul>
+</li>
+</ul>
+<p><img src="/img/post/yolo-pill-res.jpg" alt="Pill-result Image"></p>
 <hr>
 <blockquote>
-<p>若有興趣深入本專案內各項處理邏輯，<!-- raw HTML omitted -->
-可至 <a href="https://github.com/AH-DevWorks/vid-polymorph">GitHub Repo</a> 檢視 <code>utils/</code> 中各個模組檔案與主程式流程。</p></blockquote>
-<hr>
+<p>GitHub Repo: <a href="https://github.com/AH-DevWorks/yolo-devcontainer">yolo-devcontainer</a></p></blockquote>
 <blockquote>
-<p>Another Demo video on YouTube: <!-- raw HTML omitted -->
-<a href="https://www.youtube.com/watch?v=FRSJIysQV74"><img src="https://i.ytimg.com/vi/FRSJIysQV74/hqdefault.jpg" alt="Watch the video"></a><!-- raw HTML omitted -->
-Source video: <em>容疑者Xの献身 (Suspect X, 2008)</em><!-- raw HTML omitted --></p></blockquote>
+<p>References: <a href="https://www.ultralytics.com/">Ultralytics</a></p></blockquote>
 
       </article>
     </div>
@@ -583,13 +511,13 @@ Source video: <em>容疑者Xの献身 (Suspect X, 2008)</em><!-- raw HTML omitte
       
       <div class="blog-tags">
         
-        <a href="https://AH-DevWorks.github.io/tags/opencv/">opencv</a>
-        
-        <a href="https://AH-DevWorks.github.io/tags/blog/">blog</a>
-        
         <a href="https://AH-DevWorks.github.io/tags/yolo/">yolo</a>
         
-        <a href="https://AH-DevWorks.github.io/tags/ai/">ai</a>
+        <a href="https://AH-DevWorks.github.io/tags/object-detection/">object detection</a>
+        
+        <a href="https://AH-DevWorks.github.io/tags/cli/">cli</a>
+        
+        <a href="https://AH-DevWorks.github.io/tags/docker/">docker</a>
         
       </div>
       
@@ -608,7 +536,7 @@ Source video: <em>容疑者Xの献身 (Suspect X, 2008)</em><!-- raw HTML omitte
   <ul class="share">
     
     <li>
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fai%2fvid-polymorph_20250722%2f" target="_blank" title="Share on Facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fai%2fyolo-devcontainer_20250729%2f" target="_blank" title="Share on Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
           <path
             d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
@@ -617,7 +545,7 @@ Source video: <em>容疑者Xの献身 (Suspect X, 2008)</em><!-- raw HTML omitte
     </li>
     
     <li>
-      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fai%2fvid-polymorph_20250722%2f&amp;text=Vid-PolyMorph%20%e2%80%94%20%e5%a4%9a%e7%a8%ae%e8%a6%96%e8%a6%ba%e7%89%b9%e6%95%88%e7%9a%84%e5%bd%b1%e7%89%87%e8%99%95%e7%90%86&amp;via=map%5bauthorinfo%3aAll%20the%20world%e2%80%99s%20a%20stage%2c%20and%20all%20the%20men%20and%20women%20merely%20players.%20They%20have%20their%20exits%20and%20their%20entrances%2c%20and%20one%20man%20in%20his%20time%20plays%20many%20parts.%20authorpostimage%3a%20email%3aa.h.devworks%40gmail.com%20github%3aAH-DevWorks%20linkedin%3ausername%20name%3aAH-DevWorks%20website%3ahttps%3a%2f%2fah-devworks.github.io%2f%5d"
+      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fai%2fyolo-devcontainer_20250729%2f&amp;text=YOLOv12%2fv11%20%e6%a8%a1%e5%9e%8b%e8%a8%93%e7%b7%b4%e8%88%87%e6%8e%a8%e8%ab%96&amp;via=map%5bauthorinfo%3aAll%20the%20world%e2%80%99s%20a%20stage%2c%20and%20all%20the%20men%20and%20women%20merely%20players.%20They%20have%20their%20exits%20and%20their%20entrances%2c%20and%20one%20man%20in%20his%20time%20plays%20many%20parts.%20authorpostimage%3a%20email%3aa.h.devworks%40gmail.com%20github%3aAH-DevWorks%20linkedin%3ausername%20name%3aAH-DevWorks%20website%3ahttps%3a%2f%2fah-devworks.github.io%2f%5d"
         target="_blank" title="Share on Twitter">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
           <path
@@ -629,7 +557,7 @@ Source video: <em>容疑者Xの献身 (Suspect X, 2008)</em><!-- raw HTML omitte
 
     
     <li>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fai%2fvid-polymorph_20250722%2f&amp;title=Vid-PolyMorph%20%e2%80%94%20%e5%a4%9a%e7%a8%ae%e8%a6%96%e8%a6%ba%e7%89%b9%e6%95%88%e7%9a%84%e5%bd%b1%e7%89%87%e8%99%95%e7%90%86"
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fai%2fyolo-devcontainer_20250729%2f&amp;title=YOLOv12%2fv11%20%e6%a8%a1%e5%9e%8b%e8%a8%93%e7%b7%b4%e8%88%87%e6%8e%a8%e8%ab%96"
         target="_blank" title="Share on LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
           <path
@@ -639,8 +567,8 @@ Source video: <em>容疑者Xの献身 (Suspect X, 2008)</em><!-- raw HTML omitte
     </li>
 
     <li>
-      <a target="_blank" rel="noopener noreferrer" aria-label="share Vid-PolyMorph — 多種視覺特效的影片處理 on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fai%2fvid-polymorph_20250722%2f&title=Vid-PolyMorph%20%e2%80%94%20%e5%a4%9a%e7%a8%ae%e8%a6%96%e8%a6%ba%e7%89%b9%e6%95%88%e7%9a%84%e5%bd%b1%e7%89%87%e8%99%95%e7%90%86">
+      <a target="_blank" rel="noopener noreferrer" aria-label="share YOLOv12/v11 模型訓練與推論 on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fai%2fyolo-devcontainer_20250729%2f&title=YOLOv12%2fv11%20%e6%a8%a1%e5%9e%8b%e8%a8%93%e7%b7%b4%e8%88%87%e6%8e%a8%e8%ab%96">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
           viewBox="0 0 16 16">
           <path
@@ -657,7 +585,7 @@ Source video: <em>容疑者Xの献身 (Suspect X, 2008)</em><!-- raw HTML omitte
 
     
     <li>
-      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fai%2fvid-polymorph_20250722%2f&amp;description=Vid-PolyMorph%20%e2%80%94%20%e5%a4%9a%e7%a8%ae%e8%a6%96%e8%a6%ba%e7%89%b9%e6%95%88%e7%9a%84%e5%bd%b1%e7%89%87%e8%99%95%e7%90%86" target="_blank" rel="noopener"
+      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fpost%2f2025%2fai%2fyolo-devcontainer_20250729%2f&amp;description=YOLOv12%2fv11%20%e6%a8%a1%e5%9e%8b%e8%a8%93%e7%b7%b4%e8%88%87%e6%8e%a8%e8%ab%96" target="_blank" rel="noopener"
         title="Share on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
           <path
@@ -685,19 +613,13 @@ Source video: <em>容疑者Xの献身 (Suspect X, 2008)</em><!-- raw HTML omitte
         
         <li class="list-group-item b-0 p-0">
 
-          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/post/2025/api/batch-openai-txt2zh_202505/"
-            data-toggle="tooltip" data-placement="top" title="用 OpenAI GPT Batch API 大量翻譯小說 （非同步式）">&larr;
+          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/post/2025/ai/vid-polymorph_20250722/"
+            data-toggle="tooltip" data-placement="top" title="Vid-PolyMorph — 多種視覺特效的影片處理">&larr;
             上一篇</a>
         </li>
         
 
 
-        
-        <li class="list-group-item ms-auto b-0 p-0">
-          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/post/2025/ai/yolo-devcontainer_20250729/"
-            data-toggle="tooltip" data-placement="top" title="YOLOv12/v11 模型訓練與推論">下一篇
-            &rarr;</a>
-        </li>
         
       </ul>
       
@@ -729,14 +651,14 @@ Source video: <em>容疑者Xの献身 (Suspect X, 2008)</em><!-- raw HTML omitte
 
       
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
-    <a href="https://AH-DevWorks.github.io/post/2025/ai/yolo-devcontainer_20250729/">
+    <a href="https://AH-DevWorks.github.io/post/2025/ai/vid-polymorph_20250722/">
         <div class="card single-post-card h-100 shadow-effect border">
             
 
             
             <div class="card-body">
 
-                <h3 class="fw-medium post-title">YOLOv12/v11 模型訓練與推論</h3>
+                <h3 class="fw-medium post-title">Vid-PolyMorph — 多種視覺特效的影片處理</h3>
                 
 
                 <p class="post-meta">
@@ -744,7 +666,7 @@ Source video: <em>容疑者Xの献身 (Suspect X, 2008)</em><!-- raw HTML omitte
   
   
 
-  2025年7月29日
+  2025年7月21日
 
   
 
@@ -760,109 +682,7 @@ Source video: <em>容疑者Xの献身 (Suspect X, 2008)</em><!-- raw HTML omitte
                 <div class="post-entry">
 
                     
-                    使用 Python CLI 與 DevContainer 建立可重複訓練與推論的 YOLOv12/v11 工程環境
-
-                    
-                </div>
-
-                <div class="read-more-section">
-                    <h6 class="text-muted link-underline">閱讀全文 <i class="bi bi-arrow-right"></i></h6>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-
-
-
-      
-
-      
-<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
-    <a href="https://AH-DevWorks.github.io/post/2025/api/batch-openai-txt2zh_202505/">
-        <div class="card single-post-card h-100 shadow-effect border">
-            
-
-            
-            <div class="card-body">
-
-                <h3 class="fw-medium post-title">用 OpenAI GPT Batch API 大量翻譯小說 （非同步式）</h3>
-                
-
-                <p class="post-meta">
-                    <span class="post-meta text-muted">
-  
-  
-
-  2025年5月26日
-
-  
-
-  
-
-  
-
-  
-</span>
-
-                </p>
-                
-                <div class="post-entry">
-
-                    
-                    Batch API工具，用 OpenAI 的AI模型(o4-mini)批次同時處理多筆 .txt 檔案翻譯
-
-                    
-                </div>
-
-                <div class="read-more-section">
-                    <h6 class="text-muted link-underline">閱讀全文 <i class="bi bi-arrow-right"></i></h6>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-
-
-
-      
-
-      
-<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
-    <a href="https://AH-DevWorks.github.io/post/2025/api/synchronous-openai-doc-translator_202505/">
-        <div class="card single-post-card h-100 shadow-effect border">
-            
-
-            
-            <div class="card-body">
-
-                <h3 class="fw-medium post-title">用 OpenAI GPT API 翻譯小說 （同步式）</h3>
-                
-
-                <p class="post-meta">
-                    <span class="post-meta text-muted">
-  
-  
-
-  2025年5月20日
-
-  
-  | 更新於：2025年5月25日
-  
-
-  
-
-  
-
-  
-</span>
-
-                </p>
-                
-                <div class="post-entry">
-
-                    
-                    簡單的API工具，用 OpenAI 的AI模型(gpt-4.1)來把 .txt 檔案翻譯成繁體中文
+                    試著不靠 AE 之類的剪輯軟體，用程式＋模組做出各種影片效果
 
                     
                 </div>
