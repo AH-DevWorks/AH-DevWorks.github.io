@@ -101,7 +101,7 @@ python predict.py --model runs/train/weights/best.pt --source dataset/images/tes
 * 實測YOLOv12 Fine-tune 藥丸辨識（50種左右）每一Class張數約100張左右（使用Copy-Paste Method），Augmentations兩倍，總training set張數約11K；訓練150epoch、batch=8、開啟cos_lr跟multi_scl後成效佳。Inference 結果如下圖
   * 關於 Copy-Paste Method，改天可能會再寫一篇簡介
 
-![Pill-result Image](/img/post/yolo-pill-res.jpg)
+![Pill-result Image](/img/post/yolo-pills-res.jpg)
 
 ---
 

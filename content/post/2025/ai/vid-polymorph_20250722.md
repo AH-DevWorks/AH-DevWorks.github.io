@@ -130,7 +130,7 @@ jupyter notebook
 + tqdm / NumPy / matplotlib 等輔助工具
 ```
 
-{{< alert_box role="success" title="YOLO 模型" content="假如對於自己訓練 YOLO 模型有興趣，可以看我的另一篇文章：https://ah-devworks.github.io/" >}}
+{{< alert_box role="success" title="YOLO 模型" content="假如對於自己訓練 YOLO 模型有興趣，可以看我的另一篇文章：https://ah-devworks.github.io/post/2025/ai/yolo-devcontainer_20250729/" >}}
 
 ---
 
