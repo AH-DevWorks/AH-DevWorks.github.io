@@ -8,8 +8,15 @@
     <language>zh-tw</language>
     <managingEditor>a.h.devworks@gmail.com (AH-DevWorks)</managingEditor>
     <webMaster>a.h.devworks@gmail.com (AH-DevWorks)</webMaster>
-    <lastBuildDate>Tue, 29 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://AH-DevWorks.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用 Robocopy 備份資料夾</title>
+      <link>https://AH-DevWorks.github.io/notes/2025/robocopy_20250802/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/notes/2025/robocopy_20250802/</guid>
+      <description>&lt;h4 id=&#34;目錄-table-of-contents&#34;&gt;目錄 Table of Contents&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;#%E5%BE%9E%E5%82%99%E4%BB%BD%E9%80%99%E4%BB%B6%E4%BA%8B%E8%AB%87%E8%B5%B7starting-from-backup&#34;&gt;從備份這件事談起&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;#robocopy-%E6%98%AF%E4%BB%80%E9%BA%BC-what-is-robocopy&#34;&gt;Robocopy 是什麼？&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;#%E6%8C%87%E4%BB%A4%E6%80%8E%E9%BA%BC%E7%94%A8-how-to-use-it&#34;&gt;指令怎麼用？&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;#%E5%BB%B6%E4%BC%B8%E5%8F%83%E8%80%83references&#34;&gt;延伸參考&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;從備份這件事談起starting-from-backup&#34;&gt;從備份這件事談起　Starting from Backup&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;課程結訓後，要把中心發的筆電還回去。各種檔案、資料夾都要備份到外接 SSD。&lt;!-- raw HTML omitted --&gt;&#xA;但資料夾裡除了真正需要保留的內容，也摻雜了很多其實根本不需要備份的東西，例如：&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;.venv/&lt;/code&gt;：Python 虛擬環境，可隨時重建&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;__pycache__/&lt;/code&gt;：快取用資料夾，完全不需要&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;.git/&lt;/code&gt;：已經推到 GitHub 的版本控制資料&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;*.pyc&lt;/code&gt;、&lt;code&gt;*.log&lt;/code&gt;、&lt;code&gt;*.tmp&lt;/code&gt;：執行中產生的暫存檔、記錄檔&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;如果是傳統手動copy-paste的方式，容易把上面那類型的檔案跟資料夾也全複製，備份要花的時間跟空間就會大幅提昇。前幾天聽坐在後面的同學說，他檔案傳了一整個早上才完成 10% ，八成就是有一堆這種資料吧我猜。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>YOLOv12/v11 模型訓練與推論</title>
       <link>https://AH-DevWorks.github.io/post/2025/ai/yolo-devcontainer_20250729/</link>

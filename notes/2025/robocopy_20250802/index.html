@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>轉職路：AI養成班 Week 3. - Meditations in Code - A.H.</title>
-<meta name="description" content="當周學習與生活雜記">
+<title>用 Robocopy 備份資料夾 - Meditations in Code - A.H.</title>
+<meta name="description" content="用 Robocopy 進行快速資料備份，跳過不需要複製的檔案或資料夾">
 
 <meta name="author" content="AH-DevWorks"><script type="application/ld+json">
 {
@@ -45,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/AH-DevWorks.github.io\/notes\/2025\/weekly_journal_202504_3\/",
-          "name": "轉職路： ai養成班 week 3."
+          "@id": "https:\/\/AH-DevWorks.github.io\/notes\/2025\/robocopy_20250802\/",
+          "name": "用 robocopy 備份資料夾"
         }
     }]
 }
@@ -57,15 +57,15 @@
   "author": {
     "name" : "map[authorinfo:All the world’s a stage, and all the men and women merely players. They have their exits and their entrances, and one man in his time plays many parts. authorpostimage: email:a.h.devworks@gmail.com github:AH-DevWorks linkedin:username name:AH-DevWorks website:https:\/\/ah-devworks.github.io\/]"
   },
-  "headline": "轉職路：AI養成班 Week 3.",
-  "description" : "當周學習與生活雜記",
+  "headline": "用 Robocopy 備份資料夾",
+  "description" : "用 Robocopy 進行快速資料備份，跳過不需要複製的檔案或資料夾",
   "inLanguage" : "zh-tw",
-  "wordCount":  120 ,
-  "datePublished" : "2025-05-06T00:00:00",
-  "dateModified" : "2025-05-06T00:00:00",
+  "wordCount":  148 ,
+  "datePublished" : "2025-08-02T00:00:00",
+  "dateModified" : "2025-08-02T00:00:00",
   "image" : "https:\/\/AH-DevWorks.github.io\/",
-  "keywords" : [ "learning, journal" ],
-  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/notes\/2025\/weekly_journal_202504_3\/",
+  "keywords" : [ "windows, backup, robocopy, tips" ],
+  "mainEntityOfPage" : "https:\/\/AH-DevWorks.github.io\/notes\/2025\/robocopy_20250802\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/AH-DevWorks.github.io\/",
@@ -79,9 +79,9 @@
 }
 </script>
 
-<meta property="og:title" content="轉職路：AI養成班 Week 3." />
-<meta property="og:description" content="當周學習與生活雜記">
-<meta property="og:url" content="https://AH-DevWorks.github.io/notes/2025/weekly_journal_202504_3/" />
+<meta property="og:title" content="用 Robocopy 備份資料夾" />
+<meta property="og:description" content="用 Robocopy 進行快速資料備份，跳過不需要複製的檔案或資料夾">
+<meta property="og:url" content="https://AH-DevWorks.github.io/notes/2025/robocopy_20250802/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Meditations in Code - A.H." />
 <link rel="apple-touch-icon" sizes="180x180" href=" https://AH-DevWorks.github.io/favicon/apple-touch-icon.png">
@@ -334,7 +334,7 @@
 
               
               <h1 class="fw-semibold display-5 lh-1 mb-3"> 
-                轉職路：AI養成班 Week 3.
+                用 Robocopy 備份資料夾
                 
               </h1>
               
@@ -367,98 +367,102 @@
 
     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
       <article role="main" class="blog-post">
-        <h4 id="第三週422424428">第三週：4/22、4/24～4/28</h4>
-<p><img src="/img/notes/XPark_2505.jpg" alt="Image by AH-DevWorks"></p>
+        <h4 id="目錄-table-of-contents">目錄 Table of Contents</h4>
+<ul>
+<li><strong><a href="#%E5%BE%9E%E5%82%99%E4%BB%BD%E9%80%99%E4%BB%B6%E4%BA%8B%E8%AB%87%E8%B5%B7starting-from-backup">從備份這件事談起</a></strong></li>
+<li><strong><a href="#robocopy-%E6%98%AF%E4%BB%80%E9%BA%BC-what-is-robocopy">Robocopy 是什麼？</a></strong></li>
+<li><strong><a href="#%E6%8C%87%E4%BB%A4%E6%80%8E%E9%BA%BC%E7%94%A8-how-to-use-it">指令怎麼用？</a></strong></li>
+<li><strong><a href="#%E5%BB%B6%E4%BC%B8%E5%8F%83%E8%80%83references">延伸參考</a></strong></li>
+</ul>
+<hr>
+<h2 id="從備份這件事談起starting-from-backup">從備份這件事談起　Starting from Backup</h2>
 <blockquote>
-<p>Xpark - &ldquo;Tomorin&rdquo; the King Penguin</p></blockquote>
+<p>課程結訓後，要把中心發的筆電還回去。各種檔案、資料夾都要備份到外接 SSD。<!-- raw HTML omitted -->
+但資料夾裡除了真正需要保留的內容，也摻雜了很多其實根本不需要備份的東西，例如：</p></blockquote>
+<ul>
+<li><code>.venv/</code>：Python 虛擬環境，可隨時重建</li>
+<li><code>__pycache__/</code>：快取用資料夾，完全不需要</li>
+<li><code>.git/</code>：已經推到 GitHub 的版本控制資料</li>
+<li><code>*.pyc</code>、<code>*.log</code>、<code>*.tmp</code>：執行中產生的暫存檔、記錄檔</li>
+</ul>
+<blockquote>
+<p>如果是傳統手動copy-paste的方式，容易把上面那類型的檔案跟資料夾也全複製，備份要花的時間跟空間就會大幅提昇。前幾天聽坐在後面的同學說，他檔案傳了一整個早上才完成 10% ，八成就是有一堆這種資料吧我猜。<!-- raw HTML omitted --></p></blockquote>
+<p>要是跟我一樣不想手動篩選檔案，也不想多安裝什麼檔案管理工具或是寫一堆 script，系統內建的 <code>Robocopy</code> 就是個好方法 —— 一行指令就能解決<!-- raw HTML omitted --></p>
 <hr>
+<h2 id="robocopy-是什麼-what-is-robocopy">Robocopy 是什麼？ What is Robocopy</h2>
 <ul>
-<li><strong>MySQL</strong>
+<li><code>Robocopy</code>（Robust File Copy）是 Windows 內建的檔案複製工具，全名是 <strong>Robust File Copy for Windows</strong></li>
+<li>比起一般的複製（Copy 或拖曳操作），它具備更多進階功能，例如：
 <ul>
-<li>DDL, DML(/DQL), TCL, E-R Model(UML)</li>
-</ul>
-</li>
-<li><strong>MongoDB NoSQL</strong>
-<ul>
-<li><code>Commands</code>: show, insert, find, delete, etc.</li>
-<li><code>_id</code></li>
-</ul>
-</li>
-<li><strong>Python</strong>
-<ul>
-<li>NumPy, Pandas, Matplotlib</li>
-<li>Class Variable, Instance Variable</li>
+<li>支援大量檔案與深層資料夾結構</li>
+<li>可以指定排除某些檔案或資料夾</li>
+<li>可以做增量備份（只複製有異動的內容）</li>
+<li>遇到錯誤時不會整個中斷</li>
 </ul>
 </li>
 </ul>
+<blockquote>
+<p>Robocopy 是指令列工具，可在 PowerShell 或 CMD 中執行，無需額外安裝。每個 Windows 系統基本上都有內建。</p></blockquote>
 <hr>
-<h4 id="自補充">自補充</h4>
+<h2 id="指令怎麼用-how-to-use-it">指令怎麼用？ How to Use It</h2>
+<ol start="0">
+<li>怎麼開 PowerShell？
 <ul>
-<li><strong>SQL</strong>
-<ul>
-<li><a href="https://ah-devworks.github.io/post/2025/sql/cte_and_windowfunction_20250503/#ctecommon-table-expression-%E4%B8%80%E8%88%AC%E8%B3%87%E6%96%99%E8%A1%A8%E9%81%8B%E7%AE%97%E5%BC%8F">CTE(Common Table Expression)</a></li>
-<li><a href="https://ah-devworks.github.io/post/2025/sql/cte_and_windowfunction_20250503/#window-function-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B8%E8%A6%96%E7%AA%97%E5%87%BD%E6%95%B8">Window Function</a></li>
+<li>按下鍵盤上的 Windows 鍵，輸入 PowerShell</li>
+<li>點擊出現的「Windows PowerShell」</li>
+<li>視窗打開後，就可以貼上或輸入 Robocopy 指令</li>
+<li>命令提示字元（CMD）也可以，不一定要 PowerShell，可依自己喜好挑選</li>
 </ul>
 </li>
-</ul>
-<hr>
-<hr>
-<h4 id="其他自學">其他自學</h4>
+<li>輸入相關指令來執行。以下是我實際用的 Robocopy 指令，供參考：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Robocopy <span style="color:#b84">&#34;C:\Project&#34;</span> <span style="color:#b84">&#34;E:\ssd-Backup&#34;</span> /E /XD <span style="color:#b84">&#34;.venv&#34;</span> <span style="color:#b84">&#34;__pycache__&#34;</span> <span style="color:#b84">&#34;.git&#34;</span> /XF <span style="color:#b84">&#34;*.pyc&#34;</span> <span style="color:#b84">&#34;*.log&#34;</span> <span style="color:#b84">&#34;*.tmp&#34;</span>
+</span></span></code></pre></div><h3 id="指令說明">指令說明</h3>
+<table>
+  <thead>
+      <tr>
+          <th>參數</th>
+          <th>說明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>&quot;C:\Project&quot;</code></td>
+          <td>原始資料夾位置，可自行替換</td>
+      </tr>
+      <tr>
+          <td><code>&quot;E:\ssd-Backup&quot;</code></td>
+          <td>備份目標資料夾</td>
+      </tr>
+      <tr>
+          <td><code>/E</code></td>
+          <td>包含所有子資料夾（即使是空的）</td>
+      </tr>
+      <tr>
+          <td><code>/XD</code></td>
+          <td>排除指定資料夾，後面接的就是不想要複製的項目，如：<code>.venv</code>、<code>__pycache__</code>、<code>.git</code></td>
+      </tr>
+      <tr>
+          <td><code>/XF</code></td>
+          <td>排除指定檔案（Files）：<code>.pyc</code>、<code>.log</code>、<code>.tmp</code> 等</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>簡單來說，上面做的事情就是： <em>把 C:\Project 裡的所有檔案＆資料夾，複製到 E:\ssd-Backup ，但是如果碰到像是「.venv」這種檔名的資料夾，以及像是「.pyc」這種名稱的檔案，就跳過，不複製。</em> <!-- raw HTML omitted --></p></blockquote>
 <ul>
-<li>
-<p><strong><code>實體書</code></strong></p>
-<ul>
-<li>岡野原大輔 (2024). <em>精確掌握 AI 大趨勢！深度學習技術解密：日本 AI 神人，帶你正確學會從機器學習到生成式 AI 的核心基礎</em> (王心薇 &amp; 施威銘研究室, Trans.). 旗標.</li>
+<li><strong>建議先加上 <code>/L</code> 參數進行 dry-run</strong>：預覽實際執行時，會備份哪些內容。實際跑起來之前先檢查，減少co錯檔案的機率。確認沒問題之後才把 /L 拿掉，再enter實際開始執行。</li>
 </ul>
-</li>
-<li>
-<p><strong><code>Udemy線上課程</code></strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Robocopy <span style="color:#b84">&#34;C:\Project&#34;</span> <span style="color:#b84">&#34;E:\ssd-Backup&#34;</span> /E /XD <span style="color:#b84">&#34;.venv&#34;</span> <span style="color:#b84">&#34;__pycache__&#34;</span> <span style="color:#b84">&#34;.git&#34;</span> /XF <span style="color:#b84">&#34;*.pyc&#34;</span> <span style="color:#b84">&#34;*.log&#34;</span> <span style="color:#b84">&#34;*.tmp&#34;</span> /L
+</span></span></code></pre></div><hr>
+<h2 id="延伸參考references">延伸參考　References</h2>
 <ul>
-<li>API Keys, Authentication, Environment Variables, Sending SMS
-<ul>
-<li>pycharm &ndash; Terminal&ndash;&gt; <code>dir Env:</code>
-<ul>
-<li><code>$env:[var_NAME]=&quot;[var_CONTENT]&quot;</code></li>
-<li>call in program: <code>var = os.environ.get(&quot;var_NAME&quot;)</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><a href="https://www.junyiacademy.org/computing/cs-ai/ai-junior-high/v/wsjF0RG81iQ">均一教育平台</a>: KNN, K-means</p>
-</li>
-<li>
-<p><strong><a href="https://www.youtube.com/playlist?list=PLJV_el3uVTsPz6CTopeRp2L2t4aL_KgiI">李宏毅【生成式AI導論 2024】</a></strong></p>
-</li>
-<li>
-<p><strong><a href="https://www.youtube.com/playlist?list=PLJV_el3uVTsMhtt7_Y6sgTHGHp1Vb2P2J">李宏毅【機器學習2021】</a></strong></p>
-</li>
-<li>
-<p><strong><a href="https://www.youtube.com/watch?v=5OdVJbNCSso">Bro Code - MySQL Full Course for free 🐬</a></strong></p>
-</li>
-</ul>
-<hr>
-<h4 id="leetcode">LeetCode</h4>
-<ul>
-<li>【Algorithms】： 1.Two Sum | 2.Add Two Numbers | 3.Longest Substring Without Repeating Characters</li>
-</ul>
-<hr>
-<h4 id="side-project">Side Project</h4>
-<ul>
-<li>主題：[AI相關]（名稱與具體內容暫不揭露）</li>
-<li>進度：[██░░░░░░░░░░░░░░░░░░] 10%
-<ul>
-<li>[✔] 初步規劃與構想</li>
-<li>[✔] 選定資料來源</li>
-<li>[✔] 完成並執行腳本（資料抓取/預處理）</li>
-<li>[◎] 進行中：進一步 Data Cleaning</li>
-<li>[　] &hellip;</li>
-</ul>
-</li>
+<li>微軟官方文件：<a href="https://learn.microsoft.com/zh-tw/windows-server/administration/windows-commands/robocopy">Robocopy - Microsoft Docs</a></li>
+<li>Robocopy 指令說明整理：<a href="https://ss64.com/nt/robocopy.html">SS64 Robocopy</a></li>
 </ul>
 <hr>
+<p>有時候一個小工具 / 指令就能省去大量手動操作的時間。<!-- raw HTML omitted -->
+希望這個 Robocopy 小技巧也對大家有幫助。</p>
 
       </article>
     </div>
@@ -473,9 +477,13 @@
       
       <div class="blog-tags">
         
-        <a href="https://AH-DevWorks.github.io/tags/learning/">learning</a>
+        <a href="https://AH-DevWorks.github.io/tags/windows/">windows</a>
         
-        <a href="https://AH-DevWorks.github.io/tags/journal/">journal</a>
+        <a href="https://AH-DevWorks.github.io/tags/backup/">backup</a>
+        
+        <a href="https://AH-DevWorks.github.io/tags/robocopy/">robocopy</a>
+        
+        <a href="https://AH-DevWorks.github.io/tags/tips/">tips</a>
         
       </div>
       
@@ -494,7 +502,7 @@
   <ul class="share">
     
     <li>
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fweekly_journal_202504_3%2f" target="_blank" title="Share on Facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2frobocopy_20250802%2f" target="_blank" title="Share on Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-facebook" viewBox="0 0 16 16">
           <path
             d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
@@ -503,7 +511,7 @@
     </li>
     
     <li>
-      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fweekly_journal_202504_3%2f&amp;text=%e8%bd%89%e8%81%b7%e8%b7%af%ef%bc%9aAI%e9%a4%8a%e6%88%90%e7%8f%ad%20Week%203.&amp;via=map%5bauthorinfo%3aAll%20the%20world%e2%80%99s%20a%20stage%2c%20and%20all%20the%20men%20and%20women%20merely%20players.%20They%20have%20their%20exits%20and%20their%20entrances%2c%20and%20one%20man%20in%20his%20time%20plays%20many%20parts.%20authorpostimage%3a%20email%3aa.h.devworks%40gmail.com%20github%3aAH-DevWorks%20linkedin%3ausername%20name%3aAH-DevWorks%20website%3ahttps%3a%2f%2fah-devworks.github.io%2f%5d"
+      <a href="//twitter.com/share?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2frobocopy_20250802%2f&amp;text=%e7%94%a8%20Robocopy%20%e5%82%99%e4%bb%bd%e8%b3%87%e6%96%99%e5%a4%be&amp;via=map%5bauthorinfo%3aAll%20the%20world%e2%80%99s%20a%20stage%2c%20and%20all%20the%20men%20and%20women%20merely%20players.%20They%20have%20their%20exits%20and%20their%20entrances%2c%20and%20one%20man%20in%20his%20time%20plays%20many%20parts.%20authorpostimage%3a%20email%3aa.h.devworks%40gmail.com%20github%3aAH-DevWorks%20linkedin%3ausername%20name%3aAH-DevWorks%20website%3ahttps%3a%2f%2fah-devworks.github.io%2f%5d"
         target="_blank" title="Share on Twitter">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-twitter-x" viewBox="0 0 16 16">
           <path
@@ -515,7 +523,7 @@
 
     
     <li>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fweekly_journal_202504_3%2f&amp;title=%e8%bd%89%e8%81%b7%e8%b7%af%ef%bc%9aAI%e9%a4%8a%e6%88%90%e7%8f%ad%20Week%203."
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2frobocopy_20250802%2f&amp;title=%e7%94%a8%20Robocopy%20%e5%82%99%e4%bb%bd%e8%b3%87%e6%96%99%e5%a4%be"
         target="_blank" title="Share on LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
           <path
@@ -525,8 +533,8 @@
     </li>
 
     <li>
-      <a target="_blank" rel="noopener noreferrer" aria-label="share 轉職路：AI養成班 Week 3. on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fweekly_journal_202504_3%2f&title=%e8%bd%89%e8%81%b7%e8%b7%af%ef%bc%9aAI%e9%a4%8a%e6%88%90%e7%8f%ad%20Week%203.">
+      <a target="_blank" rel="noopener noreferrer" aria-label="share 用 Robocopy 備份資料夾 on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2frobocopy_20250802%2f&title=%e7%94%a8%20Robocopy%20%e5%82%99%e4%bb%bd%e8%b3%87%e6%96%99%e5%a4%be">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-reddit"
           viewBox="0 0 16 16">
           <path
@@ -543,7 +551,7 @@
 
     
     <li>
-      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2fweekly_journal_202504_3%2f&amp;description=%e8%bd%89%e8%81%b7%e8%b7%af%ef%bc%9aAI%e9%a4%8a%e6%88%90%e7%8f%ad%20Week%203." target="_blank" rel="noopener"
+      <a href="whatsapp://send?text=https%3a%2f%2fAH-DevWorks.github.io%2fnotes%2f2025%2frobocopy_20250802%2f&amp;description=%e7%94%a8%20Robocopy%20%e5%82%99%e4%bb%bd%e8%b3%87%e6%96%99%e5%a4%be" target="_blank" rel="noopener"
         title="Share on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-whatsapp" viewBox="0 0 16 16">
           <path
@@ -571,19 +579,13 @@
         
         <li class="list-group-item b-0 p-0">
 
-          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/notes/2025/sql_review_20250504/"
-            data-toggle="tooltip" data-placement="top" title="SQL Test - Review">&larr;
+          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/notes/2025/weekly_journal_202504_3/"
+            data-toggle="tooltip" data-placement="top" title="轉職路：AI養成班 Week 3.">&larr;
             上一篇</a>
         </li>
         
 
 
-        
-        <li class="list-group-item ms-auto b-0 p-0">
-          <a type="button" class="btn btn-dark" role="button" href="https://AH-DevWorks.github.io/notes/2025/robocopy_20250802/"
-            data-toggle="tooltip" data-placement="top" title="用 Robocopy 備份資料夾">下一篇
-            &rarr;</a>
-        </li>
         
       </ul>
       
@@ -599,171 +601,7 @@
   
   
   
-  
-  
 
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 mt-3">
-        <h3>閱讀全文</h3>
-        <hr />
-      </div>
-
-      
-      
-
-      
-<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
-    <a href="https://AH-DevWorks.github.io/notes/2025/sql_review_20250504/">
-        <div class="card single-post-card h-100 shadow-effect border">
-            
-
-            
-            <div class="card-body">
-
-                <h3 class="fw-medium post-title">SQL Test - Review</h3>
-                
-
-                <p class="post-meta">
-                    <span class="post-meta text-muted">
-  
-  
-
-  2025年5月4日
-
-  
-
-  
-
-  
-
-  
-</span>
-
-                </p>
-                
-                <div class="post-entry">
-
-                    
-                    重點觀念複習
-
-                    
-                </div>
-
-                <div class="read-more-section">
-                    <h6 class="text-muted link-underline">閱讀全文 <i class="bi bi-arrow-right"></i></h6>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-
-
-
-      
-
-      
-<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
-    <a href="https://AH-DevWorks.github.io/post/2025/sql/cte_and_windowfunction_20250503/">
-        <div class="card single-post-card h-100 shadow-effect border">
-            
-
-            
-            <div class="card-body">
-
-                <h3 class="fw-medium post-title">SQL - CTE(Common Table Expression)＆Window Function</h3>
-                
-
-                <p class="post-meta">
-                    <span class="post-meta text-muted">
-  
-  
-
-  2025年5月3日
-
-  
-
-  
-
-  
-
-  
-</span>
-
-                </p>
-                
-                <div class="post-entry">
-
-                    
-                    SQL 自學筆記——CTE＆Window Function
-
-                    
-                </div>
-
-                <div class="read-more-section">
-                    <h6 class="text-muted link-underline">閱讀全文 <i class="bi bi-arrow-right"></i></h6>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-
-
-
-      
-
-      
-<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
-    <a href="https://AH-DevWorks.github.io/notes/2025/weekly_journal_202504_2/">
-        <div class="card single-post-card h-100 shadow-effect border">
-            
-
-            
-            <div class="card-body">
-
-                <h3 class="fw-medium post-title">轉職路：AI養成班 Week 2.</h3>
-                
-
-                <p class="post-meta">
-                    <span class="post-meta text-muted">
-  
-  
-
-  2025年4月20日
-
-  
-
-  
-
-  
-
-  
-</span>
-
-                </p>
-                
-                <div class="post-entry">
-
-                    
-                    當周學習與生活雜記
-
-                    
-                </div>
-
-                <div class="read-more-section">
-                    <h6 class="text-muted link-underline">閱讀全文 <i class="bi bi-arrow-right"></i></h6>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-
-
-
-      
-    </div>
-  </div>
   
   
 

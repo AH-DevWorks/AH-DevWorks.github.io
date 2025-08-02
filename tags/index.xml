@@ -8,8 +8,36 @@
     <language>zh-tw</language>
     <managingEditor>a.h.devworks@gmail.com (AH-DevWorks)</managingEditor>
     <webMaster>a.h.devworks@gmail.com (AH-DevWorks)</webMaster>
-    <lastBuildDate>Tue, 29 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://AH-DevWorks.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Backup</title>
+      <link>https://AH-DevWorks.github.io/tags/backup/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/backup/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Robocopy</title>
+      <link>https://AH-DevWorks.github.io/tags/robocopy/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/robocopy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tips</title>
+      <link>https://AH-DevWorks.github.io/tags/tips/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/tips/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows</title>
+      <link>https://AH-DevWorks.github.io/tags/windows/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate><author>a.h.devworks@gmail.com (AH-DevWorks)</author>
+      <guid>https://AH-DevWorks.github.io/tags/windows/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Cli</title>
       <link>https://AH-DevWorks.github.io/tags/cli/</link>

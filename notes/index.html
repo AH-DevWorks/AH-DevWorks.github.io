@@ -324,6 +324,94 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-10">
+                    <h3 class="fw-medium post-title">用 Robocopy 備份資料夾</h3>
+                </div>
+                <div class="col-md-2 d-flex justify-content-end">
+                    <a href="https://AH-DevWorks.github.io/notes/2025/robocopy_20250802/">
+                        <button type="button" class="btn btn-outline-dark">
+                            Link
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            
+
+            <p class="post-meta">
+                <span class="post-meta text-muted">
+  
+  
+
+  2025年8月2日
+
+  
+
+  
+
+  
+
+  
+</span>
+
+            </p>
+            
+            <div class="post-entry">
+
+                <h4 id="目錄-table-of-contents">目錄 Table of Contents</h4>
+<ul>
+<li><strong><a href="#%E5%BE%9E%E5%82%99%E4%BB%BD%E9%80%99%E4%BB%B6%E4%BA%8B%E8%AB%87%E8%B5%B7starting-from-backup">從備份這件事談起</a></strong></li>
+<li><strong><a href="#robocopy-%E6%98%AF%E4%BB%80%E9%BA%BC-what-is-robocopy">Robocopy 是什麼？</a></strong></li>
+<li><strong><a href="#%E6%8C%87%E4%BB%A4%E6%80%8E%E9%BA%BC%E7%94%A8-how-to-use-it">指令怎麼用？</a></strong></li>
+<li><strong><a href="#%E5%BB%B6%E4%BC%B8%E5%8F%83%E8%80%83references">延伸參考</a></strong></li>
+</ul>
+<hr>
+<h2 id="從備份這件事談起starting-from-backup">從備份這件事談起　Starting from Backup</h2>
+<blockquote>
+<p>課程結訓後，要把中心發的筆電還回去。各種檔案、資料夾都要備份到外接 SSD。<!-- raw HTML omitted -->
+但資料夾裡除了真正需要保留的內容，也摻雜了很多其實根本不需要備份的東西，例如：</p></blockquote>
+<ul>
+<li><code>.venv/</code>：Python 虛擬環境，可隨時重建</li>
+<li><code>__pycache__/</code>：快取用資料夾，完全不需要</li>
+<li><code>.git/</code>：已經推到 GitHub 的版本控制資料</li>
+<li><code>*.pyc</code>、<code>*.log</code>、<code>*.tmp</code>：執行中產生的暫存檔、記錄檔</li>
+</ul>
+<blockquote>
+<p>如果是傳統手動copy-paste的方式，容易把上面那類型的檔案跟資料夾也全複製，備份要花的時間跟空間就會大幅提昇。前幾天聽坐在後面的同學說，他檔案傳了一整個早上才完成 10% ，八成就是有一堆這種資料吧我猜。<!-- raw HTML omitted --></p>
+                
+                    <a href="/notes/2025/robocopy_20250802/">閱讀全文→</a>
+                
+            </div>
+        </div>
+        
+        
+        
+        <div class="card-footer text-muted">
+            <div class="blog-tags">
+                
+                <a href="https://AH-DevWorks.github.io/tags/windows/">windows</a>
+                
+                <a href="https://AH-DevWorks.github.io/tags/backup/">backup</a>
+                
+                <a href="https://AH-DevWorks.github.io/tags/robocopy/">robocopy</a>
+                
+                <a href="https://AH-DevWorks.github.io/tags/tips/">tips</a>
+                
+            </div>
+        </div>
+        
+
+
+
+
+    </div>
+</div>
+    
+    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
+    
+        <div class="card border mb-3 "> 
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
                     <h3 class="fw-medium post-title">轉職路：AI養成班 Week 3.</h3>
                 </div>
                 <div class="col-md-2 d-flex justify-content-end">
